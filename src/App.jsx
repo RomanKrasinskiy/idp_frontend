@@ -1,13 +1,12 @@
 import './App.css'
-import { AttachFile } from './components/Attach/AttachFile'
-import { Progress_bar } from './components/ProgressBar/Progress_bar'
+import ButtonFile  from './components/Button/Button'
+
 
 function App() {
 
   return (
     <>
-    <Progress_bar/>
-    <AttachFile/>
+    <ButtonFile />
     </>
   )
 }

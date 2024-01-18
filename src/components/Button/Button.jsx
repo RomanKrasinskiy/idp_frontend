@@ -1,7 +1,12 @@
-import { useState } from 'react'
+import { Button } from "@alfalab/core-components-button";
+import { Space } from "@alfalab/core-components-space";
 
-export const Button = () => {
+export const ButtonFile = () => {
   return (
-    <div>Button</div>
-  )
-}
+    <Space direction="horizontal">
+      <Button>Добавить</Button>
+    </Space>
+  );
+};
+
+export default ButtonFile;
