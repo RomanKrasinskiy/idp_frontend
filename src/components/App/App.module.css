@@ -1,6 +1,24 @@
+@import url('../../vendor/fonts/fonts.css');
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+:root{
+  --color-text: black;
+  --fz-title: 40px;
+  --fz-subtitle: 20px;
+  --fz-text: 16px;
+  --fz-placeholder: 14px;
+  --fw-hormal: 400;
+  --fw-bold: 700;
+  --ff:"Segoi UI", Helvetica, Arial, sans-serif;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
 }

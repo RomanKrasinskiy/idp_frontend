@@ -29,7 +29,7 @@ export const taskApi = createApi({
                 url: `/tasks/${id}`,
                 method: 'DELETE'
             })
-        })
+        }),
     })
 })
 
