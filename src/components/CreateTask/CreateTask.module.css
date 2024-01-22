@@ -10,13 +10,12 @@
 
 .input{
     width: 522px;
-    color: var(--color-text);
     margin-bottom: 20px;
-    font-family: "Segoi UI", Helvetica, Arial, sans-serif;
+    color: var(--color-text);
+    font-family: var(--ff);
     font-size: var(--fz-text);
     font-weight: var(--fw-normal);
     line-height: 12px;
-    position: relative
 }
 
 .input::placeholder{
@@ -24,25 +23,37 @@
 }
 
 .button__container{
+    width: 255px;
     display: flex;
     gap: 12px;
     margin: 0;
     padding: 0;
     margin-bottom: 14px;
+    flex-wrap: wrap;
 }
 
 .mentor__container{
     display: flex;
-    flex-direction: column;
-    gap: 9px;
     margin: 0;
     padding: 0;
     margin-bottom: 14px;
 }
+.text__container{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.edit__button{
+    margin-left: 10px;
+}
 
 .button_add{
+    opacity: 1;
     cursor: pointer;
+    transition: opacity .5s ease-in-out;
 }
+
 
 .title{
     font-family: var(--ff);
@@ -63,7 +74,8 @@
     margin: 0;
     padding: 0;
 }
-.text{
+.text__comment{
+    opacity: 0.7;
     margin: 0;
     padding: 0;
     color: var(--color-text);
@@ -71,4 +83,20 @@
     font-size: var(--fz-text);
     font-weight: var(--fw-normal);
     line-height: 22.4px;
+}
+
+.text{
+    opacity: 0.7;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text);
+    font-family: var(--ff);
+    font-size: var(--fz-text);
+    font-weight: var(--fw-normal);
+    line-height: 22.4px;
+}
+
+.text__comment:hover{
+    cursor: pointer;
+    opacity: 1;
 }

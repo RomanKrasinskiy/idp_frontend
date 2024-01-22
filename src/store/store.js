@@ -8,9 +8,9 @@ import userReducer from "./userSlice";
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
-    idp: idpReducer,
-    task: taskReducer,
+    users: userReducer,
+    idps: idpReducer,
+    tasks: taskReducer,
     [userApi.reducerPath]: userApi.reducer,
     [idpApi.reducerPath]: idpApi.reducer,
     [taskApi.reducerPath]: taskApi.reducer,

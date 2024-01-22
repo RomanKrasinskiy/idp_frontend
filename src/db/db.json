@@ -8,11 +8,29 @@
   "idp": {
     "name": "Поднятие грейда",
     "dateCreated": "21.03.2024",
-    "dateEnd": "21.05.2024",
-    "task": {
-      "name": "dfgh",
-      "dateCreated": "21.03.2024",
-      "dateEnd": "4.04.2024"
+    "dateEnd": "21.05.2024"
+  },
+  "tasks": [
+    {
+      "name": "Learn",
+      "idpId": "123",
+      "dateCreated": "10.01.24",
+      "dateEnded": "10.03.24",
+      "file": {}
+    },
+    {
+      "name": "Watch",
+      "idpId": "123",
+      "dateCreated": "10.01.24",
+      "dateEnded": "10.03.24",
+      "file": {}
+    },
+    {
+      "name": "Use",
+      "idpId": "123",
+      "dateCreated": "10.01.24",
+      "dateEnded": "10.03.24",
+      "file": {}
     }
-  }
+  ]
 }

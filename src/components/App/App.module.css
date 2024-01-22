@@ -20,5 +20,9 @@
 
 .App{
   display: flex;
-  justify-content: center;
+}
+
+.mainContainer{
+  display: flex;
+  
 }
