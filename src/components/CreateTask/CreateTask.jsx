@@ -1,34 +1,25 @@
 import style from "./CreateTask.module.css";
 import { useState } from "react";
-import { Calendar } from "@alfalab/core-components-calendar";
 import { Input } from "@alfalab/core-components-input";
 import { Textarea } from "@alfalab/core-components-textarea";
 import { Attach } from "@alfalab/core-components-attach";
-// import { PickerButton } from '@alfalab/core-components-picker-button';
 import { Button } from "@alfalab/core-components-button";
-import { UniversalDateInput } from "@alfalab/core-components-universal-date-input";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import plus from "../../images/AddPlus.svg";
 import edit from "../../images/Edit.svg";
-import { format } from "date-fns";
+import CalendarInput from "./CalendarInput/CalendarInput";
 
 export default function CreateTask() {
   //Значение инпутов
   const [value, setValue] = useState("");
-  
-  //Значение инпутов календаря
-  const [calendarValue, setCalendarValue] = useState("");
 
-  // Сегодняшняя дата, нельзя выбрать раньше сегодняшней 
-  const minDate = format(new Date(), "yyyy-MM-dd");
-  
   //Состояние кнопки добавления комментария
   const [commentState, setCommentStates] = useState({
     chief: false,
     mentor: false,
     coworker: false,
   });
-  
+
   // Показывает инпут в зависимости от того от кого комментарий нужно оставить
   function handleCommentChoice(position) {
     setCommentStates((prevState) => ({
@@ -44,11 +35,6 @@ export default function CreateTask() {
     { key: "Удалить" },
     { key: "Выполнить" },
   ];
-
-  // Изменяет значени календаря
-  const handleChangeCalendar = (_, { calendarValue }) => {
-    setCalendarValue(calendarValue);
-  };
 
   return (
     <section className={style.container}>
@@ -145,38 +131,17 @@ export default function CreateTask() {
 
       {/* Контейнер с данными ментора */}
       <div className={style.mentor__container}>
+        <h3 className={style.text}>Ментор</h3>
         <div className={style.text__container}>
-          <h3 className={style.text}>Ментор</h3>
           <p className={style.subtitle}>Яна Лапкина</p>
+          <img className={style.edit__button} src={edit} alt="edit icon" />
         </div>
-        <img className={style.edit__button} src={edit} alt="edit icon" />
       </div>
 
       {/* Календарь */}
       <p className={style.text}>Выполнить до</p>
-      <UniversalDateInput
-        className={style.calendar}
-        breakpoint={500}
-        block={true}
-        view="date"
-        label="Дата"
-        labelView={"inner"}
-        size="m"
-        value={calendarValue}
-        onChange={handleChangeCalendar}
-        disableUserInput={false}
-        picker={"month-only"}
-        Calendar={Calendar}
-        calendarProps={{
-          selectorView: "month-only",
-          minDate: minDate,
-        }}
-        clear={true}
-        onClear={(e) => {
-          e.stopPropagation();
-          setCalendarValue("");
-        }}
-      />
+      <CalendarInput />
+
       {/* Прикрепление файла */}
       <Attach className={style.attach} />
       <Button style={{ backgroundColor: "black", color: "white" }}>

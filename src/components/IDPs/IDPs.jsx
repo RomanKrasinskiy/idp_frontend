@@ -27,6 +27,7 @@ export default function IDPs() {
         setValue(value);
     };
 
+
     return(
         <section className={style.container}>
             <h1 className={style.title}>Планы развития</h1>
