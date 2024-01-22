@@ -67,7 +67,7 @@ export default function IDPs() {
                     setValue('');
                 }}
             /> 
-            {/* <CustomSearch /> */}
+            <CustomSearch />
             
         </section>
     );
