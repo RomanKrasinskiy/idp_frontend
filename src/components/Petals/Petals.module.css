@@ -1,0 +1,18 @@
+.petals {
+    height: 64px;
+    width: 214px; 
+    background-color: rgba(11, 31, 53, 0.07);
+    border-radius: 12px;
+    
+}
+.countContainer {
+    padding: 10px 0 14px 33px;
+}
+.petalsName {
+    margin: 0;
+    color:rgba(117, 117, 126, 1);
+}
+.petalsCount {
+    margin: 0;
+
+}

@@ -36,7 +36,8 @@
     display: flex;
     margin: 0;
     padding: 0;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
+    align-items: flex-end;
 }
 .text__container{
     display: flex;
@@ -99,4 +100,13 @@
 .text__comment:hover{
     cursor: pointer;
     opacity: 1;
+}
+
+.calendar {
+    margin-bottom: 20px;
+    width: 320px;
+}
+
+.attach {
+    margin-bottom: 48px;
 }
