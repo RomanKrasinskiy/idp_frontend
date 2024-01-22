@@ -82,7 +82,7 @@ export default function CustomSearch () {
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
             <InputAutocomplete
-                breakpoint={BREAKPOINT}
+                // breakpoint={BREAKPOINT}
                 size='m'
                 options={filteredOptions}
                 selected={[]}
@@ -92,13 +92,13 @@ export default function CustomSearch () {
                 onChange={handleChange}
                 value={value}
                 Option={CardOption}
-                Input={MaskedInput}
+                // Input={MaskedInput}
                 block={true}
                 inputProps={{
                     ref: inputRef,
                     mask,
-                    clear: isMobile(),
-                    onClear: () => setValue(''),
+                    // clear: isMobile(),
+                    // onClear: () => setValue(''),
                 }}
             />
         </div>
