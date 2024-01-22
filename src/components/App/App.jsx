@@ -15,12 +15,11 @@ function App() {
         <LeftNavBar /> 
         
         <Routes>
-          {/* <Route exact path="/" element={<IDPs />} /> */}
+          <Route exact path="/" element={<IDPs />} />
            {/* <Route exact path="/" element={<IDP />} /> */}
           {/* <Route exact path="/" element={<NewIDP />} /> */}
-          <Route exact path="/" element={<CreateTask />} />
+          {/* <Route exact path="/" element={<CreateTask />} /> */}
           {/* <Route exact path="/" element={<EditTask />} />  */}
-          
         </Routes>
       </div>
     </section>
