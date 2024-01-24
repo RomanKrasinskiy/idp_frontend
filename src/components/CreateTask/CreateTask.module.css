@@ -8,7 +8,7 @@
     padding-top: 48px;
 }
 
-.input{
+.input {
     width: 522px;
     margin-bottom: 20px;
     color: var(--color-text);
@@ -18,11 +18,11 @@
     line-height: 12px;
 }
 
-.input::placeholder{
+.input::placeholder {
     color: #a0a2aa;
 }
 
-.button__container{
+.button__container {
     width: 255px;
     display: flex;
     gap: 12px;
@@ -32,7 +32,7 @@
     flex-wrap: wrap;
 }
 
-.mentor__container{
+.mentor__container {
     display: flex;
     margin: 0;
     padding: 0;
@@ -41,24 +41,26 @@
     flex-direction: column;
     gap: 9px;
 }
-.text__container{
+
+.text__container {
     display: flex;
     gap: 9px;
     align-items: center;
 }
 
-.edit__button{
+.edit__button {
     margin-left: 10px;
+    cursor: pointer;
 }
 
-.button_add{
+.button_add {
     opacity: 1;
     cursor: pointer;
     transition: opacity .5s ease-in-out;
 }
 
 
-.title{
+.title {
     font-family: var(--ff);
     font-size: var(--fz-title);
     font-weight: var(--fw-bold);
@@ -68,7 +70,7 @@
     margin-bottom: 32px;
 }
 
-.subtitle{
+.subtitle {
     font-size: var(--fz-subtitle);
     color: var(--color-text);
     font-weight: var(--fw-normal);
@@ -77,7 +79,8 @@
     margin: 0;
     padding: 0;
 }
-.text__comment{
+
+.text__comment {
     opacity: 0.7;
     margin: 0;
     padding: 0;
@@ -88,7 +91,7 @@
     line-height: 22.4px;
 }
 
-.text{
+.text {
     opacity: 0.7;
     margin: 0;
     padding: 0;
@@ -99,7 +102,7 @@
     line-height: 22.4px;
 }
 
-.text__comment:hover{
+.text__comment:hover {
     cursor: pointer;
     opacity: 1;
 }
