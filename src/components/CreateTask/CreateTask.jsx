@@ -8,8 +8,19 @@ import { Skeleton } from "@alfalab/core-components-skeleton";
 import plus from "../../images/AddPlus.svg";
 import edit from "../../images/Edit.svg";
 import CalendarInput from "./CalendarInput/CalendarInput";
+import Popup from "../Popup/Popup";
+import { useDispatch } from "react-redux";
+import { openPopup } from "../../store/popupSlice";
 
 export default function CreateTask() {
+  //Вызов диспетчера для изменения состояния попапа
+  const dispatch = useDispatch()
+
+  //Функция открытия попапа
+  function handleOpenEdit() {
+    dispatch(openPopup())
+  }
+
   //Значение инпутов
   const [value, setValue] = useState("");
 
@@ -28,15 +39,12 @@ export default function CreateTask() {
     }));
   }
 
-  // Значения для кнопки выбора(pickerButton)
-  const buttonOptions = [
-    { key: "Создать" },
-    { key: "Сохранить" },
-    { key: "Удалить" },
-    { key: "Выполнить" },
-  ];
-
   return (
+    <>
+    {/* Попап выбора ментора */}
+    <Popup title='Ментор' buttonText="Сохранить" cancelButtonText="Отмена"/>
+    
+    {/* Создание новой задачи */}
     <section className={style.container}>
       <h2 className={style.title}>Новая задача</h2>
       <Skeleton style={{ marginBottom: "20px" }} visible={false}>
@@ -133,8 +141,8 @@ export default function CreateTask() {
       <div className={style.mentor__container}>
         <h3 className={style.text}>Ментор</h3>
         <div className={style.text__container}>
-          <p className={style.subtitle}>Яна Лапкина</p>
-          <img className={style.edit__button} src={edit} alt="edit icon" />
+          <p onClick={handleOpenEdit} style={{cursor: 'pointer'}} className={style.subtitle}>Выбрать ментора</p>
+          <img onClick={handleOpenEdit} className={style.edit__button} src={edit} alt="edit icon" />
         </div>
       </div>
 
@@ -148,5 +156,7 @@ export default function CreateTask() {
         Создать
       </Button>
     </section>
+    </>
+
   );
 }

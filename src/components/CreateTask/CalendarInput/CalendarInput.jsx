@@ -16,9 +16,9 @@ export default function CalendarInput() {
         value={value}
         className={style.calendar}
         block={true}
-        view="date"
+        view="date" 
         label="Дата"
-        labelView={"inner"}
+        labelView={"inner"} 
         size="m"
         onChange={handleChangeCalendar}
         picker={"month-only"}
@@ -26,7 +26,7 @@ export default function CalendarInput() {
         calendarProps={{
           selectorView: "month-only",
         }}
-        clear={true}
+        clear={true} 
         onClear={(e) => {
           e.stopPropagation();
           setValue("");
