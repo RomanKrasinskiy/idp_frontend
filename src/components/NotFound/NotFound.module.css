@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  max-width: 1280px;
+  max-height: 832px;
+  height: 100%;
+  padding: 144px 431px 236px 431px;
+  flex-direction: column;
+  align-items: center;
+  gap: 136px;
+  text-align: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-style: normal;
+}
+
+.title {
+  font-size: 200px;
+  line-height: 200px; /* 100% */
+  padding: 0;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--fz-title);
+  line-height: 48px;
+  padding: 0;
+  margin: 0;
+}
