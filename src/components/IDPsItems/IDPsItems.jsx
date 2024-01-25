@@ -6,6 +6,7 @@ import style from "./IDPsItems.module.css";
 // import { PickerButton } from '@alfalab/core-components-picker-button';
 // import { Typography } from "@alfalab/core-components-typography";
 import { Button } from "@alfalab/core-components-button";
+import { Skeleton } from "@alfalab/core-components-skeleton";
 
 import { TSortableHeadCell } from "@alfalab/core-components-table/components";
 
@@ -191,18 +192,29 @@ export default function IDPsTable() {
       <section>
         {sortedData.map((item) => (
           <ul className={style.columnTable} key={item.id}>
-            <li className={style.tableElement}>
-              <div className={style.textContainer}>{item.title}</div>
-            </li>
-            <li className={style.tableElement}>
-              <div className={style.textContainer}>{item.subtitle}</div>
-            </li>
-            <li className={style.tableElement}>
-              <div className={style.textContainer}>{item.date}</div>
-            </li>
-            <li className={style.tableElement}>
-              <div className={style.textContainer}>Статус</div>
-            </li>
+            <Skeleton visible={false}>
+              <li className={style.tableElement}>
+                <div className={style.textContainer}>{item.title}</div>
+              </li>
+            </Skeleton>
+
+            <Skeleton visible={false}>
+              <li className={style.tableElement}>
+                <div className={style.textContainer}>{item.subtitle}</div>
+              </li>
+            </Skeleton>
+
+            <Skeleton visible={false}>
+              <li className={style.tableElement}>
+                <div className={style.textContainer}>{item.date}</div>
+              </li>
+            </Skeleton>
+
+            <Skeleton visible={false}>
+              <li className={style.tableElement}>
+                <div className={style.textContainer}>Статус</div>
+              </li>
+            </Skeleton>
           </ul>
         ))}
       </section>
