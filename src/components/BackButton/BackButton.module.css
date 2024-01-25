@@ -1,4 +1,6 @@
-.button{
+.button {
+    text-decoration: none;
+    color: var(--text-color);
     padding: 0;
     margin-bottom: 56px;
     border: none;
@@ -13,7 +15,7 @@
     line-height: 12px;
 }
 
-.button:hover{
+.button:hover {
     opacity: .6;
     cursor: pointer;
 }

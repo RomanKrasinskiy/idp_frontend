@@ -1,0 +1,16 @@
+.container {
+    max-width: 912px;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title{
+    margin: 0;
+    font-size: var(--fz-title);
+    font-family: var(--ff);
+    font-weight: var(--fw-bold);
+    line-height: 48px;
+}
+

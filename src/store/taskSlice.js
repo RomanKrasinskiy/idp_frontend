@@ -3,8 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 export const taskSlice = createSlice({
   name: "tasks",
   initialState: {
-    tasks: [
-      {
         idpId: "",
         name: "Watch",
         leadComment:"",
@@ -13,8 +11,6 @@ export const taskSlice = createSlice({
         dateCreated: "",
         dateEnded: "",
         file: {},
-      },
-    ],
   },
   reducers: {
     setTask(state, action) {
