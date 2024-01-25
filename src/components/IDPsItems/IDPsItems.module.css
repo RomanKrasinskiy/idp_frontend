@@ -1,0 +1,67 @@
+.columnTable {
+    background-color: #F5F5F5;
+    width: 100%;
+    height: 52px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    list-style: initial;
+    padding: initial;
+    
+}
+.tableElement {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    height: 52px;
+    list-style: initial;
+    margin: initial;
+    padding: initial;
+    list-style: initial;
+    margin: initial;
+    padding: initial;
+    /* width: 220px; */
+}
+.tableElement:nth-child(1) {
+    max-width: 190px;
+}
+.tableElement:nth-child(2) {
+    max-width: 171px;
+}
+.tableElement:nth-child(3) {
+    max-width: 159px;
+    padding-left: 43px;
+
+}
+.tableElement:nth-child(4) {
+    max-width: 148px;
+    padding-left: 52px;
+
+}
+.textContainer {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 36px;
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+  }
+  .btnExport {
+    background-image: url('../../images/share-export.svg');
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+  }
+  .buttonConteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
