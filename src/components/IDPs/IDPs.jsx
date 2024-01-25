@@ -9,6 +9,7 @@ import { UniversalDateInput } from "@alfalab/core-components-universal-date-inpu
 // import { CalendarRange } from "@alfalab/core-components-calendar-range";
 import { Calendar } from "@alfalab/core-components-calendar";
 import CustomSearch from "../CustomSearch/CustomSearch";
+import IDPsPosts from "../IDPsItems/IDPsItems";
 
 export default function IDPs() {
     const TABS = [
@@ -16,7 +17,8 @@ export default function IDPs() {
         { title: 'Сотрудников', id: 'tab-2' },
     ];
     const [selectedId, setSelectedId] = React.useState(TABS[0].id);
-    const [disabled, setDisabled] = React.useState(false);
+    // const [disabled, setDisabled] = React.useState(false);
+    const disabled = false;
     
     const handleChange = (event, { selectedId }) => {
         setSelectedId(selectedId);
@@ -39,35 +41,38 @@ export default function IDPs() {
                 ))}
             </Tabs>
             <Space direction='horizontal' align='center'>
-                <Button disabled={disabled} view='accent' size='s'>
-                    Создать
+                <Button disabled={disabled} view='primary' size='s'>
+                    Создать план
                 </Button>
             </Space>
             <PetalsList />
-            <UniversalDateInput
-                breakpoint={500}
-                style={{
-                    width: 252
-                }}
-                size='s'
-                value={value}
-                rangeBehavior={'clarification'}
-                view='date-range'
-                label='Дата или период'
-                labelView={'outer'}
-                picker={'clarification'}
-                onChange={handleChangeCalendar}
-                Calendar={Calendar}
-                calendarProps={{
-                    selectorView: 'month-only',
-                }}
-                clear={true}
-                onClear={(e) => {
-                    e.stopPropagation();
-                    setValue('');
-                }}
-            /> 
-            <CustomSearch />
+            <div className={style.containerDateSearch}>
+                <UniversalDateInput
+                    breakpoint={500}
+                    style={{
+                        width: 252
+                    }}
+                    size='s'
+                    value={value}
+                    rangeBehavior={'clarification'}
+                    view='date-range'
+                    label='Дата или период'
+                    labelView={'outer'}
+                    picker={'clarification'}
+                    onChange={handleChangeCalendar}
+                    Calendar={Calendar}
+                    // calendarProps={{
+                    //     selectorView: 'month-only',
+                    // }}
+                    clear={true}
+                    onClear={(e) => {
+                        e.stopPropagation();
+                        setValue('');
+                    }}
+                /> 
+                <CustomSearch />
+            </div>
+            <IDPsPosts />
             
         </section>
     );

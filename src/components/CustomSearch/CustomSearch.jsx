@@ -1,105 +1,70 @@
+import React from "react";
+// import { InputAutocomplete } from "@alfalab/core-components-input-autocomplete";
+import { Typography } from "@alfalab/core-components-typography";
+import { IconButton } from "@alfalab/core-components-icon-button";
+import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
+import { Input } from "@alfalab/core-components-input";
+
 
 export default function CustomSearch () {
-    const matchOption = (option, inputValue) =>
-        option.content.toLowerCase().includes((inputValue || '').toLowerCase());
-
-    const mask = [
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        ' ',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
     ];
-
-    const cards = [
-        {
-            key: 'Карта 1',
-            content: '4035 5010 0000 0008',
-        },
-        {
-            key: 'Карта 2',
-            content: '4360 0000 0100 0005',
-        },
-        {
-            key: 'Карта 3',
-            content: '8171 9999 2766 0000',
-        },
-        {
-            key: 'Карта 4',
-            content: '5204 2477 5000 1471',
-        },
-        {
-            key: 'Карта 5',
-            content: '4111 1111 1111 1111',
-        },
-    ];
-
-    const CardOption = (props) => (
-        <BaseOption {...props}>
-            <div style={{ padding: 'var(--gap-s)' }}>
-                <Typography.Text view='component'>{props.option.content}</Typography.Text>
-                <Gap size='2xs' />
-                <Typography.Text view='primary-small' color='secondary'>
-                    {props.option.key}
-                </Typography.Text>
-            </div>
-        </BaseOption>
-    );
-
+    // const [shownChevron, setShownChevron] = React.useState(false);
+    // const [multiple, setMultiple] = React.useState(false);
+    // const [showInModal, setShowInModal] = React.useState(false);
     const [value, setValue] = React.useState('');
-    const inputRef = React.useRef();
+
+    // const matchOption = (option, inputValue) =>
+    //     option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
     const handleInput = (_, { value }) => {
         setValue(value);
     };
-
-    const handleChange = ({ selected }) => {
-        const value = selected ? selected.content : null;
-        setValue(value);
-        if (value && inputRef.current) {
-            requestAnimationFrame(() =>
-                inputRef.current.setSelectionRange(value.length, value.length),
-            );
-        }
-    };
-
-    const filteredOptions = cards.filter((option) => matchOption(option, value));
+    // const handleChange = ({ selected }) => {
+    //     setValue(selected ? selected.key : '');
+    // };
+    // const inputValues = value.replace(/ /g, '').split(',');
+    // const selectedOptions = options.filter((option) => inputValues.includes(option.key.trim()));
+    // const selected = options.find((o) => o.key === inputValues[0]) || [];
+    // const getFilteredOptions = () => {
+    //     return options.some(({ key }) => key === value)
+    //         ? options
+    //         : options.filter((option) => matchOption(option, value));
+    // };
 
     return (
-        <div style={{ width: isMobile() ? '100%' : 320 }}>
-            <InputAutocomplete
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+            <Input
                 // breakpoint={BREAKPOINT}
-                size='m'
-                options={filteredOptions}
-                selected={[]}
-                label='Маскированный ввод счёта'
-                placeholder='Счёт'
-                onInput={handleInput}
-                onChange={handleChange}
+                size='s'
+                type="text"
                 value={value}
-                Option={CardOption}
-                // Input={MaskedInput}
+                placeholder='Поиск'
                 block={true}
-                inputProps={{
-                    ref: inputRef,
-                    mask,
-                    // clear: isMobile(),
-                    // onClear: () => setValue(''),
-                }}
+                onChange={handleInput}
+                leftAddons={
+                    <IconButton
+                        view='secondary'
+                        icon={MagnifierMIcon}
+                        size='xs'
+                        alignIcon='right'
+                    />
+                } 
             />
         </div>
     );

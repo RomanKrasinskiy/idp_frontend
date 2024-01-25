@@ -1,6 +1,4 @@
-import { Grid } from "@alfalab/core-components-grid";
 import style from "./PetalsList.module.css";
-import { Gap } from "@alfalab/core-components-gap";
 import Petals from "../Petals/Petals";
 export default function PetalsList () {
 

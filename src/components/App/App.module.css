@@ -13,16 +13,17 @@
   --fz-subtitle: 20px;
   --fz-text: 16px;
   --fz-placeholder: 14px;
-  --fw-hormal: 400;
+  --fw-normal: 400;
   --fw-bold: 700;
   --ff:"Segoi UI", Helvetica, Arial, sans-serif;
 }
 
 .App{
   display: flex;
+  width: 100%;
 }
 
 .mainContainer{
   display: flex;
-  
+  margin: auto;
 }
