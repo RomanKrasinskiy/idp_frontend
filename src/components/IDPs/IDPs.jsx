@@ -9,7 +9,7 @@ import { UniversalDateInput } from "@alfalab/core-components-universal-date-inpu
 // import { CalendarRange } from "@alfalab/core-components-calendar-range";
 import { Calendar } from "@alfalab/core-components-calendar";
 import CustomSearch from "../CustomSearch/CustomSearch";
-import IDPsPosts from "../IDPsItems/IDPsItems";
+import IDPsItems from "../IDPsItems/IDPsItems";
 
 export default function IDPs() {
     const TABS = [
@@ -41,7 +41,7 @@ export default function IDPs() {
                 ))}
             </Tabs>
             <Space direction='horizontal' align='center'>
-                <Button disabled={disabled} view='primary' size='s'>
+                <Button disabled={disabled} view='primary' size='s' style={{margin: '32px 0'}}>
                     Создать план
                 </Button>
             </Space>
@@ -72,7 +72,7 @@ export default function IDPs() {
                 /> 
                 <CustomSearch />
             </div>
-            <IDPsPosts />
+            <IDPsItems />
             
         </section>
     );

@@ -7,9 +7,7 @@ import style from "./IDPsItems.module.css";
 // import { Typography } from "@alfalab/core-components-typography";
 import { Button } from "@alfalab/core-components-button";
 
-import {
-  TSortableHeadCell,
-} from "@alfalab/core-components-table/components";
+import { TSortableHeadCell } from "@alfalab/core-components-table/components";
 
 export default function IDPsTable() {
   const newdata = [
@@ -43,14 +41,15 @@ export default function IDPsTable() {
     {
       id: 5,
       date: "30.06.2022",
-      title: "бвгffffffffffffffffffffffffffffffffffffffffffffапрррррррррррррррррррррррррррff",
+      title:
+        "бвгffffffffffffffffffffffffffffffffffffffffffffапрррррррррррррррррррррррррррff",
       sum: 42130000,
     },
     {
       id: 6,
       date: "30.06.2022",
       title: "абв",
-      sum: '',
+      sum: "",
     },
   ];
 
@@ -90,87 +89,123 @@ export default function IDPsTable() {
   }, [newdata, isSortedDesc, sortKey]);
   return (
     <>
-      <Button
-        size="xs"
-        style={{
-          borderRadius: 16,
+      <div className={style.buttonConteiner}>
+        <div className={style.buttonsSortFilter}>
+          <Button
+            size="xs"
+            style={{
+              borderRadius: 16,
 
-          marginBottom: 16,
-          marginRight: 12,
-          backgroundColor: "#E9EAEA",
-        }}
-        onClick={() => handleSort("date")}
-      >
-        <TSortableHeadCell
-          style={{
-            padding: 0,
-            border: "none",
-            backgroundColor: "transparent",
-            textTransform: "none",
-            letterSpacing: "normal",
-            fontFamily: "Segoe UI", //
-            fontSize: "14px", //
-            fontStyle: "normal", //
-            fontWeight: "400", //
-            lineHeight: "20px", //
-          }}
-          title="Дата"
-          defaultIsSortedDesc={defaultIsSortedDesc}
-          isSortedDesc={sortKey === "date" ? isSortedDesc : undefined}
-          onSort={() => handleSort("date")}
-        >
-          План развития
-        </TSortableHeadCell>
-      </Button>
-      <Button
-        size="xs"
-        style={{
-          borderRadius: 16,
-          marginBottom: 16,
-        }}
-        onClick={() => handleSort("title")}
-      >
-        <TSortableHeadCell
-          style={{
-            padding: 0,
-            border: "none",
-            backgroundColor: "transparent",
-            textTransform: "none",
-            letterSpacing: "normal",
-            fontFamily: "Segoe UI",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: "400",
-            lineHeight: "20px",
-          }}
-          title="Срок завершения"
-          defaultIsSortedDesc={defaultIsSortedDesc}
-          isSortedDesc={sortKey === "title" ? isSortedDesc : undefined}
-          onSort={() => handleSort("title")}
-        >
-          Срок завершения
-        </TSortableHeadCell>
-      </Button>
-      {/* <PickerButton ></PickerButton> */}
+              // marginBottom: 16,
+              marginRight: 12,
+              backgroundColor: "#E9EAEA",
+            }}
+            onClick={() => handleSort("date")}
+          >
+            <TSortableHeadCell
+              style={{
+                padding: 0,
+                border: "none",
+                backgroundColor: "transparent",
+                textTransform: "none",
+                letterSpacing: "normal",
+                fontFamily: "Segoe UI", //
+                fontSize: "14px", //
+                fontStyle: "normal", //
+                fontWeight: "400", //
+                lineHeight: "20px", //
+              }}
+              title="Дата"
+              defaultIsSortedDesc={defaultIsSortedDesc}
+              isSortedDesc={sortKey === "date" ? isSortedDesc : undefined}
+              onSort={() => handleSort("date")}
+            >
+              Сотрудник
+            </TSortableHeadCell>
+          </Button>
+          <Button
+            size="xs"
+            style={{
+              borderRadius: 16,
+
+              // marginBottom: 16,
+              marginRight: 12,
+              backgroundColor: "#E9EAEA",
+            }}
+            onClick={() => handleSort("date")}
+          >
+            <TSortableHeadCell
+              style={{
+                padding: 0,
+                border: "none",
+                backgroundColor: "transparent",
+                textTransform: "none",
+                letterSpacing: "normal",
+                fontFamily: "Segoe UI", //
+                fontSize: "14px", //
+                fontStyle: "normal", //
+                fontWeight: "400", //
+                lineHeight: "20px", //
+              }}
+              title="Дата"
+              defaultIsSortedDesc={defaultIsSortedDesc}
+              isSortedDesc={sortKey === "date" ? isSortedDesc : undefined}
+              onSort={() => handleSort("date")}
+            >
+              План развития
+            </TSortableHeadCell>
+          </Button>
+          <Button
+            size="xs"
+            style={{
+              borderRadius: 16,
+              // marginBottom: 16,
+            }}
+            onClick={() => handleSort("title")}
+          >
+            <TSortableHeadCell
+              style={{
+                padding: 0,
+                border: "none",
+                backgroundColor: "transparent",
+                textTransform: "none",
+                letterSpacing: "normal",
+                fontFamily: "Segoe UI",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: "400",
+                lineHeight: "20px",
+              }}
+              title="Срок завершения"
+              defaultIsSortedDesc={defaultIsSortedDesc}
+              isSortedDesc={sortKey === "title" ? isSortedDesc : undefined}
+              onSort={() => handleSort("title")}
+            >
+              Срок завершения
+            </TSortableHeadCell>
+          </Button>
+        </div>
+        <button className={style.btnExport} />
+      </div>
 
       <section>
-  {sortedData.map((item) => (
-    <ul className={style.columnTable} key={item.id}>
-      <li className={style.tableElement}>
-        <div className={style.textContainer}>{item.title}</div>
-      </li>
-      <li className={style.tableElement}>
-        <div className={style.textContainer}>{item.subtitle}</div>
-      </li>
-      <li className={style.tableElement}>
-        <div className={style.textContainer}>{item.date}</div>
-      </li>
-      <li className={style.tableElement}>
-        <div className={style.textContainer}>Статус</div>
-      </li>
-    </ul>
-  ))}
-</section>
+        {sortedData.map((item) => (
+          <ul className={style.columnTable} key={item.id}>
+            <li className={style.tableElement}>
+              <div className={style.textContainer}>{item.title}</div>
+            </li>
+            <li className={style.tableElement}>
+              <div className={style.textContainer}>{item.subtitle}</div>
+            </li>
+            <li className={style.tableElement}>
+              <div className={style.textContainer}>{item.date}</div>
+            </li>
+            <li className={style.tableElement}>
+              <div className={style.textContainer}>Статус</div>
+            </li>
+          </ul>
+        ))}
+      </section>
     </>
   );
 }

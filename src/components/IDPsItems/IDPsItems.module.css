@@ -51,3 +51,17 @@
     font-weight: 400;
     line-height: 16px;
   }
+  .btnExport {
+    background-image: url('../../images/share-export.svg');
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+  }
+  .buttonConteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
