@@ -10,6 +10,7 @@ import { UniversalDateInput } from "@alfalab/core-components-universal-date-inpu
 import { Calendar } from "@alfalab/core-components-calendar";
 import CustomSearch from "../CustomSearch/CustomSearch";
 import IDPsItems from "../IDPsItems/IDPsItems";
+import { Link } from "react-router-dom";
 
 export default function IDPs() {
     const TABS = [
@@ -41,9 +42,11 @@ export default function IDPs() {
                 ))}
             </Tabs>
             <Space direction='horizontal' align='center'>
-                <Button disabled={disabled} view='primary' size='s' style={{margin: '32px 0'}}>
-                    Создать план
+                <Link to='/idp'>
+                <Button view='primary' size='s' style={{margin: '32px 0'}}>
+                    Создать план 
                 </Button>
+                </Link>
             </Space>
             <PetalsList />
             <div className={style.containerDateSearch}>
