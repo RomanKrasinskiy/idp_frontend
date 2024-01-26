@@ -51,12 +51,14 @@ export default function CustomSearch () {
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
             <Input
                 // breakpoint={BREAKPOINT}
+
                 size='s'
                 type="text"
                 value={value}
                 placeholder='Поиск'
                 block={true}
                 onChange={handleInput}
+                
                 leftAddons={
                     <IconButton
                         view='secondary'

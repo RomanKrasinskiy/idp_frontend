@@ -61,6 +61,7 @@ export default function CreateTask() {
         <Textarea
           style={{ width: "522px" }}
           label="Описание задачи"
+          // disabled={true}
           block={true}
           className={style.input}
           type="text"

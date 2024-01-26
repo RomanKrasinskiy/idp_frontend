@@ -25,18 +25,18 @@
     /* width: 220px; */
 }
 .tableElement:nth-child(1) {
-    max-width: 190px;
+    width: 190px;
 }
 .tableElement:nth-child(2) {
-    max-width: 171px;
+    width: 171px;
 }
 .tableElement:nth-child(3) {
-    max-width: 159px;
+    width: 159px;
     padding-left: 43px;
 
 }
 .tableElement:nth-child(4) {
-    max-width: 148px;
+    width: 148px;
     padding-left: 52px;
 
 }
@@ -46,10 +46,10 @@
     text-overflow: ellipsis;
     padding-left: 36px;
     font-family: "Segoe UI";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
   }
   .btnExport {
     background-image: url('../../images/share-export.svg');
@@ -64,4 +64,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .filterStatus {
+    margin-left: 16px;
   }

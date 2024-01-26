@@ -11,8 +11,9 @@ export default function CalendarInput() {
   };
 
   return (
-    <div>
+    <>
       <UniversalDateInput
+        
         value={value}
         className={style.calendar}
         block={true}
@@ -32,6 +33,6 @@ export default function CalendarInput() {
           setValue("");
         }}
       />
-    </div>
+    </>
   );
 }

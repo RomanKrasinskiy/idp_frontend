@@ -27,15 +27,14 @@ export default function IDPs() {
     const [value, setValue] = React.useState('');
     const handleChangeCalendar = (_, { value }) => {
         setValue(value);
-    };
-
+    };    
 
     return(
         <section className={style.container}>
             <h1 className={style.title}>Планы развития</h1>
 
         {/* Переключатель Личные планы или Сотрудников*/}
-            <Tabs size='xs' selectedId={selectedId} onChange={handleChange}>
+            <Tabs size='xs' selectedId={selectedId} onChange={handleChange} >
                 {TABS.map((item) => (
                     <Tab title={item.title} id={item.id} key={item.id} />
                 ))}

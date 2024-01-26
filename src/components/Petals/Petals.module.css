@@ -1,7 +1,7 @@
 .petals {
     height: 64px;
     width: 214px; 
-    background-color: rgba(11, 31, 53, 0.07);
+    background-color: #E7E8EB;
     border-radius: 12px;
     
 }
@@ -11,8 +11,18 @@
 .petalsName {
     margin: 0;
     color:rgba(117, 117, 126, 1);
+    font-family: "Segoe UI";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
 }
 .petalsCount {
     margin: 0;
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
 
 }
