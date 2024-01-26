@@ -33,22 +33,15 @@
 }
 
 .mentor__container {
-    display: flex;
     margin: 0;
     padding: 0;
-    margin-bottom: 20px;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 9px;
-
-    
+    margin-bottom: 20px;    
 }
 
 .text__container {
     display: flex;
     gap: 9px;
     align-items: center;
-    
 }
 
 .edit__button {
@@ -61,7 +54,6 @@
     cursor: pointer;
     transition: opacity .5s ease-in-out;
 }
-
 
 .title {
     font-family: var(--ff);
