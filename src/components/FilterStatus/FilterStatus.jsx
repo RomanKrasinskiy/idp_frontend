@@ -1,40 +1,25 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useRef, useState } from "react";
-// import style from "./IDPsItems.module.css";
-
-
-// import { Table } from "@alfalab/core-components-table";
-// import { Gap } from "@alfalab/core-components-gap";
-// import { PickerButton } from '@alfalab/core-components-picker-button';
-// import { Typography } from "@alfalab/core-components-typography";
-// import { Button } from "@alfalab/core-components-button";
-// import { Skeleton } from "@alfalab/core-components-skeleton";
-
-// import { TSortableHeadCell } from "@alfalab/core-components-table/components";
+import { useMemo, useState } from "react";
+import style from "./FilterStatus.module.css";
 import { Select } from "@alfalab/core-components-select";
 import { FilterTag } from "@alfalab/core-components-filter-tag";
-// import { PickerButton } from "@alfalab/core-components-picker-button";
-// import { useInView } from "react-intersection-observer";
-
-
 
 
   export default function FilterStatus() {
-    const options = React.useMemo(
+    const options = useMemo(
       () => [
-        { key: '1', content: "Auurum" },
-        { key: '2', content: "Bercelium" },
-        { key: '3', content: "Curium" },
-        { key: '4', content: "Neptunium" },
-        { key: '5', content: "Plutonuim" },
+        { key: '1', content: "В работе" },
+        { key: '2', content: "Черновик" },
+        { key: '3', content: "Выполнен" },
+        { key: '4', content: "Просрочен" },
+        { key: '5', content: "Отменён" },
       ],
       []
     );
   
-    const [selected, setSelected] = React.useState([options[0]]);
+    // const [selected, setSelected] = React.useState([options[0]]);
   
-    
-    const [selectedMultiple, setSelectedMultiple] = React.useState([]);
+    const [selectedMultiple, setSelectedMultiple] = useState([]);
     const handleChangeMultiple = ({ selectedMultiple }) => {
         setSelectedMultiple(selectedMultiple.map((option) => option.key));
     };
@@ -50,6 +35,7 @@ import { FilterTag } from "@alfalab/core-components-filter-tag";
           selected={selectedMultiple}
           fieldProps={{ size: "xs" }}
           multiple={true}
+          optionClassName={style.selectText}
         />
       </div>
     );
@@ -78,13 +64,13 @@ import { FilterTag } from "@alfalab/core-components-filter-tag";
     const contentLabel = <span>Статус</span>;
 
     return (
-        <div ref={ref} style={{marginLeft: '16px'}}>
+        <div ref={ref}>
             <FilterTag
                 view={'filled'}
                 onClear={() => setSelectedItems([])}
                 checked={selected}
                 {...restInnerProps}
-                {...restProps}
+                {...restProps} 
             >
                 {selected ? checkedContent : contentLabel}
             </FilterTag>

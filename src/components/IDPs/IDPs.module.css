@@ -1,6 +1,5 @@
 
 .container {
-    /* height: 1000px; */
     width: 100%;
     padding: 0 24px;
 
@@ -14,9 +13,11 @@
     line-height: 48px;
 
 }
-.containerDateSearch {
-    display: flex;
-    width: 100%;
-    gap: 16px;
-    padding-bottom: 16px;
+
+.calend {
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
 }

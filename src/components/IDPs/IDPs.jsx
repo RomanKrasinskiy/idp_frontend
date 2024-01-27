@@ -5,12 +5,13 @@ import PetalsList from "../PetalsList/PetalsList";
 import { Tabs, Tab } from '@alfalab/core-components-tabs';
 import { Button } from "@alfalab/core-components-button";
 import { Space } from "@alfalab/core-components-space";
-import { UniversalDateInput } from "@alfalab/core-components-universal-date-input";
+// import { UniversalDateInput } from "@alfalab/core-components-universal-date-input";
 // import { CalendarRange } from "@alfalab/core-components-calendar-range";
-import { Calendar } from "@alfalab/core-components-calendar";
-import CustomSearch from "../CustomSearch/CustomSearch";
+// import { Calendar } from "@alfalab/core-components-calendar";
+// import CustomSearch from "../CustomSearch/CustomSearch";
 import IDPsItems from "../IDPsItems/IDPsItems";
 import { Link } from "react-router-dom";
+import CalendarSearch from "../CalendarSearch/CalendarSearch";
 
 export default function IDPs() {
     const TABS = [
@@ -25,10 +26,7 @@ export default function IDPs() {
         setSelectedId(selectedId);
     };
 
-    const [value, setValue] = React.useState('');
-    const handleChangeCalendar = (_, { value }) => {
-        setValue(value);
-    };    
+     
 
     return(
         <section className={style.container}>
@@ -48,32 +46,7 @@ export default function IDPs() {
                 </Link>
             </Space>
             <PetalsList />
-            <div className={style.containerDateSearch}>
-                <UniversalDateInput
-                    breakpoint={500}
-                    style={{
-                        width: 252
-                    }}
-                    size='s'
-                    value={value}
-                    rangeBehavior={'clarification'}
-                    view='date-range'
-                    label='Дата или период'
-                    labelView={'outer'}
-                    picker={'clarification'}
-                    onChange={handleChangeCalendar}
-                    Calendar={Calendar}
-                    // calendarProps={{
-                    //     selectorView: 'month-only',
-                    // }}
-                    clear={true}
-                    onClear={(e) => {
-                        e.stopPropagation();
-                        setValue('');
-                    }}
-                /> 
-                <CustomSearch />
-            </div>
+            <CalendarSearch />
             <IDPsItems />
             
         </section>
