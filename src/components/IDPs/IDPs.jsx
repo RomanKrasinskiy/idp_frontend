@@ -20,16 +20,9 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
     { title: "Сотрудников", id: "tab-2" },
   ];
   const [selectedId, setSelectedId] = React.useState(TABS[0].id);
-  // const [disabled, setDisabled] = React.useState(false);
-  const disabled = false;
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
-  };
-
-  const [value, setValue] = React.useState("");
-  const handleChangeCalendar = (_, { value }) => {
-    setValue(value);
   };
 
   return (
@@ -58,33 +51,7 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
         )}
       </Space>
       {petals ? <PetalsList /> : ""}
-
-      <div className={style.containerDateSearch}>
-        <UniversalDateInput
-          breakpoint={500}
-          style={{
-            width: 252,
-          }}
-          size="s"
-          value={value}
-          rangeBehavior={"clarification"}
-          view="date-range"
-          label="Дата или период"
-          labelView={"outer"}
-          picker={"clarification"}
-          onChange={handleChangeCalendar}
-          Calendar={Calendar}
-          // calendarProps={{
-          //     selectorView: 'month-only',
-          // }}
-          clear={true}
-          onClear={(e) => {
-            e.stopPropagation();
-            setValue("");
-          }}
-        />
-        <CustomSearch />
-      </div>
+        <CalendarSearch />
       <IDPsItems />
     </section>
   );
