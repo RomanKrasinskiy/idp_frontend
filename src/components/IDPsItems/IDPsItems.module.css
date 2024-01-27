@@ -16,40 +16,36 @@
     align-items: center;
     justify-content: flex-start;
     height: 52px;
-    list-style: initial;
-    margin: initial;
-    padding: initial;
-    list-style: initial;
-    margin: initial;
-    padding: initial;
-    /* width: 220px; */
+    
 }
-.tableElement:nth-child(1) {
-    max-width: 190px;
+
+/* .tableElement:nth-child(1) {
+    width: 326px;
 }
+
 .tableElement:nth-child(2) {
-    max-width: 171px;
+    width: 271px;
 }
+
 .tableElement:nth-child(3) {
-    max-width: 159px;
+    width: 151px;
     padding-left: 43px;
-
 }
+
 .tableElement:nth-child(4) {
-    max-width: 148px;
+    width: 163px;
     padding-left: 52px;
+} */
 
-}
 .textContainer {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-left: 36px;
     font-family: "Segoe UI";
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 16px;
+    line-height: 18px;
   }
   .btnExport {
     background-image: url('../../images/share-export.svg');
@@ -64,4 +60,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .filterStatus {
+    margin-left: 16px;
   }

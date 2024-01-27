@@ -16,7 +16,6 @@ export const idpSlice = createSlice({
       state.idpId = action.payload.idpId;
     },
     addNewIdp(state, action) {
-      
       state.idps.push({
         userId: action.payload.userId,
         idpId: action.payload.idpId,
