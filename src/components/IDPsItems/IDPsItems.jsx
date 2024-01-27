@@ -2,6 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 import style from "./IDPsItems.module.css";
 
+// import { Table } from "@alfalab/core-components-table";
+// import { Gap } from "@alfalab/core-components-gap";
+// import { PickerButton } from '@alfalab/core-components-picker-button';
+// import { Typography } from "@alfalab/core-components-typography";
+import { Button } from "@alfalab/core-components-button";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import { useInView } from "react-intersection-observer";
 import FilterStatus from "../FilterStatus/FilterStatus";

@@ -1,15 +1,15 @@
 
 .container {
     width: 100%;
-    padding: 0 24px;
+    /* padding: 0 24px; */
+    max-width: 912px
 
 }
 .title {
     margin: 48px 0 32px 0; 
-    font-family: "Segoe UI";
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
+    font-family: var(--ff);
+    font-size: var(--fz-title);
+    font-weight: var(--fw-bold);
     line-height: 48px;
 
 }
