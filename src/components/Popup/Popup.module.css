@@ -1,13 +1,14 @@
 .container{
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
     width: 100vw;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
-    z-index: 2;
 }
 
 .container__show{
@@ -18,13 +19,14 @@
     position: absolute;
     z-index: 2;
     background-color: white;
-    width: 724px;
+    max-width: 644px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     margin: 0;
-    padding: 72px;
+    padding: 72px 40px;
     border-radius: 8px;
 }
 
@@ -42,7 +44,7 @@
     position: absolute;
     width: 24px;
     height: 24px;
-    top: 40px;
+    top: 32px;
     right: 40px;
     cursor: pointer;
     transition: all .5 ease-in-out;
