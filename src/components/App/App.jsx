@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<IDPs />} />
           {/* <Route exact path="/" element={<IDP />} /> */}
           <Route path="/idp" element={<NewIDP />} />
-          <Route path="/newTask" element={<CreateTask />} />
+          <Route path="/newTask" element={<CreateTask title='Новая задача' buttonText='Создать'/>} />
           {/* <Route exact path="/" element={<EditTask />} />  */}
           <Route path="*" element={<NotFound />} />
         </Routes>

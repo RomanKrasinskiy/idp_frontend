@@ -3,7 +3,7 @@ import { BASE_URL } from '../../utils/constans'
 
 export const taskApi = createApi({
     reducerPath: 'taskApi',
-    baseQuery: fetchBaseQuery({baseUrl: `http://localhost:3001`}),
+    baseQuery: fetchBaseQuery({baseUrl: `${BASE_URL}`}),
     endpoints:(build) => ({
         getTask: build.query({
             query: () => ({

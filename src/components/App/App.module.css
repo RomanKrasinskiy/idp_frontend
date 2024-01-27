@@ -4,7 +4,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 :root{
@@ -23,10 +22,9 @@
 .App{
   display: flex;
   width: 100%;
-  
 }
 
 .mainContainer{
   display: flex;
-  margin: auto;
+  margin: 0;
 }

@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import style from "../LeftNavBar.module.css";
+import PropTypes from "prop-types";
 
-export function NavBarItem({ icon, title, link }) {
+
+export default function NavBarItem({ icon, title, link }) {
   const location = useLocation();
   const isActive = location.pathname === link;
 
@@ -18,4 +20,8 @@ export function NavBarItem({ icon, title, link }) {
   );
 }
 
-export default NavBarItem;
+NavBarItem.propTypes ={
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  link: PropTypes.string
+}
