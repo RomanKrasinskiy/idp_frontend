@@ -6,7 +6,7 @@ import CreateTask from "../CreateTask/CreateTask";
 // import { Header } from '../Header/Header';
 import LeftNavBar from "../LeftNavBar/LeftNavBar";
 import NotFound from "../NotFound/NotFound";
-
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 function App() {
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask"].includes(location.pathname);
@@ -25,6 +25,7 @@ function App() {
           {/* <Route exact path="/" element={<EditTask />} />  */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ScrollToTop threshold={1500} showBelow={true}/>
       </div>
     </section>
   );

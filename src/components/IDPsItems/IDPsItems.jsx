@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./IDPsItems.module.css";
 
+
 // import { Table } from "@alfalab/core-components-table";
 // import { Gap } from "@alfalab/core-components-gap";
 // import { PickerButton } from '@alfalab/core-components-picker-button';
@@ -52,6 +53,190 @@ export default function IDPsTable() {
       title: "абв",
       sum: "",
     },
+    {
+      id: 7,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 8,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 9,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 10,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 11,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 12,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 13,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 14,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 15,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 16,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+
+    {
+      id: 17,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 18,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 19,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 20,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 21,
+      date: "30.06.2022",
+      title:
+        "бвгffffffffffffffffffffffffffffffffffffffffffffапрррррррррррррррррррррррррррff",
+      sum: 42130000,
+    },
+    {
+      id: 22,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 23,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 24,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 25,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 26,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 27,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 28,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 29,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 30,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 31,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 32,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+
+    {
+      id: 33,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 34,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 35,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+    {
+      id: 36,
+      date: "30.06.2022",
+      title: "абв",
+      sum: "",
+    },
+
   ];
 
   const [sortKey, setSortKey] = React.useState(undefined);
