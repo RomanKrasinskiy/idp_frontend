@@ -7,6 +7,7 @@ import CreateTask from "../CreateTask/CreateTask";
 import LeftNavBar from "../LeftNavBar/LeftNavBar";
 import NotFound from "../NotFound/NotFound";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import Mentor from "../Mentor/Mentor";
 function App() {
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
@@ -33,7 +34,7 @@ function App() {
           {/* <Route exact path="/" element={<EditTask />} />  */}
           <Route
             path="/mentor"
-            element={<IDPs petals={false} title="Задачи ментора" newIdpButton={false} tabs={false}/>}
+            element={<Mentor />}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
