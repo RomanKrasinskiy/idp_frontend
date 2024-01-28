@@ -16,9 +16,7 @@ import { FilterTag } from "@alfalab/core-components-filter-tag";
       ],
       []
     );
-  
-    // const [selected, setSelected] = React.useState([options[0]]);
-  
+    
     const [selectedMultiple, setSelectedMultiple] = useState([]);
     const handleChangeMultiple = ({ selectedMultiple }) => {
         setSelectedMultiple(selectedMultiple.map((option) => option.key));

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import style from "./IDPs.module.css";
 import PetalsList from "../PetalsList/PetalsList";
 import PropTypes from "prop-types";
@@ -10,7 +10,9 @@ import { Space } from "@alfalab/core-components-space";
 // import { CalendarRange } from "@alfalab/core-components-calendar-range";
 // import { Calendar } from "@alfalab/core-components-calendar";
 // import CustomSearch from "../CustomSearch/CustomSearch";
-import IDPsItems from "../IDPsItems/IDPsItems";
+// import IDPsItems from "../IDPsItems/IDPsItems";
+import NewIDPsItems from "../IDPsItems/NewIDPsItems";
+
 import { Link } from "react-router-dom";
 import CalendarSearch from "../CalendarSearch/CalendarSearch";
 
@@ -19,17 +21,19 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
     { title: "Личные", id: "tab-1" },
     { title: "Сотрудников", id: "tab-2" },
   ];
-  const [selectedId, setSelectedId] = React.useState(TABS[0].id);
+  const [selectedId, setSelectedId] = useState(TABS[0].id);
+  const [isPersonalPage, setIsPersonalPage] = useState(true);
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
+    selectedId === 'tab-1' ? setIsPersonalPage(true) : setIsPersonalPage(false);
   };
 
   return (
     <section className={style.container}>
       <h1 className={style.title}>{title}</h1>
       {tabs ? (
-        /* Переключатель Личные планы или Сотрудников*/
+        /* Переключатель Личные планы или Сотрудников */
         <Tabs size="xs" selectedId={selectedId} onChange={handleChange}>
           {TABS.map((item) => (
             <Tab title={item.title} id={item.id} key={item.id} />
@@ -52,7 +56,9 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
       </Space>
       {petals ? <PetalsList /> : ""}
         <CalendarSearch />
-      <IDPsItems />
+      {/* <IDPsItems isPersonalPage={isPersonalPage} /> */}
+      <NewIDPsItems isPersonalPage={isPersonalPage} />
+
     </section>
   );
 }

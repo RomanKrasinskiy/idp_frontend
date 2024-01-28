@@ -89,6 +89,8 @@ export default function IDPsTable({ isPersonalPage }) {
     };
   }, [data]);
 
+    let isDeadlineClose = true;
+
   return (
     <>
       {data.length === 0 ? (
@@ -97,8 +99,12 @@ export default function IDPsTable({ isPersonalPage }) {
         <div className={style.buttonContainer}>
           <div className={style.buttonsSortFilter}>
             {isPersonalPage ? null : ( // На личной странице не отображаем первый Skeleton
-              <ButtonSort BTitle={"Сотрудник"} BSortKey={"date"} style={{display: 'block'}}/>
-              )}
+              <ButtonSort
+                BTitle={"Сотрудник"}
+                BSortKey={"date"}
+                style={{ display: "block" }}
+              />
+            )}
             <ButtonSort BTitle={"План развития"} BSortKey={"date"} />
             <ButtonSort BTitle={"Срок завершения"} BSortKey={"date"} />
             <div style={{ display: "inline-block" }}>
@@ -161,12 +167,17 @@ export default function IDPsTable({ isPersonalPage }) {
               className={style.tableElement}
               style={{ width: isPersonalPage ? "247px" : "163px" }}
             >
-              <div
-                className={style.textContainer}
-                style={{ textAlign: "center", width: "100%" }}
-              >
-                {/* <img className={style.statusIco} />
-                {item.title} */}
+              <div className={style.statusContainer}>
+                {isDeadlineClose 
+                ? (<div className={style.status} />) 
+                : null}
+              
+                <div
+                  className={style.textContainer}
+                  style={{ textAlign: "center", width: "100%" }}
+                >
+                  {item.title}
+                </div>
               </div>
             </li>
           </Skeleton>
