@@ -6,16 +6,16 @@ export default function PetalsList() {
     <section className={style.container}>
       <div className={style.list}>
         <Skeleton visible={false}>
-          <Petals name={"Всего"} count={1} />
+          <Petals name={"Всего"} count={0} />
         </Skeleton>
         <Skeleton visible={false}>
-          <Petals name={"В работе"} count={2} />
+          <Petals name={"В работе"} count={0} />
         </Skeleton>
         <Skeleton visible={false}>
-          <Petals name={"Выполнено"} count={3} />
+          <Petals name={"Выполнено"} count={0} />
         </Skeleton>
         <Skeleton visible={false}>
-          <Petals name={"Просрочено"} count={4} />
+          <Petals name={"Просрочено"} count={0} />
         </Skeleton>
       </div>
     </section>

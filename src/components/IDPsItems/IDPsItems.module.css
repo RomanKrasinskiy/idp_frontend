@@ -8,6 +8,9 @@
     justify-content: space-between;
     list-style: initial;
     padding: initial;
+
+    transition: width 0.3s ease;
+
     
 }
 .tableElement {
@@ -16,6 +19,8 @@
     align-items: center;
     justify-content: flex-start;
     height: 52px;
+
+    transition: width 0.3s ease;
     
 }
 
@@ -46,6 +51,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
+    
   }
   .btnExport {
     background-image: url('../../images/share-export.svg');
@@ -56,11 +62,30 @@
     cursor: pointer;
     
   }
-  .buttonConteiner {
+  .buttonContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    transition: opacity 3s ease;
+
   }
   .filterStatus {
     margin-left: 16px;
+  }
+  .statusContainer {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: "Segoe UI";
+    
+  }
+  .statusIco {
+    background-image: url('../../images/fire-ico.svg');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+
   }
