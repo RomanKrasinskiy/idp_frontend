@@ -3,13 +3,13 @@ import { Button } from "@alfalab/core-components-button";
 
 
 export default function ButtonSort({ BTitle, BSortKey }) {
-  const [sortKey, setSortKey] = useState(undefined);
+  // const [sortKey, setSortKey] = useState(undefined);
   const [isSortedDesc, setIsSortedDesc] = useState(undefined);
 
   const defaultIsSortedDesc = false;
 
   const handleSort = (key) => {
-    setSortKey(key);
+    // setSortKey(key);
 
     if (isSortedDesc !== undefined) {
       setIsSortedDesc(!isSortedDesc ? undefined : defaultIsSortedDesc);
