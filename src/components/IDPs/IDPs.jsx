@@ -20,7 +20,7 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
-    selectedId === 'tab-1' ? setIsPersonalPage(false) : setIsPersonalPage(true);
+    selectedId === "tab-1" ? setIsPersonalPage(false) : setIsPersonalPage(true);
   };
 
   return (
@@ -49,9 +49,10 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
         )}
       </Space>
       {petals ? <PetalsList /> : ""}
-        <CalendarSearch />
-      <IDPsTableItems isPersonalPage={isPersonalPage} />
-
+      <CalendarSearch />
+      
+        <IDPsTableItems isPersonalPage={isPersonalPage} />
+      
     </section>
   );
 }

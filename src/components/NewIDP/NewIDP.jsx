@@ -20,6 +20,7 @@ export default function NewIDP({ title }) {
   }
 
   return (
+    
     <>
       <Popup
         title="Сотрудник"

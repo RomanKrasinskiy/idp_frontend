@@ -1,17 +1,14 @@
 .btnExport {
-    background-image: url('../../images/share-export.svg');
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    
-  }
-  .buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    transition: opacity 3s ease-in-out;
-
-  }
+  background-image: url("../../images/share-export.svg");
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 3s ease-in-out;
+}
