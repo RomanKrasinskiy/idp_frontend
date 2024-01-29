@@ -1,6 +1,6 @@
 
-export const Input = () => {
+export default function NotificationBell() {
   return (
-    <div>Input</div>
+    <div>NotificationBell</div>
   )
 }
