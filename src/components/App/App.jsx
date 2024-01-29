@@ -7,6 +7,7 @@ import CreateTask from "../CreateTask/CreateTask";
 import LeftNavBar from "../LeftNavBar/LeftNavBar";
 import NotFound from "../NotFound/NotFound";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+
 function App() {
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(

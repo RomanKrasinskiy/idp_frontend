@@ -81,11 +81,4 @@
     font-family: "Segoe UI";
     
   }
-  .statusIco {
-    background-image: url('../../images/fire-ico.svg');
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-
-  }
+  

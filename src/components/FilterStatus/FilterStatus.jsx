@@ -6,16 +6,13 @@ import { FilterTag } from "@alfalab/core-components-filter-tag";
 
 
   export default function FilterStatus() {
-    const options = useMemo(
-      () => [
+    const options =  [
         { key: '1', content: "В работе" },
         { key: '2', content: "Черновик" },
         { key: '3', content: "Выполнен" },
         { key: '4', content: "Просрочен" },
         { key: '5', content: "Отменён" },
-      ],
-      []
-    );
+      ];
     
     const [selectedMultiple, setSelectedMultiple] = useState([]);
     const handleChangeMultiple = ({ selectedMultiple }) => {

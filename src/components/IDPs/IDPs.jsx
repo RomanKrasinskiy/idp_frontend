@@ -2,16 +2,10 @@ import { useState } from "react";
 import style from "./IDPs.module.css";
 import PetalsList from "../PetalsList/PetalsList";
 import PropTypes from "prop-types";
-
 import { Tabs, Tab } from "@alfalab/core-components-tabs";
 import { Button } from "@alfalab/core-components-button";
 import { Space } from "@alfalab/core-components-space";
-// import { UniversalDateInput } from "@alfalab/core-components-universal-date-input";
-// import { CalendarRange } from "@alfalab/core-components-calendar-range";
-// import { Calendar } from "@alfalab/core-components-calendar";
-// import CustomSearch from "../CustomSearch/CustomSearch";
-// import IDPsItems from "../IDPsItems/IDPsItems";
-import NewIDPsItems from "../IDPsItems/NewIDPsItems";
+import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 
 import { Link } from "react-router-dom";
 import CalendarSearch from "../CalendarSearch/CalendarSearch";
@@ -21,12 +15,12 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
     { title: "Личные", id: "tab-1" },
     { title: "Сотрудников", id: "tab-2" },
   ];
-  const [selectedId, setSelectedId] = useState(TABS[0].id);
+  const [selectedId, setSelectedId] = useState(TABS[1].id);
   const [isPersonalPage, setIsPersonalPage] = useState(true);
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
-    selectedId === 'tab-1' ? setIsPersonalPage(true) : setIsPersonalPage(false);
+    selectedId === 'tab-1' ? setIsPersonalPage(false) : setIsPersonalPage(true);
   };
 
   return (
@@ -56,8 +50,7 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
       </Space>
       {petals ? <PetalsList /> : ""}
         <CalendarSearch />
-      {/* <IDPsItems isPersonalPage={isPersonalPage} /> */}
-      <NewIDPsItems isPersonalPage={isPersonalPage} />
+      <IDPsTableItems isPersonalPage={isPersonalPage} />
 
     </section>
   );
