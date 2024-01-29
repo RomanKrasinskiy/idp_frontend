@@ -8,6 +8,7 @@ import LeftNavBar from "../LeftNavBar/LeftNavBar";
 import NotFound from "../NotFound/NotFound";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Mentor from "../Mentor/Mentor";
+import IDP from "../IDP/IDP";
 function App() {
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
@@ -23,19 +24,23 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<IDPs petals={true} title="Планы развития" newIdpButton={true} tabs={true} />}
+            element={
+              <IDPs
+                petals={true}
+                title="Планы развития"
+                newIdpButton={true}
+                tabs={true}
+              />
+            }
           />
-          {/* <Route exact path="/" element={<IDP />} /> */}
+          <Route path="/idp/:idpId" element={<IDP />} />
           <Route path="/idp" element={<NewIDP title="Новый план развития" />} />
           <Route
             path="/newTask"
             element={<CreateTask title="Новая задача" buttonText="Создать" />}
           />
           {/* <Route exact path="/" element={<EditTask />} />  */}
-          <Route
-            path="/mentor"
-            element={<Mentor />}
-          />
+          <Route path="/mentor" element={<Mentor />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ScrollToTop threshold={1500} showBelow={true} />

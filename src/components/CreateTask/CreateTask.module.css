@@ -27,14 +27,13 @@
     gap: 12px;
     margin: 0;
     padding: 0;
-    margin-bottom: 14px;
     flex-wrap: wrap;
 }
 
 .mentor__container {
     margin: 0;
     padding: 0;
-    margin-bottom: 20px;    
+    margin-bottom: 17px;    
 }
 
 .text__container {
@@ -67,7 +66,7 @@
 .subtitle {
     font-size: var(--fz-subtitle);
     color: var(--color-text);
-    font-weight: var(--fw-normal);
+    font-weight: var(--fw-bold);
     font-family: var(--ff);
     line-height: 12px;
     margin: 0;

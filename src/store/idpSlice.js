@@ -25,10 +25,23 @@ export const fetchPostIdps = createAsyncThunk(
   }
 );
 
+export const fetchGetIdpId = createAsyncThunk(
+  "idps/fetchGetIdpId",
+  async (idpId, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      const data = await api.getIdpId(idpId);
+      return fulfillWithValue(data);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 export const idpSlice = createSlice({
   name: "idps",
   initialState: {
     idps: [],
+    idp: {},
     userId: "",
     idpId: "",
     name: "",
@@ -77,6 +90,19 @@ export const idpSlice = createSlice({
         state.idps.push(action.payload);
       })
       .addCase(fetchPostIdps.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = false;
+      });
+      builder
+      .addCase(fetchGetIdpId.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchGetIdpId.fulfilled, (state, action) => {
+        state.loading = false;
+        state.idp = action.payload;
+      })
+      .addCase(fetchGetIdpId.rejected, (state, action) => {
         state.error = action.payload;
         state.loading = false;
       });

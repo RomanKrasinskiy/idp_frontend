@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+  max-width: 912px;
+  margin-top: 61px;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-family: var(--ff);
+  font-size: var(--fz-title);
+  font-weight: var(--fw-bold);
+  line-height: 48px;
+}
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  color: #75757e;
+  font-size: 12px;
+  font-weight: var(--fw-normal);
+  font-family: var(--ff);
+  line-height: 16px;
+}
+
+.infoDate {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.planName {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: var(--fw-normal);
+  font-family: var(--ff);
+  line-height: 22px;
+  color: #bbbbc3;
+}
+
+.input {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: var(--fw-normal);
+  font-family: var(--ff);
+  line-height: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.post {
+  color:#989AA4;
+  font-size: 12px;
+  font-weight: var(--fw-normal);
+  font-family: var(--ff);
+  line-height: 18px;
+  padding: 0;
+  margin: 0;
+}

@@ -72,6 +72,15 @@ export class Api {
 		}).then(this.#onResponse);
 	}
 
+	getIdpId(idp_id) {
+		return fetch(`${this.#baseurl}
+		/api/v1/idp/${idp_id}/`, {
+			headers: {
+				...this.#headers,
+			},
+		}).then(this.#onResponse);
+	}
+
 }
 
 const api = new Api({

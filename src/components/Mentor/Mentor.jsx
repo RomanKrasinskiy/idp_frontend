@@ -1,6 +1,6 @@
 import style from "./Mentor.module.css";
 import { Space } from "@alfalab/core-components-space";
-import NewIDPsItems from "../IDPsItems/NewIDPsItems";
+import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 
 import CalendarSearch from "../CalendarSearch/CalendarSearch";
 
@@ -12,7 +12,7 @@ export default function Mentor() {
       <Space direction="horizontal" align="center"></Space>
       <CalendarSearch />
       {/* <IDPsItems isPersonalPage={isPersonalPage} /> */}
-      <NewIDPsItems isPersonalPage={isPersonalPage} />
+      <IDPsTableItems isPersonalPage={isPersonalPage} />
     </section>
   );
 }
