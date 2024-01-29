@@ -9,7 +9,7 @@
     list-style: initial;
     padding: initial;
 
-    transition: width 0.3s ease;
+    transition: width 0.3s ease-in-out;
 
     
 }
@@ -21,7 +21,7 @@
     height: 52px;
 
     /* Добавляет плавности при переключении, но вёрстка прыгает */
-    transition: width 1s ease; 
+    transition: width 1s ease-in-out; 
     
 }
 
