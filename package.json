@@ -29,7 +29,7 @@
     "@alfalab/core-components-tabs": "^8.5.2",
     "@alfalab/core-components-textarea": "^8.4.8",
     "@alfalab/core-components-universal-date-input": "^1.4.2",
-    "@alfalab/icons-glyph": "^2.147.0",
+    "@alfalab/icons-glyph": "^2.148.0",
     "@reduxjs/toolkit": "^2.0.1",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",

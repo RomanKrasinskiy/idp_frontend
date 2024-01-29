@@ -1,27 +1,40 @@
 import { Link, useLocation } from "react-router-dom";
-import style from "../LeftNavBar.module.css";
 import PropTypes from "prop-types";
+import { Button } from "@alfalab/core-components-button";
 
-
-export default function NavBarItem({ icon, title, link }) {
+export default function NavBarItem({ title, link, icon }) {
   const location = useLocation();
   const isActive = location.pathname === link;
 
   return (
     <Link
       to={link}
-      className={`${style.button} ${
-        isActive ? `${style.button_active}` : `${style.button}`
-      }`}
+      style={{width: '100%', textDecoration: 'none'}}
     >
-      <img src={icon} alt="" />
-      {title}
+      <Button 
+        leftAddons={icon} 
+        view={isActive ? 'secondary' : 'link'}
+        block={true}
+        nowrap={true}
+        breakpoint={500}
+        size="xs"
+        style={{
+          justifyContent: 'flex-start',
+          // backgroundColor: '#F2F3F5'
+          // fontFamily: "Segoe UI",
+          // fontSize: "12px",
+          fontWeight: "400",
+
+        }}
+      >
+        {title}
+      </Button>
     </Link>
   );
 }
 
-NavBarItem.propTypes ={
-  icon: PropTypes.string,
+NavBarItem.propTypes = {
   title: PropTypes.string,
-  link: PropTypes.string
-}
+  link: PropTypes.string,
+  icon: PropTypes.elementType.isRequired,
+};

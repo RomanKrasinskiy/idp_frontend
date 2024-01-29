@@ -9,7 +9,7 @@ import { Button } from "@alfalab/core-components-button";
 import PropTypes from "prop-types";
 import PetalsList from "../PetalsList/PetalsList";
 import { ProgressBar } from "@alfalab/core-components-progress-bar";
-import IDPsItems from "../IDPsItems/IDPsItems";
+import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 import { Link } from "react-router-dom";
 
 export default function NewIDP({ title }) {
@@ -63,7 +63,7 @@ export default function NewIDP({ title }) {
         </div>
         <PetalsList />
         <div className={style.task__items}>
-          <IDPsItems />
+          <IDPsTableItems />
         </div>
       </section>
     </>

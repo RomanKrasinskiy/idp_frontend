@@ -4,15 +4,16 @@
 
 .scrollToTopButton {
   position: fixed;
-  bottom: 229px;
+  bottom: 78px;
   right: 24px;
   cursor: pointer;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 1s ease;
 }
 
 .scrollToTopButton.active {
   display: block;
+  transition: all 1s ease;
 }
 
 /* Настройте размер и другие стили вашей иконки */
@@ -20,9 +21,13 @@
   width: 40px; /* Задайте размер иконки */
   height: 40px;
   fill: #007bff; /* Цвет иконки */
+  transition: all 1s ease;
+
 }
 
 /* При наведении измените цвет иконки */
 .scrollToTopButton img:hover {
   fill: #0056b3;
+  transition: all 1s ease;
+
 }
