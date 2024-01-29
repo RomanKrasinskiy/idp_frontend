@@ -20,7 +20,8 @@
     justify-content: flex-start;
     height: 52px;
 
-    transition: width 0.3s ease;
+    /* Добавляет плавности при переключении, но вёрстка прыгает */
+    transition: width 1s ease; 
     
 }
 
@@ -67,7 +68,6 @@
     justify-content: space-between;
     align-items: center;
 
-    transition: opacity 3s ease;
 
   }
   .filterStatus {
