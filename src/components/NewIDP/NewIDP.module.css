@@ -1,5 +1,6 @@
 .container {
     max-width: 912px;
+    width: 100%;
     padding-top: 48px;
     display: flex;
     flex-direction: column;
@@ -12,6 +13,11 @@
     font-family: var(--ff);
     font-weight: var(--fw-bold);
     line-height: 48px;
+}
+
+.skeleton {
+    width: 100%;
+    max-width: 912px;
 }
 
 .subtitle{

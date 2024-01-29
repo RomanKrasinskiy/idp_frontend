@@ -26,7 +26,6 @@ function App() {
             path="/"
             element={
               <IDPs
-                petals={true}
                 title="Планы развития"
                 newIdpButton={true}
                 tabs={true}

@@ -3,7 +3,7 @@ import { Input } from "@alfalab/core-components-input";
 import CommentInput from "../CreateTask/CommentInput/CommentInput";
 import EditWorker from "../CreateTask/EditWorker/EditWorker";
 import Popup from "../Popup/Popup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openPopup } from "../../store/popupSlice";
 import { Button } from "@alfalab/core-components-button";
 import PropTypes from "prop-types";
@@ -11,7 +11,9 @@ import PetalsList from "../PetalsList/PetalsList";
 import { ProgressBar } from "@alfalab/core-components-progress-bar";
 import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 import { Link } from "react-router-dom";
-
+import { fetchGetIdps, idpsCurrent } from "../../store/idpSlice";
+import { useEffect } from "react";
+import { Skeleton } from "@alfalab/core-components-skeleton";
 export default function NewIDP({ title }) {
   const dispatch = useDispatch();
 
@@ -19,8 +21,34 @@ export default function NewIDP({ title }) {
     dispatch(openPopup());
   }
 
+  useEffect(() => {
+    dispatch(fetchGetIdps());
+  }, [dispatch]);
+
+  const { idps, loading } = useSelector(idpsCurrent);
+
+  let activeCount = 0;
+  let overdueCount = 0;
+  let completedCount = 0;
+
+  idps.map((obj) => {
+    switch (obj.status) {
+      case "active":
+        activeCount++;
+        break;
+      case "overdue":
+        overdueCount++;
+        break;
+      case "completed_approval":
+        completedCount++;
+        break;
+      default:
+        break;
+    }
+    return null;
+  });
+
   return (
-    
     <>
       <Popup
         title="Сотрудник"
@@ -62,9 +90,18 @@ export default function NewIDP({ title }) {
             </Button>
           </Link>
         </div>
-        <PetalsList />
+        <Skeleton visible={loading} className={style.skeleton}>
+          <PetalsList
+            total={idps.length}
+            active={activeCount}
+            completed={completedCount}
+            overdue={overdueCount}
+          />
+        </Skeleton>
         <div className={style.task__items}>
-          <IDPsTableItems />
+          <Skeleton visible={loading}>
+            <IDPsTableItems idps={idps} />
+          </Skeleton>
         </div>
       </section>
     </>

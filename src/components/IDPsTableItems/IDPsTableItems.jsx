@@ -1,20 +1,14 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import style from "./IDPsTableItems.module.css";
-import { fetchGetIdps, idpsCurrent } from "../../store/idpSlice";
+import { idpsCurrent } from "../../store/idpSlice";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import StatusTable from "../StatusTable/StatusTable";
 import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function IDPsTableItems({ isPersonalPage }) {
-  const dispatch = useDispatch();
-  const { idps, loading } = useSelector(idpsCurrent);
-
-  useEffect(() => {
-    dispatch(fetchGetIdps());
-  }, [dispatch]);
+export default function IDPsTableItems({ isPersonalPage, idps }) {
+  const { loading } = useSelector(idpsCurrent);
   return (
     <>
       <IDPsButtonsContainer dataItem={idps} isPersonalPage={isPersonalPage} />
@@ -85,4 +79,5 @@ export default function IDPsTableItems({ isPersonalPage }) {
 }
 IDPsTableItems.propTypes = {
   isPersonalPage: PropTypes.bool,
+  idps: PropTypes.array
 };
