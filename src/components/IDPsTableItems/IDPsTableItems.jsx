@@ -1,19 +1,18 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
-import style from "./IDPsItems.module.css";
+import style from "./IDPsTableItems.module.css";
 
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import { useInView } from "react-intersection-observer";
-import FilterStatus from "../FilterStatus/FilterStatus";
-import ButtonSort from "../Buttons/ButtonSort/ButtonSort";
-import NoData from "../NoData/NoData";
+import StatusTable from "../StatusTable/StatusTable";
+import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
+import PropTypes from "prop-types";
 
-export default function IDPsTable({ isPersonalPage }) {
+export default function IDPsTableItems({ isPersonalPage }) {
   let selectedUserId = null;
   const nextPage = useRef(1);
   const [data, setData] = useState([]);
   const [skeleton, setSkeleton] = useState(true);
-  // const [isLoading, setIsLoading] = useState(false); // Новое состояние
+
   const { ref, inView } = useInView({
     threshold: 1,
     triggerOnce: true,
@@ -25,7 +24,7 @@ export default function IDPsTable({ isPersonalPage }) {
         userId ? `&userId=${userId}` : ""
       }`
     )
-      // fetch('https://51.250.70.185:8000/api/v1/idp', {
+      // fetch('https://localhost:8000/api/v1/idp', {
       //   method: 'GET', // или другой HTTP метод
       //   mode: 'cors', // важно установить режим CORS
       //   headers: {
@@ -44,7 +43,7 @@ export default function IDPsTable({ isPersonalPage }) {
         if (newData.length === 0) {
           return;
         }
-        setData(newData); // Заменяем текущие данные новыми данными
+        setData([...data, ...newData]); // Заменяем текущие данные новыми данными
         setSkeleton(false);
         nextPage.current += 1;
       })
@@ -63,7 +62,7 @@ export default function IDPsTable({ isPersonalPage }) {
     if (inView) {
       loadIDPsItems(nextPage.current, selectedUserId);
     }
-  }, [inView, selectedUserId]); // Добавлено состояние isLoading в зависимости
+  }, [inView, selectedUserId]);
 
   useEffect(() => {
     const lastElement = document.querySelector(
@@ -75,13 +74,11 @@ export default function IDPsTable({ isPersonalPage }) {
           loadIDPsItems(nextPage.current);
         }
       },
-      { threshold: 0 }
+      { threshold: 0.5 }
     );
-
     if (lastElement) {
       observer.observe(lastElement);
     }
-
     return () => {
       if (lastElement) {
         observer.unobserve(lastElement);
@@ -91,28 +88,12 @@ export default function IDPsTable({ isPersonalPage }) {
 
   return (
     <>
-      {data.length === 0 ? (
-        <NoData />
-      ) : (
-        <div className={style.buttonContainer}>
-          <div className={style.buttonsSortFilter}>
-            {isPersonalPage ? null : ( // На личной странице не отображаем первый Skeleton
-              <ButtonSort BTitle={"Сотрудник"} BSortKey={"date"} style={{display: 'block'}}/>
-              )}
-            <ButtonSort BTitle={"План развития"} BSortKey={"date"} />
-            <ButtonSort BTitle={"Срок завершения"} BSortKey={"date"} />
-            <div style={{ display: "inline-block" }}>
-              <FilterStatus />
-            </div>
-          </div>
-          <button className={style.btnExport} />
-        </div>
-      )}
+      <IDPsButtonsContainer dataItem={data} isPersonalPage={isPersonalPage} />
 
       {data.map((item) => (
         <ul className={style.columnTable} key={item.id} ref={ref}>
           {/* ФИО(ФИ) юзера */}
-          {isPersonalPage ? null : ( // На личной странице не отображаем первый Skeleton
+          {isPersonalPage ? (
             <Skeleton visible={skeleton}>
               <li className={style.tableElement} style={{ width: "326px" }}>
                 <div
@@ -123,13 +104,13 @@ export default function IDPsTable({ isPersonalPage }) {
                 </div>
               </li>
             </Skeleton>
-          )}
+          ) : null}
 
           {/* Название плана */}
           <Skeleton visible={skeleton}>
             <li
               className={style.tableElement}
-              style={{ width: isPersonalPage ? "425px" : "271px" }}
+              style={{ width: isPersonalPage ? "271px" : "425px" }}
             >
               <div
                 className={style.textContainer}
@@ -144,7 +125,7 @@ export default function IDPsTable({ isPersonalPage }) {
           <Skeleton visible={skeleton}>
             <li
               className={style.tableElement}
-              style={{ width: isPersonalPage ? "240px" : "151px" }}
+              style={{ width: isPersonalPage ? "151px" : "240px" }}
             >
               <div
                 className={style.textContainer}
@@ -159,15 +140,9 @@ export default function IDPsTable({ isPersonalPage }) {
           <Skeleton visible={skeleton}>
             <li
               className={style.tableElement}
-              style={{ width: isPersonalPage ? "247px" : "163px" }}
+              style={{ width: isPersonalPage ? "163px" : "247px" }}
             >
-              <div
-                className={style.textContainer}
-                style={{ textAlign: "center", width: "100%" }}
-              >
-                {/* <img className={style.statusIco} />
-                {item.title} */}
-              </div>
+              <StatusTable title={item.title} />
             </li>
           </Skeleton>
         </ul>
@@ -175,3 +150,6 @@ export default function IDPsTable({ isPersonalPage }) {
     </>
   );
 }
+IDPsTableItems.propTypes = {
+  isPersonalPage: PropTypes.bool,
+};

@@ -9,7 +9,7 @@
     list-style: initial;
     padding: initial;
 
-    transition: width 0.3s ease;
+    transition: width 0.3s ease-in-out;
 
     
 }
@@ -20,7 +20,8 @@
     justify-content: flex-start;
     height: 52px;
 
-    transition: width 0.3s ease;
+    /* Добавляет плавности при переключении, но вёрстка прыгает */
+    transition: width 1s ease-in-out; 
     
 }
 
@@ -67,7 +68,6 @@
     justify-content: space-between;
     align-items: center;
 
-    transition: opacity 3s ease;
 
   }
   .filterStatus {
@@ -81,11 +81,4 @@
     font-family: "Segoe UI";
     
   }
-  .statusIco {
-    background-image: url('../../images/fire-ico.svg');
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-
-  }
+  
