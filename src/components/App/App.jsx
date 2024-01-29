@@ -25,11 +25,7 @@ function App() {
           <Route
             path="/"
             element={
-              <IDPs
-                title="Планы развития"
-                newIdpButton={true}
-                tabs={true}
-              />
+              <IDPs title="Планы развития" newIdpButton={true} tabs={true} />
             }
           />
           <Route path="/idp/:idpId" element={<IDP />} />

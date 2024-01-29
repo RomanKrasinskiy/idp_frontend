@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import { fetchGetIdps, idpsCurrent } from "../../store/idpSlice";
 import { useEffect } from "react";
 import { Skeleton } from "@alfalab/core-components-skeleton";
+import { getCounts } from "../../utils/getCounts";
+
 export default function NewIDP({ title }) {
   const dispatch = useDispatch();
 
@@ -27,26 +29,7 @@ export default function NewIDP({ title }) {
 
   const { idps, loading } = useSelector(idpsCurrent);
 
-  let activeCount = 0;
-  let overdueCount = 0;
-  let completedCount = 0;
-
-  idps.map((obj) => {
-    switch (obj.status) {
-      case "active":
-        activeCount++;
-        break;
-      case "overdue":
-        overdueCount++;
-        break;
-      case "completed_approval":
-        completedCount++;
-        break;
-      default:
-        break;
-    }
-    return null;
-  });
+  const { activeCount, overdueCount, completedCount } = getCounts(idps);
 
   return (
     <>

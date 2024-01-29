@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import CalendarSearch from "../CalendarSearch/CalendarSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { Skeleton } from "@alfalab/core-components-skeleton";
+import { getCounts } from "../../utils/getCounts";
 
 export default function IDPs({ title, newIdpButton, tabs }) {
   const dispatch = useDispatch();
@@ -33,26 +34,7 @@ export default function IDPs({ title, newIdpButton, tabs }) {
     selectedId === "tab-1" ? setIsPersonalPage(false) : setIsPersonalPage(true);
   };
 
-  let activeCount = 0;
-  let overdueCount = 0;
-  let completedCount = 0;
-
-  idps.map((obj) => {
-    switch (obj.status) {
-      case "active":
-        activeCount++;
-        break;
-      case "overdue":
-        overdueCount++;
-        break;
-      case "completed_approval":
-        completedCount++;
-        break;
-      default:
-        break;
-    }
-    return null;
-  });
+  const { activeCount, overdueCount, completedCount } = getCounts(idps);
 
   return (
     <section>
