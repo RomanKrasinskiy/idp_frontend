@@ -1,7 +1,7 @@
 import style from "./StatusTable.module.css";
 
 // eslint-disable-next-line react/prop-types
-export default function StatusTable({ title }) {
+export default function StatusTable({ title, isPersonalPage }) {
     // const title = 'В работе';
     // const title = 'Черновик';
     // const title = 'Выполнен';
@@ -10,6 +10,7 @@ export default function StatusTable({ title }) {
 
   const isDeadlineClose = true;
   const isClock = false;
+  
   const getColorByTitle = (title) => {
     switch (title) {
       case 'В работе':
@@ -28,7 +29,9 @@ export default function StatusTable({ title }) {
   };
   const color = getColorByTitle(title);
   return (
-    <div className={style.statusContainer}>
+    <div className={style.statusContainer} style={{
+      paddingLeft: isPersonalPage ? '45px' : "98px",
+    }}>
         <div className={style.icoContainer}>
         {isDeadlineClose ? (
         <div className={`${style.ico} ${style.fireIco}`} />

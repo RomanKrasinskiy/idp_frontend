@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@alfalab/core-components-action-button": "^1.5.0",
     "@alfalab/core-components-attach": "^6.3.1",
+    "@alfalab/core-components-badge": "^5.5.1",
     "@alfalab/core-components-button": "^11.1.1",
     "@alfalab/core-components-calendar": "^7.3.1",
     "@alfalab/core-components-filter-tag": "^5.1.0",
