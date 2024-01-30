@@ -28,7 +28,10 @@ export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
               <FilterStatus />
             </div>
           </div>
-          <button className={style.btnExport} />
+          <div className={style.btnExportContainer}>
+            <button className={style.btnExport} />
+          </div>
+          
         </div>
       )}
     </>

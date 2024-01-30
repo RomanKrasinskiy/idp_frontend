@@ -29,12 +29,12 @@ export default function IDPsTableItems({ isPersonalPage }) {
               <ul className={style.columnTable} key={item.idp_id}>
                 {/* ФИО(ФИ) юзера */}
                 {isPersonalPage ? (
-                  <li className={style.tableElement} style={{ width: "326px" }}>
+                  <li className={style.tableElement} style={{ width: "298px" }}>
                     <div
                       className={style.textContainer}
                       style={{ paddingLeft: "36px" }}
                     >
-                      Иван Иванов Иванович
+                      Иванов Иван Иванович
                     </div>
                   </li>
                 ) : null}
@@ -42,11 +42,11 @@ export default function IDPsTableItems({ isPersonalPage }) {
                 {/* Название плана */}
                 <li
                   className={style.tableElement}
-                  style={{ width: isPersonalPage ? "271px" : "425px" }}
+                  style={{ width: isPersonalPage ? "298px" : "425px" }}
                 >
                   <div
                     className={style.textContainer}
-                    style={{ paddingLeft: "84px" }}
+                    style={{ paddingLeft: "64px" }}
                   >
                     {item.name}
                   </div>
@@ -59,7 +59,10 @@ export default function IDPsTableItems({ isPersonalPage }) {
                 >
                   <div
                     className={style.textContainer}
-                    style={{ textAlign: "center", width: "100%" }}
+                    // style={{ textAlign: "center", width: "100%" }}
+                    style={{ paddingLeft: isPersonalPage ? '66px' : "126px" }}
+
+
                   >
                     {item.end_date_plan.slice(0, 10)}
                   </div>
@@ -68,9 +71,13 @@ export default function IDPsTableItems({ isPersonalPage }) {
                 {/* Статус выполнения */}
                 <li
                   className={style.tableElement}
-                  style={{ width: isPersonalPage ? "163px" : "247px" }}
+                  style={{ width: isPersonalPage ? "163px" : "247px",
+                    
+                
+               }}
                 >
                   <StatusTable
+                    isPersonalPage={isPersonalPage}
                     title={item.status == "active" ? "В работе" : "Выполнен"}
                   />{" "}
                   {/* Еще есть статус Просрочен */}
