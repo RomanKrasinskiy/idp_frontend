@@ -2,7 +2,7 @@ import style from './Header.module.css'
 import EditProfile from "./EditProfile/EditProfile";
 import HeaderLogo from "./HeaderLogo/HeaderLogo";
 import HeaderNavBar from "./HeaderNavBar/HeaderNavBar";
-import NotificationBell from "./NotificationBell/NotificationBell";
+import Notification from "./Notification/Notification";
 
 
 export default function Header() {
@@ -13,7 +13,7 @@ export default function Header() {
         <div className={style.mainHeaderContainer}>
           <HeaderNavBar />
           <div className={style.rightSideHeader}>
-            <NotificationBell />
+            <Notification />
             <EditProfile />
           </div>
         </div>
@@ -21,5 +21,6 @@ export default function Header() {
         
       </div>
     </header>
+    
   )
 }

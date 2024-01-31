@@ -9,6 +9,7 @@ import NotFound from "../NotFound/NotFound";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Mentor from "../Mentor/Mentor";
 import IDP from "../IDP/IDP";
+
 function App() {
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
