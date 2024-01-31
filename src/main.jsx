@@ -3,7 +3,8 @@ import App from "./components/App/App.jsx";
 import { Provider } from "react-redux";
 import {store} from './store/store.js'
 import { BrowserRouter } from "react-router-dom";
-import 'normalize.css'
+import './index.css';
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
