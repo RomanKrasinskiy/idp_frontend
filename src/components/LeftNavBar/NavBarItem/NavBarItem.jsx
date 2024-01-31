@@ -12,19 +12,16 @@ export default function NavBarItem({ title, link, icon }) {
       style={{width: '100%', textDecoration: 'none'}}
     >
       <Button 
-        leftAddons={icon} 
+        leftAddons={icon}
         view={isActive ? 'secondary' : 'link'}
         block={true}
         nowrap={true}
         breakpoint={500}
         size="xs"
+        
         style={{
           justifyContent: 'flex-start',
-          // backgroundColor: '#F2F3F5'
-          // fontFamily: "Segoe UI",
-          // fontSize: "12px",
           fontWeight: "400",
-
         }}
       >
         {title}
@@ -36,5 +33,5 @@ export default function NavBarItem({ title, link, icon }) {
 NavBarItem.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
-  icon: PropTypes.elementType.isRequired,
+  icon: PropTypes.element.isRequired,
 };

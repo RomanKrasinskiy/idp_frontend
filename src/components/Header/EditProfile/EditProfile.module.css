@@ -1,0 +1,12 @@
+.editContainer {
+    width: 40px;
+    height: 40px;
+
+}
+.avatar {
+    background-image: url('../../../images/avatarDel.jpg');
+    width: 40px;
+    height: 40px;
+    border-radius: 99px;
+    border: 0px;
+}
