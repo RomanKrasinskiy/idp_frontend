@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 
 export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
-    console.log(dataItem)
   return (
     <>
     {dataItem.length === 0 ? (
