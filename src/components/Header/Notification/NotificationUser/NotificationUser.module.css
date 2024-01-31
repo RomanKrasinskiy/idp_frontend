@@ -1,0 +1,53 @@
+.cardNotification {
+    border-bottom: 1px solid rgba(107, 122, 153, 0.1);
+    padding: 16px;
+  }
+  .user {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .photoURL {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+  .avatar {
+    background-image: url("../../../images/avatarDel.jpg");
+    background-repeat: no-repeat;
+    border-radius: 99px;
+    width: 40px;
+    height: 40px;
+  }
+  .notifyMessage {
+    color: #161545;
+    font-size: 0.8rem;
+  }
+  .textUserName {
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    margin: 0;
+  }
+  .textNotifi {
+    color: #75757e;
+    font-family: "Segoe UI";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 12px 0 0 0;
+    padding-left: 56px;
+  }
+  .notifiTime {
+    color: #75757e;
+    /* text-align: right; */
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 0;
+    display: inline;
+    text-align: center;
+    white-space: nowrap;
+  }

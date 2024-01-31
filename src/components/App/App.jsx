@@ -3,12 +3,13 @@ import IDPs from "../IDPs/IDPs";
 import NewIDP from "../NewIDP/NewIDP";
 import style from "./App.module.css";
 import CreateTask from "../CreateTask/CreateTask";
-// import { Header } from '../Header/Header';
+import Header from '../Header/Header';
 import LeftNavBar from "../LeftNavBar/LeftNavBar";
 import NotFound from "../NotFound/NotFound";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Mentor from "../Mentor/Mentor";
 import IDP from "../IDP/IDP";
+
 function App() {
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
@@ -16,9 +17,11 @@ function App() {
   );
 
   return (
-    <section className={style.App}>
-      {/* <Header /> */}
-      <div className={style.mainContainer}>
+    <section className={style.app}>
+      <div className={style.appContainer}>
+        <Header />
+        <div className={style.mainContainer}>
+        
         {/* Компоненты левого меню */}
         {showLeftNavBar && <LeftNavBar />}
         <Routes>
@@ -45,6 +48,8 @@ function App() {
         </Routes>
         <ScrollToTop threshold={1500} showBelow={true} />
       </div>
+      </div>
+      
     </section>
   );
 }
