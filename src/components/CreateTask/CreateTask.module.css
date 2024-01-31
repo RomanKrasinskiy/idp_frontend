@@ -28,23 +28,49 @@
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.button__container:last-of-type {
+    margin-bottom: 20px;
 }
 
 .mentor__container {
     margin: 0;
     padding: 0;
-    margin-bottom: 17px;    
+    margin-bottom: 17px;
+    margin-top: 6px;
 }
 
 .text__container {
     display: flex;
     gap: 9px;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 .edit__button {
     margin-left: 10px;
     cursor: pointer;
+}
+
+.edit__worker {
+    margin: 0;
+    padding: 0;
+    font-family: var(--ff);
+    font-size: 14px;
+    font-weight: var(--fw-normal);
+    line-height: 18px;
+}
+
+.edit__worker_position {
+    color: #989AA4;
+    margin: 0;
+    padding: 0;
+    font-family: var(--ff);
+    font-size: 12px;
+    font-weight: var(--fw-normal);
+    line-height: 16px;
 }
 
 .button_add {

@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import style from "./IDP.module.css";
-import { fetchGetIdpId, idpsCurrent } from "../../store/idpSlice";
-import { useEffect } from "react";
 import { openPopup } from "../../store/popupSlice";
 import TaskProgress from "../Progress/Progress";
 import LeftNavBar from "../LeftNavBar/LeftNavBar";
@@ -12,19 +10,13 @@ import EditWorker from "../CreateTask/EditWorker/EditWorker";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 
 export default function IDP() {
-  const { idpId } = useParams();
+
 
   const dispatch = useDispatch();
 
   function handleOpenPopup() {
     dispatch(openPopup());
   }
-
-  const { idp, loading } = useSelector(idpsCurrent);
-
-  useEffect(() => {
-    dispatch(fetchGetIdpId(idpId));
-  }, [dispatch, idpId]);
 
   // Деструктуризация с проверкой наличия end_date_plan
   const { end_date_plan, start_date, name } = idp || {};

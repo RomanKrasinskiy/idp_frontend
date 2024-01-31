@@ -4,7 +4,7 @@ import edit from "../../../images/Edit.svg";
 import PropTypes from "prop-types";
 
 
-export default function EditWorker({title, text, handleOpenEdit }) {
+export default function EditWorker({title, text, handleOpenEdit,nameWorker, positionWorker }) {
 
   return (
     <div className={style.mentor__container}>
@@ -24,6 +24,10 @@ export default function EditWorker({title, text, handleOpenEdit }) {
           alt="edit icon"
         />
       </div>
+      <div className={style.edit__worker_container}>
+      <p className={style.edit__worker}>{nameWorker}</p>
+      <p className={style.edit__worker_position}>{positionWorker}</p>
+      </div>
     </div>
   );
 }
@@ -31,5 +35,7 @@ export default function EditWorker({title, text, handleOpenEdit }) {
 EditWorker.propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,
-    handleOpenEdit: PropTypes.func
+    handleOpenEdit: PropTypes.func,
+    nameWorker: PropTypes.string,
+    positionWorker: PropTypes.string,
 }

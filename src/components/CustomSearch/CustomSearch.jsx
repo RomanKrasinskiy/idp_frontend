@@ -3,9 +3,10 @@ import { IconButton } from "@alfalab/core-components-icon-button";
 import { MagnifierMIcon } from '@alfalab/icons-glyph/MagnifierMIcon';
 import { Input } from "@alfalab/core-components-input";
 import { useState } from "react";
+import PropTypes from 'prop-types'
 
 
-export default function CustomSearch () {
+export default function CustomSearch ({placeholder, size}) {
     
     const [value, setValue] = useState('');
 
@@ -17,10 +18,10 @@ export default function CustomSearch () {
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
             <Input
                 breakpoint={500}
-                size='s'
+                size={size}
                 type="text"
                 value={value}
-                placeholder='Поиск'
+                placeholder={placeholder}
                 block={true}
                 onChange={handleInput}
                 leftAddons={
@@ -34,4 +35,9 @@ export default function CustomSearch () {
             />
         </div>
     );
+}
+
+CustomSearch.propTypes = {
+    placeholder: PropTypes.string,
+    size: PropTypes.string,
 }
