@@ -8,10 +8,23 @@ export const userApi = createApi({
     getUserInfo: build.query({
       query: () => ({
         url: "/users",
-        params: {},
-      }),
+      })
     }),
+    postUser: build.mutation({
+      query: (body) => ({
+        url: '/auth/jwt/create',
+        method: "POST",
+        body
+      })
+    }),
+    getToken: build.mutation({
+      query: (token) => ({
+        url: '/auth/jwt/verify',
+        method: 'POST',
+        body: token,
+      })
+    })
   }),
 });
 
-export const { useGetUserInfoQuery, useGetIdpQuery, useGetTaskQuery } = userApi;
+export const { useGetUserInfoQuery, usePostUserMutation, useGetTokenMutation  } = userApi;

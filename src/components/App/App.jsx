@@ -9,11 +9,30 @@ import NotFound from "../NotFound/NotFound";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Mentor from "../Mentor/Mentor";
 import IDP from "../IDP/IDP";
+import { useGetTokenMutation, usePostUserMutation } from "../../store/api/userApi";
+import { useEffect, useState } from "react";
+
+
 function App() {
+  const [user, setUser] = useState({
+    email: 'user4@mail.ru',
+    password: 'Testpassword',
+  })
   const location = useLocation();
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
     location.pathname
   );
+
+  const [checkToken] = useGetTokenMutation()
+  const [postUser, {data}] = usePostUserMutation()
+  
+    console.log(data)
+    console.log(data)
+
+
+  useEffect(() => {
+    postUser(user).unwrap()
+  },[])
 
   return (
     <section className={style.App}>
