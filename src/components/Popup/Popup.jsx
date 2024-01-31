@@ -1,7 +1,6 @@
 import { Button } from "@alfalab/core-components-button";
 import style from "./Popup.module.css";
 import PropTypes from "prop-types";
-import { Input } from "@alfalab/core-components-input";
 import icon from "../../images/IconClose.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { closePopup } from "../../store/popupSlice";
@@ -38,7 +37,7 @@ export default function Popup({
             alt="Иконка закрытия попапа"
           />
         )}
-        {input ? <Input /> : <p className={style.text}>{text}</p>}
+        {input ? input : <p className={style.text}>{text}</p>}
         <div className={style.button_container}>
           <Button style={{ width: "152px" }} className={style.button}>
             {buttonText}
