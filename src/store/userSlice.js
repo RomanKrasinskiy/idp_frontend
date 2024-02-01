@@ -7,11 +7,12 @@ export const userSlice = createSlice({
     first_name: "",
     last_name: "",
     email: "",
+    password: "",
     phone: "",
     position: "",
     chief: {},
     preloaderState: false,
-    loggedIn: true,
+    loggedIn: false,
   },
   reducers: {
     setUser(state, action) {
@@ -25,9 +26,12 @@ export const userSlice = createSlice({
     setloggedIn(state, action) {
       state.loggedIn = action.payload;
     },
+    setUserId(state, action) {
+      state.uid = action.payload;
+    },
   },
 });
 
-export const { setUser, setloggedIn } = userSlice.actions;
+export const { setUser, setloggedIn, setUserId } = userSlice.actions;
 
 export default userSlice.reducer;

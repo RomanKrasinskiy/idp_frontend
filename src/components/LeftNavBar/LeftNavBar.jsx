@@ -15,21 +15,8 @@ export default function LeftNavBar() {
   return (
     <section className={style.container}>
       <BackButton />
-      {((currentUrl == "/mentor") ||
-        (currentUrl == "/")) && (
-          <>
-            <NavBarItem
-              link={"/"}
-              icon={<ArrowUpLineDownMIcon />}
-              title={"Планы развития"}
-            />
-            <NavBarItem
-              link={"/mentor"}
-              icon={<SquareAcademicCapMIcon />}
-              title={"Задачи ментора"}
-            />
-          </>
-        )}
+      <NavBarItem link={"/idps"} icon={<ArrowUpLineDownMIcon />} title={"Планы развития"} />
+      <NavBarItem link={"/mentor"} icon={<SquareAcademicCapMIcon />} title={"Задачи ментора"} />
     </section>
   );
 }

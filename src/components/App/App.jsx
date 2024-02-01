@@ -16,19 +16,42 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Mentor from "../Mentor/Mentor";
 import IDP from "../IDP/IDP";
 import Auth from "../Auth/Auth";
-// import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useGetTokenMutation } from "../../store/api/userApi";
+import { setloggedIn } from "../../store/userSlice";
+import ProtectedRoutes from "../ProtectedRoutes/ProtectedRoutes";
 
 function App() {
   const location = useLocation();
-  // const navigate = useNavigate();
-  const loggedIn = useSelector((state) => state.users.loggedIn);
-  // const preloaderState = useSelector((state) => state.users.preloaderState);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  console.log(loggedIn);
-  // useEffect(() => {
-  //   tokenCheck();
-  // }, [loggedIn]);
+  const loggedIn = useSelector((state) => state.users.loggedIn);
+
+  function tokenCheck() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/auth");
+    } else {
+      dispatch(setloggedIn(true));
+      if (location.pathname === "/auth" && loggedIn) {
+        navigate("/idps");
+      } else {
+        navigate(location.pathname);
+      }
+    }
+  }
+
+  useEffect(() => {
+    tokenCheck();
+    console.log(loggedIn);
+  }, [loggedIn]);
+
+  // const {userData, isLoading} = useGetUserInfoQuery(token)
+  // const {idps} = useGetIdpQuery(token)
+
+  // const [addUser] = usePostUserMutation();
 
   // function tokenCheck() {
   //   const token = localStorage.getItem("auth_token");
@@ -39,7 +62,18 @@ function App() {
   //   }
   // }
 
-  const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
+  // useEffect(() => {
+  //   const userToken = localStorage.getItem('token')
+  //   if(!userToken){
+  //     addUser({ email, password })
+  //     .then((res) => {
+  //       const token = res.data.access;
+  //       localStorage.setItem('token', token)
+  //     })
+  //   }
+  // }, []);
+
+  const showLeftNavBar = ["/idps", "/idp", "/newTask", "/mentor"].includes(
     location.pathname
   );
 
@@ -51,51 +85,40 @@ function App() {
           {/* Компоненты левого меню */}
           {showLeftNavBar && <LeftNavBar />}
           <Routes>
-            <Route exact path="/auth" element={<Auth />} />
-
             <Route
-              path="/"
-              element={
-                loggedIn ? (
+              exact
+              path="/auth"
+              element={<Auth />}
+            />
+
+            <Route element={<ProtectedRoutes loggedIn={loggedIn} />}>
+              <Route
+                path="/idps"
+                element={
                   <IDPs
                     petals={true}
                     title="Планы развития"
                     newIdpButton={true}
                     tabs={true}
                   />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="//idp/:idpId"
-              element={loggedIn ? <IDP /> : <Navigate to="/auth" />}
-            />
-            <Route
-              path="//idp"
-              element={
-                loggedIn ? (
-                  <NewIDP title="Новый план развития" />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="/newTask"
-              element={
-                loggedIn ? (
+                }
+              />
+              <Route
+                path="/idp/:idpId"
+                element={<IDP />}
+              />
+              <Route
+                path="/idp"
+                element={<NewIDP title="Новый план развития" />}
+              />
+              <Route
+                path="/newTask"
+                element={
                   <CreateTask title="Новая задача" buttonText="Создать" />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="/mentor"
-              element={loggedIn ? <Mentor /> : <Navigate to="/auth" />}
-            />
+                }
+              />
+              <Route path="/mentor" element={<Mentor />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
 
             {/* <Route path="/idp/:idpId" element={<IDP />} /> */}
