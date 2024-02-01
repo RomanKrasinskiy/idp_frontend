@@ -17,24 +17,29 @@ import {
   useGetUserInfoQuery,
   usePostUserMutation,
 } from "../../store/api/userApi";
-import { setUserToken } from "../../store/userSlice";
+import { setUserId } from "../../store/userSlice";
+import { useGetIdpQuery } from "../../store/api/idpApi";
+import { useGetTaskQuery } from "../../store/api/taskApi";
 
 
 function App() {
 
   const location = useLocation();
   // const navigate = useNavigate();
-  const user = useSelector(state => state.users)
-  const dispatch = useDispatch()
+
   const loggedIn = useSelector((state) => state.users.loggedIn);
+
   const [email, setEmail] = useState("user4@mail.ru");
   const [password, setPassword] = useState("Testpassword");
-  const [token, setToken] = useState('');
-  const [loggedUser, setLoggedUser] = useState({})
 
+  const dispatch = useDispatch()
 
+  const user = useSelector(state => state.users)
 
-  const {data, refetch } = useGetUserInfoQuery()
+  const token = localStorage.getItem('token')
+
+  const {userData, isLoading} = useGetUserInfoQuery(token) 
+  const {idps} = useGetIdpQuery(token)
 
 
   const [addUser] = usePostUserMutation();
@@ -57,15 +62,24 @@ function App() {
   // }
 
   useEffect(() => {
-    addUser({ email, password })
-    .then((res) => {
-      const token = res.data.access;
-      setToken(token);
-      postToken({token}, {})
-      dispatch(setUserToken(token))
-      refetch()
-    })
+    const userToken = localStorage.getItem('token')
+    if(!userToken){
+      addUser({ email, password })
+      .then((res) => {
+        const token = res.data.access;
+        localStorage.setItem('token', token)
+      })
+    }
   }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(!token){
+      postToken({token})
+    }
+  }, []);
+
+
 
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
     location.pathname

@@ -26,12 +26,12 @@ export const userSlice = createSlice({
     setloggedIn(state, action) {
       state.loggedIn = action.payload;
     },
-    setUserToken(state, action) {
-      state.token = action.payload;
+    setUserId(state, action) {
+      state.uid = action.payload;
     },
   },
 });
 
-export const { setUser, setloggedIn, setUserToken } = userSlice.actions;
+export const { setUser, setloggedIn, setUserId } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -8,15 +8,17 @@ import { useGetIdpQuery } from "../../store/api/idpApi";
 import { useSelector } from "react-redux";
 
 export default function IDPsTableItems({ isPersonalPage }) {
+
   const user = useSelector(state => state.users)
-  
-  const {data, isLoading} = useGetIdpQuery({}, {skip: !user.token})
+
+  const {data, isLoading} = useGetIdpQuery(localStorage.getItem('token'), {skip: !user.idps})
+
+
 
   return (
     <>
     {!data ? <p></p> : (
       <>
-    
       <IDPsButtonsContainer dataItem={!isLoading && data} isPersonalPage={isPersonalPage} />
       <div className={style.idpsConrainer}>
         {!isLoading && data.map((item) => (
