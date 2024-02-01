@@ -147,7 +147,7 @@ export default function CreateTask({ title, buttonText }) {
         {/* Прикрепление файла */}
         <Attach onClear={onClearFile} maxFilenameLength={10} type='file' onChange={(e) => handleChangeFile('file', e)} className={style.attach} />
 
-        <Link to="/">
+        <Link to="/idps">
           <Button style={{ backgroundColor: "black", color: "white" }}>
             {buttonText}
           </Button>

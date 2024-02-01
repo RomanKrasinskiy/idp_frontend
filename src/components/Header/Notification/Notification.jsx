@@ -32,7 +32,7 @@ export default function Notification() {
           </div>
         </div>
       </div>
-      <div className={!showDropDown && style.backDrop}></div>
+      <div className={!showDropDown ? style.backDrop: ''}></div>
     </>
   );
 }

@@ -5,12 +5,20 @@ import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useGetIdpQuery } from "../../store/api/idpApi";
+import { useSelector } from "react-redux";
 
 export default function IDPsTableItems({ isPersonalPage }) {
-  const {data, isLoading, isError} = useGetIdpQuery();
+
+  const user = useSelector(state => state.users)
+
+  const {data, isLoading} = useGetIdpQuery(localStorage.getItem('token'), {skip: !user.idps})
+
+
 
   return (
     <>
+    {!data ? <p></p> : (
+      <>
       <IDPsButtonsContainer dataItem={!isLoading && data} isPersonalPage={isPersonalPage} />
       <div className={style.idpsConrainer}>
         {!isLoading && data.map((item) => (
@@ -81,6 +89,8 @@ export default function IDPsTableItems({ isPersonalPage }) {
           </Skeleton>
         ))}
       </div>
+    </>
+    )}
     </>
   );
 }
