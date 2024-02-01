@@ -71,3 +71,8 @@
   padding: 0;
   margin: 0;
 }
+
+.container__btn {
+  display: flex;
+  gap: 20px;
+}

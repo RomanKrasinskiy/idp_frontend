@@ -27,7 +27,7 @@ export default function CreateTask({title, buttonText}) {
   return (
     <>
       {/* Попап выбора ментора */}
-      <Popup title="Ментор" buttonText="Сохранить" cancelButtonText="Отмена" handleOpenPopup={handleOpenPopup} />
+      <Popup title="Ментор" buttonText="Сохранить" cancelButtonText="Отмена" handleOpenPopup={handleOpenPopup} search={true} />
 
       {/* Создание новой задачи */}
       <section className={style.container}>

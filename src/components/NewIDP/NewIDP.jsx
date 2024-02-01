@@ -37,6 +37,7 @@ export default function NewIDP({ title }) {
         title="Сотрудник"
         buttonText="Сохранить"
         cancelButtonText="Отмена"
+        search={true}
       />
 
       <section className={style.container}>

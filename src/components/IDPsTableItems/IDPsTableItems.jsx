@@ -7,6 +7,22 @@ import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+function getStatusText(status) {
+  switch (status) {
+    case "active":
+      return "В работе";
+    case "overdue":
+      return "Просрочен";
+    case "completed_approval":
+      return "Выполнено";
+    case "cancelled":
+      return "Отменен";
+    case "draft":
+      return "Черновик";
+    default:
+      return "Неизвестный статус";
+  }
+}
 export default function IDPsTableItems({ isPersonalPage, idps }) {
   const { loading } = useSelector(idpsCurrent);
   return (
@@ -64,9 +80,7 @@ export default function IDPsTableItems({ isPersonalPage, idps }) {
                   className={style.tableElement}
                   style={{ width: isPersonalPage ? "163px" : "247px" }}
                 >
-                  <StatusTable
-                    title={item.status == "active" ? "В работе" : "Выполнен"}
-                  />{" "}
+                  <StatusTable title={getStatusText(item.status)} />{" "}
                   {/* Еще есть статус Просрочен */}
                 </li>
               </ul>
@@ -79,5 +93,5 @@ export default function IDPsTableItems({ isPersonalPage, idps }) {
 }
 IDPsTableItems.propTypes = {
   isPersonalPage: PropTypes.bool,
-  idps: PropTypes.array
+  idps: PropTypes.array,
 };

@@ -39,7 +39,7 @@
 //   usePostIdpMutation,
 //   useUpdatetIdpMutation,
 // } = idpApi;
-import { BASE_URL } from '../../utils/constans';
+import { BASE_URL, token } from '../../utils/constans';
 
 export class Api {
 	#baseurl;
@@ -87,6 +87,7 @@ const api = new Api({
 	baseUrl: BASE_URL,
 	headers: {
 		'Content-Type': 'application/json',
+		'Authorization': `Bearer ${token}`,
 	},
 });
 

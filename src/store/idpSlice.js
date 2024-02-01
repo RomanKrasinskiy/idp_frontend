@@ -74,7 +74,7 @@ export const idpSlice = createSlice({
       })
       .addCase(fetchGetIdps.fulfilled, (state, action) => {
         state.loading = false;
-        state.idps = action.payload;
+        state.idps = action.payload.results;
       })
       .addCase(fetchGetIdps.rejected, (state, action) => {
         state.error = action.payload;
@@ -90,7 +90,7 @@ export const idpSlice = createSlice({
         state.idps.push(action.payload);
       })
       .addCase(fetchPostIdps.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.payload.results;
         state.loading = false;
       });
       builder
