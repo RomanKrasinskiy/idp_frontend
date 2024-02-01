@@ -7,12 +7,12 @@ export const userSlice = createSlice({
     first_name: "",
     last_name: "",
     email: "",
+    password: "",
     phone: "",
     position: "",
     chief: {},
     preloaderState: false,
-    loggedIn: true,
-    token: ''
+    loggedIn: false,
   },
   reducers: {
     setUser(state, action) {

@@ -11,7 +11,7 @@ export default function LeftNavBar() {
   return (
     <section className={style.container}>
       <BackButton />
-      <NavBarItem link={"/"} icon={<ArrowUpLineDownMIcon />} title={"Планы развития"} />
+      <NavBarItem link={"/idps"} icon={<ArrowUpLineDownMIcon />} title={"Планы развития"} />
       <NavBarItem link={"/mentor"} icon={<SquareAcademicCapMIcon />} title={"Задачи ментора"} />
     </section>
   );
