@@ -4,13 +4,14 @@ import CommentInput from "../CreateTask/CommentInput/CommentInput";
 import EditWorker from "../CreateTask/EditWorker/EditWorker";
 import Popup from "../Popup/Popup";
 import { useDispatch } from "react-redux";
-import { openPopup } from "../../store/popupSlice";
+import { openPopup, openPopupSecond } from "../../store/popupSlice";
 import { Button } from "@alfalab/core-components-button";
 import PropTypes from "prop-types";
 import PetalsList from "../PetalsList/PetalsList";
 import { ProgressBar } from "@alfalab/core-components-progress-bar";
 import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 import { Link } from "react-router-dom";
+import PopupAppointment from "../PopupAppointment/PopupAppointment";
 
 export default function NewIDP({ title }) {
   const dispatch = useDispatch();
@@ -19,14 +20,20 @@ export default function NewIDP({ title }) {
     dispatch(openPopup());
   }
 
+  function handleOpenPopupSecond() {
+    dispatch(openPopupSecond());
+  }
+
   return (
-    
     <>
       <Popup
         title="Сотрудник"
         buttonText="Сохранить"
         cancelButtonText="Отмена"
+        search={true}
       />
+
+      <PopupAppointment />
 
       <section className={style.container}>
         <h2 className={style.title}>{title ? title : "Новая задача"}</h2>
@@ -65,6 +72,13 @@ export default function NewIDP({ title }) {
         <PetalsList />
         <div className={style.task__items}>
           <IDPsTableItems />
+        </div>
+        <div className={style.buttons}>
+          <Button view="accent">Сохранить план</Button>
+          <Button view="primary">Удалить план</Button>
+          <Button view="link" onClick={handleOpenPopupSecond}>
+            Назначить встречу
+          </Button>
         </div>
       </section>
     </>

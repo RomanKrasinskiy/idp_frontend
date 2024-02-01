@@ -8,89 +8,96 @@ import { useGetIdpQuery } from "../../store/api/idpApi";
 import { useSelector } from "react-redux";
 
 export default function IDPsTableItems({ isPersonalPage }) {
+  const user = useSelector((state) => state.users);
 
-  const user = useSelector(state => state.users)
-
-  const {data, isLoading} = useGetIdpQuery(localStorage.getItem('token'), {skip: !user.idps})
-
-
+  const { data, isLoading } = useGetIdpQuery(localStorage.getItem("token"), {
+    skip: !user.idps,
+  });
 
   return (
     <>
-    {!data ? <p></p> : (
-      <>
-      <IDPsButtonsContainer dataItem={!isLoading && data} isPersonalPage={isPersonalPage} />
-      <div className={style.idpsConrainer}>
-        {!isLoading && data.map((item) => (
-          <Skeleton visible={isLoading} key={item.idp_id}>
-            <Link
-              className={style.link}
-              key={item.idp_id}
-              to={`/idp/${item.idp_id}`}
-            >
-              <ul className={style.columnTable} key={item.idp_id}>
-                {/* ФИО(ФИ) юзера */}
-                {isPersonalPage ? (
-                  <li className={style.tableElement} style={{ width: "298px" }}>
-                    <div
-                      className={style.textContainer}
-                      style={{ paddingLeft: "36px" }}
-                    >
-                      Иванов Иван Иванович
-                    </div>
-                  </li>
-                ) : null}
-
-                {/* Название плана */}
-                <li
-                  className={style.tableElement}
-                  style={{ width: isPersonalPage ? "298px" : "425px" }}
-                >
-                  <div
-                    className={style.textContainer}
-                    style={{ paddingLeft: "64px" }}
+      {!data ? (
+        ''
+      ) : (
+        <>
+          <IDPsButtonsContainer
+            dataItem={!isLoading && data}
+            isPersonalPage={isPersonalPage}
+          />
+          <div className={style.idpsConrainer}>
+            {!isLoading &&
+              data.map((item) => (
+                <Skeleton visible={isLoading} key={item.idp_id}>
+                  <Link
+                    className={style.link}
+                    key={item.idp_id}
+                    to={`/idp/${item.idp_id}`}
                   >
-                    {item.name}
-                  </div>
-                </li>
+                    <ul className={style.columnTable} key={item.idp_id}>
+                      {/* ФИО(ФИ) юзера */}
+                      {isPersonalPage ? (
+                        <li
+                          className={style.tableElement}
+                          style={{ width: "298px" }}
+                        >
+                          <div
+                            className={style.textContainer}
+                            style={{ paddingLeft: "36px" }}
+                          >
+                            Иванов Иван Иванович
+                          </div>
+                        </li>
+                      ) : null}
 
-                {/* Дата */}
-                <li
-                  className={style.tableElement}
-                  style={{ width: isPersonalPage ? "151px" : "240px" }}
-                >
-                  <div
-                    className={style.textContainer}
-                    // style={{ textAlign: "center", width: "100%" }}
-                    style={{ paddingLeft: isPersonalPage ? '66px' : "126px" }}
+                      {/* Название плана */}
+                      <li
+                        className={style.tableElement}
+                        style={{ width: isPersonalPage ? "298px" : "425px" }}
+                      >
+                        <div
+                          className={style.textContainer}
+                          style={{ paddingLeft: "64px" }}
+                        >
+                          {item.name}
+                        </div>
+                      </li>
 
+                      {/* Дата */}
+                      <li
+                        className={style.tableElement}
+                        style={{ width: isPersonalPage ? "151px" : "240px" }}
+                      >
+                        <div
+                          className={style.textContainer}
+                          // style={{ textAlign: "center", width: "100%" }}
+                          style={{
+                            paddingLeft: isPersonalPage ? "66px" : "126px",
+                          }}
+                        >
+                          {item.end_date_plan.slice(0, 10)}
+                        </div>
+                      </li>
 
-                  >
-                    {item.end_date_plan.slice(0, 10)}
-                  </div>
-                </li>
-
-                {/* Статус выполнения */}
-                <li
-                  className={style.tableElement}
-                  style={{ width: isPersonalPage ? "163px" : "247px",
-                    
-                
-               }}
-                >
-                  <StatusTable
-                    isPersonalPage={isPersonalPage}
-                    title={item.status == "active" ? "В работе" : "Выполнен"}
-                  />{" "}
-                  {/* Еще есть статус Просрочен */}
-                </li>
-              </ul>
-            </Link>
-          </Skeleton>
-        ))}
-      </div>
-    </>
-    )}
+                      {/* Статус выполнения */}
+                      <li
+                        className={style.tableElement}
+                        style={{ width: isPersonalPage ? "163px" : "247px" }}
+                      >
+                        <StatusTable
+                          isPersonalPage={isPersonalPage}
+                          title={
+                            item.status == "active" ? "В работе" : "Выполнен"
+                          }
+                        />{" "}
+                        {/* Еще есть статус Просрочен */}
+                      </li>
+                    </ul>
+                  </Link>
+                </Skeleton>
+              ))}
+          </div>
+        </>
+      )}
     </>
   );
 }

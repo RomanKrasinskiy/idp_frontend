@@ -77,7 +77,7 @@
 }
 
 .usersContainer {
-  margin-top: 12px;
+  margin-top: 24px;
   max-width: 478px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -124,6 +124,10 @@
   font-weight: var(--fw-normal);
   font-family: var(--ff);
   width: 100%;
+}
+
+.user:first-child {
+  margin-top: 0;
 }
 
 .grayLine {

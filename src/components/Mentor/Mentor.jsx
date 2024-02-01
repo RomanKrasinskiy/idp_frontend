@@ -3,6 +3,7 @@ import { Space } from "@alfalab/core-components-space";
 import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 
 import CalendarSearch from "../CalendarSearch/CalendarSearch";
+import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 
 export default function Mentor() {
   const isPersonalPage = true;
@@ -13,6 +14,7 @@ export default function Mentor() {
       <CalendarSearch />
       {/* <IDPsItems isPersonalPage={isPersonalPage} /> */}
       <IDPsTableItems isPersonalPage={isPersonalPage} />
+      <IDPsButtonsContainer dataItem={[]} isPersonalPage={isPersonalPage} />
     </section>
   );
 }

@@ -74,7 +74,7 @@ export default function CreateTask({ title, buttonText }) {
         buttonText="Сохранить"
         cancelButtonText="Отмена"
         handleOpenPopup={handleOpenPopup}
-        input={<CustomSearch size={'s'} placeholder='Введите имя'/>}
+        search={true}
       />
 
       {/* Создание новой задачи */}
