@@ -1,10 +1,4 @@
-import {
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import IDPs from "../IDPs/IDPs";
 import NewIDP from "../NewIDP/NewIDP";
 import style from "./App.module.css";
@@ -16,20 +10,39 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Mentor from "../Mentor/Mentor";
 import IDP from "../IDP/IDP";
 import Auth from "../Auth/Auth";
-// import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import {
+  useGetTokenMutation,
+  useGetUserInfoQuery,
+  usePostUserMutation,
+} from "../../store/api/userApi";
+import { setUserToken } from "../../store/userSlice";
+
 
 function App() {
-  const [user, setUser] = useState({
-    email: 'user4@mail.ru',
-    password: 'Testpassword',
-  })
+
   const location = useLocation();
   // const navigate = useNavigate();
+  const user = useSelector(state => state.users)
+  const dispatch = useDispatch()
   const loggedIn = useSelector((state) => state.users.loggedIn);
+  const [email, setEmail] = useState("user4@mail.ru");
+  const [password, setPassword] = useState("Testpassword");
+  const [token, setToken] = useState('');
+  const [loggedUser, setLoggedUser] = useState({})
+
+
+
+  const {data, refetch } = useGetUserInfoQuery()
+
+
+  const [addUser] = usePostUserMutation();
+  const [postToken] = useGetTokenMutation();
+
   // const preloaderState = useSelector((state) => state.users.preloaderState);
 
-  console.log(loggedIn);
+  // console.log(loggedIn);
   // useEffect(() => {
   //   tokenCheck();
   // }, [loggedIn]);
@@ -43,20 +56,20 @@ function App() {
   //   }
   // }
 
+  useEffect(() => {
+    addUser({ email, password })
+    .then((res) => {
+      const token = res.data.access;
+      setToken(token);
+      postToken({token}, {})
+      dispatch(setUserToken(token))
+      refetch()
+    })
+  }, []);
+
   const showLeftNavBar = ["/", "/idp", "/newTask", "/mentor"].includes(
     location.pathname
   );
-
-  const [checkToken] = useGetTokenMutation()
-  const [postUser, {data}] = usePostUserMutation()
-  
-    console.log(data)
-    console.log(data)
-
-
-  useEffect(() => {
-    postUser(user).unwrap()
-  },[])
 
   return (
     <section className={style.app}>

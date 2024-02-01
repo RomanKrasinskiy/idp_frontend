@@ -7,21 +7,21 @@ export const userApi = createApi({
   endpoints: (build) => ({
     getUserInfo: build.query({
       query: () => ({
-        url: "/users",
+        url: "/api/v1/users/me",
       })
     }),
     postUser: build.mutation({
-      query: (body) => ({
-        url: '/auth/jwt/create',
+      query: ({email, password}) => ({
+        url: '/api/v1/auth/jwt/create',
         method: "POST",
-        body
+        body:{email, password}
       })
     }),
     getToken: build.mutation({
-      query: (token) => ({
-        url: '/auth/jwt/verify',
+      query: ({token}) => ({
+        url: '/api/v1/auth/jwt/verify/',
         method: 'POST',
-        body: token,
+        body: {token},
       })
     })
   }),

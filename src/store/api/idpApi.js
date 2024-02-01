@@ -7,7 +7,7 @@ export const idpApi = createApi({
   endpoints: (build) => ({
     getIdp: build.query({
       query: () => ({
-        url: "/idp",
+        url: "/api/v1/idp",
       }),
     }),
     postIdp: build.mutation({

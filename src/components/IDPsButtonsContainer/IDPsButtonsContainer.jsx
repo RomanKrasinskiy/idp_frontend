@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
   return (
     <>
-    {dataItem.length === 0 ? (
+    {!dataItem ? (
         <NoData />
       ) : (
         <div className={style.buttonContainer}>
