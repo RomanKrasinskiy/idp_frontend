@@ -1,41 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "./api/idpApi";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const fetchGetIdps = createAsyncThunk(
-  "idps/fetchGetIdps",
-  async (_, { fulfillWithValue, rejectWithValue }) => {
-    try {
-      const data = await api.getIdp();
-      return fulfillWithValue(data);
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
-);
-
-export const fetchPostIdps = createAsyncThunk(
-  "idps/fetchPostIdps",
-  async (_, { fulfillWithValue, rejectWithValue }) => {
-    try {
-      const data = await api.postIdp();
-      return fulfillWithValue(data);
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
-);
-
-export const fetchGetIdpId = createAsyncThunk(
-  "idps/fetchGetIdpId",
-  async (idpId, { fulfillWithValue, rejectWithValue }) => {
-    try {
-      const data = await api.getIdpId(idpId);
-      return fulfillWithValue(data);
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
-);
 
 export const idpSlice = createSlice({
   name: "idps",
@@ -65,48 +29,7 @@ export const idpSlice = createSlice({
         dateEnded: action.payload.dateEnded,
       });
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchGetIdps.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchGetIdps.fulfilled, (state, action) => {
-        state.loading = false;
-        state.idps = action.payload.results;
-      })
-      .addCase(fetchGetIdps.rejected, (state, action) => {
-        state.error = action.payload;
-        state.loading = false;
-      });
-    builder
-      .addCase(fetchPostIdps.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchPostIdps.fulfilled, (state, action) => {
-        state.loading = false;
-        state.idps.push(action.payload);
-      })
-      .addCase(fetchPostIdps.rejected, (state, action) => {
-        state.error = action.payload.results;
-        state.loading = false;
-      });
-      builder
-      .addCase(fetchGetIdpId.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchGetIdpId.fulfilled, (state, action) => {
-        state.loading = false;
-        state.idp = action.payload;
-      })
-      .addCase(fetchGetIdpId.rejected, (state, action) => {
-        state.error = action.payload;
-        state.loading = false;
-      });
-  },
+  }
 });
 
 export const idpsCurrent = (state) => state['idps'];

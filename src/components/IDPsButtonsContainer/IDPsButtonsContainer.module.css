@@ -1,3 +1,11 @@
+.btnExportContainer {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 .btnExport {
   background-image: url("../../images/share-export.svg");
   width: 24px;

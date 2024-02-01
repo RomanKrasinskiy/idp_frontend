@@ -30,13 +30,13 @@
 }
 .tableElement {
   display: flex;
-  flex: 1;
+  /* flex: 1; */
   align-items: center;
   justify-content: flex-start;
   height: 52px;
 
   /* Добавляет плавности при переключении, но вёрстка прыгает */
-  transition: width 1s ease-in-out;
+  /* transition: width 1s ease-in-out; */
 }
 
 /* .tableElement:nth-child(1) {

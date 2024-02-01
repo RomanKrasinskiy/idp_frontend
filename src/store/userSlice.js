@@ -11,6 +11,7 @@ export const userSlice = createSlice({
     position: "",
     chief: {},
     preloaderState: false,
+    loggedIn: true,
   },
   reducers: {
     setUser(state, action) {
@@ -21,9 +22,12 @@ export const userSlice = createSlice({
       state.phone = action.payload.phone;
       state.position = action.payload.position;
     },
+    setloggedIn(state, action) {
+      state.loggedIn = action.payload;
+    },
   },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, setloggedIn } = userSlice.actions;
 
 export default userSlice.reducer;

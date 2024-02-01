@@ -14,19 +14,13 @@ import { Skeleton } from "@alfalab/core-components-skeleton";
 import PopupAppointment from "../PopupAppointment/PopupAppointment";
 
 export default function IDP() {
-  const { idpId } = useParams();
+
 
   const dispatch = useDispatch();
 
   function handleOpenPopup() {
     dispatch(openPopup());
   }
-
-  const { idp, loading } = useSelector(idpsCurrent);
-
-  useEffect(() => {
-    dispatch(fetchGetIdpId(idpId));
-  }, [dispatch, idpId]);
 
   // Деструктуризация с проверкой наличия end_date_plan
   const { end_date_plan, start_date, name } = idp || {};

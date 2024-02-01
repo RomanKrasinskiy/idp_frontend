@@ -1,0 +1,14 @@
+@import url(./vendor/fonts/fonts.css);
+@import url(./vendor/normalize.css);
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: rgba(117, 117, 126, 1) rgba(130, 130, 130, 0.10);
+
+}
+
+body {
+  font-style: normal;
+}
+
+  
