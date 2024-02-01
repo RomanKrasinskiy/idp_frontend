@@ -3,7 +3,7 @@ import { Input } from "@alfalab/core-components-input";
 import CommentInput from "../CreateTask/CommentInput/CommentInput";
 import EditWorker from "../CreateTask/EditWorker/EditWorker";
 import Popup from "../Popup/Popup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { openPopup } from "../../store/popupSlice";
 import { Button } from "@alfalab/core-components-button";
 import PropTypes from "prop-types";
@@ -11,10 +11,6 @@ import PetalsList from "../PetalsList/PetalsList";
 import { ProgressBar } from "@alfalab/core-components-progress-bar";
 import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 import { Link } from "react-router-dom";
-import { fetchGetIdps, idpsCurrent } from "../../store/idpSlice";
-import { useEffect } from "react";
-import { Skeleton } from "@alfalab/core-components-skeleton";
-import { getCounts } from "../../utils/getCounts";
 
 export default function NewIDP({ title }) {
   const dispatch = useDispatch();
@@ -23,21 +19,13 @@ export default function NewIDP({ title }) {
     dispatch(openPopup());
   }
 
-  useEffect(() => {
-    dispatch(fetchGetIdps());
-  }, [dispatch]);
-
-  const { idps, loading } = useSelector(idpsCurrent);
-
-  const { activeCount, overdueCount, completedCount } = getCounts(idps);
-
   return (
+    
     <>
       <Popup
         title="Сотрудник"
         buttonText="Сохранить"
         cancelButtonText="Отмена"
-        search={true}
       />
 
       <section className={style.container}>
@@ -74,18 +62,9 @@ export default function NewIDP({ title }) {
             </Button>
           </Link>
         </div>
-        <Skeleton visible={loading} className={style.skeleton}>
-          <PetalsList
-            total={idps.length}
-            active={activeCount}
-            completed={completedCount}
-            overdue={overdueCount}
-          />
-        </Skeleton>
+        <PetalsList />
         <div className={style.task__items}>
-          <Skeleton visible={loading}>
-            <IDPsTableItems idps={idps} />
-          </Skeleton>
+          <IDPsTableItems />
         </div>
       </section>
     </>

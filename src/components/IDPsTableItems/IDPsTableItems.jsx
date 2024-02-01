@@ -1,30 +1,13 @@
-import { useSelector } from "react-redux";
 import style from "./IDPsTableItems.module.css";
-import { idpsCurrent } from "../../store/idpSlice";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import StatusTable from "../StatusTable/StatusTable";
 import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useGetIdpQuery } from "../../store/api/idpApi";
 
-function getStatusText(status) {
-  switch (status) {
-    case "active":
-      return "В работе";
-    case "overdue":
-      return "Просрочен";
-    case "completed_approval":
-      return "Выполнено";
-    case "cancelled":
-      return "Отменен";
-    case "draft":
-      return "Черновик";
-    default:
-      return "Неизвестный статус";
-  }
-}
-export default function IDPsTableItems({ isPersonalPage, idps }) {
-  const { loading } = useSelector(idpsCurrent);
+export default function IDPsTableItems({ isPersonalPage }) {
+  const {data, isLoading, isError} = useGetIdpQuery();
   return (
     <>
       <IDPsButtonsContainer dataItem={!isLoading && data} isPersonalPage={isPersonalPage} />
