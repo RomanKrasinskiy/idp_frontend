@@ -47,7 +47,7 @@ export default function Popup({
         <div className={style.usersContainer}>
           <div className={style.scrollableContainer}>
             {users.map((user, index) => (
-              <React.Fragment key={user}>
+              <React.Fragment key={index}>
                 <p className={style.user}>{user}</p>
                 {index !== users.length - 1 && (
                   <div className={style.grayLine} />

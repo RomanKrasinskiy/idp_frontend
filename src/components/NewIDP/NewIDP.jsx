@@ -33,7 +33,7 @@ export default function NewIDP({ title }) {
         search={true}
       />
 
-      <PopupAppointment />
+      {/* <PopupAppointment /> */}
 
       <section className={style.container}>
         <h2 className={style.title}>{title ? title : "Новая задача"}</h2>
