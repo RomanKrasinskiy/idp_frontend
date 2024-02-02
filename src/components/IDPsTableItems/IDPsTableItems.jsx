@@ -4,14 +4,107 @@ import StatusTable from "../StatusTable/StatusTable";
 import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useGetIdpQuery } from "../../store/api/idpApi";
-import { useSelector } from "react-redux";
+import { useGetIdpEmployeeQuery } from "../../store/api/idpApi";
+// import { useSelector } from "react-redux";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
 
 export default function IDPsTableItems({ isPersonalPage }) {
+  // const [page, setPage] = useState(1);
 
-  const user = useSelector(state => state.users)
+  // const observerRef = useRef(null);
 
-  const {data, isLoading} = useGetIdpQuery(localStorage.getItem('token'), {skip: !user.idps})
+  // const onScrollOrResize = useCallback(([entry]) => {
+  //   if (entry.isIntersecting) {
+  //     setPage((prevPage) => prevPage + 1);
+  //     console.log(page)
+  //   }
+  // }, []);
+
+
+  // useEffect(() => {
+  //   const lastElement = document.querySelector(`.${style.columnTable}:last-child`);
+  //   observerRef.current = new IntersectionObserver(onScrollOrResize, {
+  //     threshold: 0.5,
+  //   });
+
+  //   if (lastElement) {
+  //     observerRef.current.observe(lastElement);
+  //     onScrollOrResize();
+  //   }
+
+  //   return () => {
+  //     if (lastElement) {
+  //       observerRef.current.unobserve(lastElement);
+  //     }
+  //   };
+  // }, [onScrollOrResize]);
+  
+  //   console.log(isPersonalPage);
+
+    
+
+
+
+//   const [page, setPage] = useState(1)
+//   const nextPage = useRef(1);
+//   const selectedUserId = null;
+//   // const page = useRef(1);
+//   const {
+//     data,
+//     isLoading,
+//     isFetching,
+//     refetch, // Функция для повторного запроса
+//   } = useGetIdpEmployeeQuery({ page, userId: selectedUserId });
+
+//   const { ref, inView } = useInView({
+//     threshold: 1,
+//     triggerOnce: true,
+//   });
+
+//  useEffect(() => {
+//     const lastElement = document.querySelector(
+//       `.${style.columnTable}:last-child`
+//     );
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           refetch(nextPage.current);
+//         }
+//       },
+//       { threshold: 0.5 }
+//     );
+//     if (lastElement) {
+//       observer.observe(lastElement);
+//     }
+//     return () => {
+//       if (lastElement) {
+//         observer.unobserve(lastElement);
+//       }
+//     };
+//   }, [data]);
+
+const [page, setPage] = useState(1);
+  const { data, isFetching, isLoading } = useGetIdpEmployeeQuery(page);
+  const dataResult = data?.results ?? [];
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      if (scrolledToBottom && !isFetching) {
+        console.log("Fetching more data...");
+        setPage(page + 1);
+      }
+    };
+
+    document.addEventListener("scroll", onScroll);
+
+    return function () {
+      document.removeEventListener("scroll", onScroll);
+    };
+  }, [page, isFetching]);
 
 
 
@@ -21,7 +114,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
       <>
       <IDPsButtonsContainer dataItem={!isLoading && data} isPersonalPage={isPersonalPage} />
       <div className={style.idpsConrainer}>
-        {!isLoading && data.map((item) => (
+        {!isLoading && dataResult.map((item) => (
           <Skeleton visible={isLoading} key={item.idp_id}>
             <Link
               className={style.link}
@@ -36,7 +129,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
                       className={style.textContainer}
                       style={{ paddingLeft: "36px" }}
                     >
-                      Иванов Иван Иванович
+                      {`${item.employee.last_name} ${item.employee.first_name}`}
                     </div>
                   </li>
                 ) : null}
@@ -63,8 +156,6 @@ export default function IDPsTableItems({ isPersonalPage }) {
                     className={style.textContainer}
                     // style={{ textAlign: "center", width: "100%" }}
                     style={{ paddingLeft: isPersonalPage ? '66px' : "126px" }}
-
-
                   >
                     {item.end_date_plan.slice(0, 10)}
                   </div>
@@ -80,8 +171,8 @@ export default function IDPsTableItems({ isPersonalPage }) {
                 >
                   <StatusTable
                     isPersonalPage={isPersonalPage}
-                    title={item.status == "active" ? "В работе" : "Выполнен"}
-                  />{" "}
+                    title={item.status}
+                  />
                   {/* Еще есть статус Просрочен */}
                 </li>
               </ul>

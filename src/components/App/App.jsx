@@ -1,5 +1,4 @@
 import {
-  Navigate,
   Route,
   Routes,
   useLocation,
@@ -18,7 +17,6 @@ import IDP from "../IDP/IDP";
 import Auth from "../Auth/Auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useGetTokenMutation } from "../../store/api/userApi";
 import { setloggedIn } from "../../store/userSlice";
 import ProtectedRoutes from "../ProtectedRoutes/ProtectedRoutes";
 
@@ -45,7 +43,6 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-    console.log(loggedIn);
   }, [loggedIn]);
 
   // const {userData, isLoading} = useGetUserInfoQuery(token)
@@ -80,7 +77,7 @@ function App() {
   return (
     <section className={style.app}>
       <div className={style.appContainer}>
-        {!loggedIn && <Header />}
+        {loggedIn && <Header />}
         <div className={style.mainContainer}>
           {/* Компоненты левого меню */}
           {showLeftNavBar && <LeftNavBar />}
