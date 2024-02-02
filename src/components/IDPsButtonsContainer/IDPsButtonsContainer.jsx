@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 
 
 export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
+
+
+  
   return (
     <>
     {!dataItem ? (
@@ -38,7 +41,7 @@ export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
   )
 }
 IDPsButtonsContainer.propTypes ={
-    dataItem: PropTypes.array,
+    dataItem: PropTypes.object,
     isPersonalPage: PropTypes.bool,
     length: PropTypes.number,
 }
