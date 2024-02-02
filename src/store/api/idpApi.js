@@ -26,8 +26,28 @@ export const idpApi = createApi({
     //   }),
     // }),
     getIdpEmployee: build.query({
-      query: (page) => ({
+      query: (page = 1) => ({
         url: `/api/v1/idp/subordinates/?page=${page}`,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization" : `Bearer ${token}`
+        }
+      }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      // Always merge incoming data to the cache entry
+      merge: (currentCache, newItems) => {
+        currentCache.results.push(...newItems.results);
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      }
+    }),
+    getIdpPrivate: build.query({
+      query: (page = 1) => ({
+        url: `/api/v1/idp/private/?page=${page}`,
         headers: {
           "Content-Type": "application/json",
           "Authorization" : `Bearer ${token}`
@@ -76,6 +96,7 @@ export const idpApi = createApi({
 export const {
   useGetIdpQuery,
   useGetIdpEmployeeQuery,
+  useGetIdpPrivateQuery,
   useDeleteIdpMutation,
   usePostIdpMutation,
   useUpdatetIdpMutation,

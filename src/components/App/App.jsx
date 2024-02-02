@@ -118,14 +118,7 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
 
-            {/* <Route path="/idp/:idpId" element={<IDP />} /> */}
-            {/* <Route path="/idp" element={<NewIDP title="Новый план развития" />} /> */}
-            {/* <Route
-            path="/newTask"
-            element={<CreateTask title="Новая задача" buttonText="Создать" />}
-          /> */}
-            {/* <Route exact path="/" element={<EditTask />} />  */}
-            {/* <Route path="/mentor" element={<Mentor />} /> */}
+
           </Routes>
           <ScrollToTop threshold={1500} showBelow={true} />
         </div>

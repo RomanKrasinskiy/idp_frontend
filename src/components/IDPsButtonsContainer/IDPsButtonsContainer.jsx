@@ -1,5 +1,4 @@
 import style from "./IDPsButtonsContainer.module.css";
-
 import FilterStatus from "../FilterStatus/FilterStatus";
 import ButtonSort from "../Buttons/ButtonSort/ButtonSort";
 import NoData from "../NoData/NoData";
@@ -9,7 +8,6 @@ import PropTypes from 'prop-types';
 export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
 
 
-  
   return (
     <>
     {!dataItem ? (
@@ -41,7 +39,7 @@ export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
   )
 }
 IDPsButtonsContainer.propTypes ={
-    dataItem: PropTypes.object,
+    dataItem: PropTypes.bool,
     isPersonalPage: PropTypes.bool,
     length: PropTypes.number,
 }
