@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 2;
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -17,7 +17,6 @@
 
 .popup {
   position: absolute;
-  z-index: 2;
   background-color: white;
   max-width: 644px;
   width: 100%;
@@ -28,7 +27,7 @@
   margin: 0;
   padding: 72px 40px;
   border-radius: 8px;
-  max-height: 384px;
+  max-height: 482px;
 }
 
 .title {
@@ -102,4 +101,60 @@
   line-height: 22px;
   padding: 0;
   margin: 0 0 8px 0;
+}
+
+.usersContainer {
+  margin-top: 24px;
+  max-width: 478px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  direction: rtl;
+  text-align: left;
+  padding-left: 24px;
+  height: 100%;
+  max-height: 168px;
+  margin-bottom: 32px;
+}
+
+.usersContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.usersContainer::-webkit-scrollbar-track {
+  background-color: #fff; 
+  border-radius: 6px; 
+}
+
+.usersContainer::-webkit-scrollbar-thumb {
+  background-color: #BBBBC3;
+  border-radius: 22px; 
+}
+
+.scrollableContainer {
+  max-height: 168px;
+}
+
+.user {
+  padding: 16px auto 16px 12px;
+  font-size: 18px;
+  font-weight: var(--fw-normal);
+  font-family: var(--ff);
+  width: 100%;
+}
+
+.user:first-child {
+  margin-top: 0;
+}
+
+.grayLine {
+  height: 1px;
+  background-color: rgba(11, 31, 53, 0.07);
+  width: 100%;
+}
+
+.dataAndTime {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 40px;
 }

@@ -10,10 +10,9 @@ import Popup from "../Popup/Popup";
 import EditWorker from "./EditWorker/EditWorker";
 import CommentInput from "./CommentInput/CommentInput";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { openPopup } from "../../store/popupSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import CustomSearch from "../CustomSearch/CustomSearch";
+import { openPopup1 } from "../../store/actions/popup1Actions";
 
 export default function CreateTask({ title, buttonText }) {
   
@@ -31,9 +30,8 @@ export default function CreateTask({ title, buttonText }) {
   //Вызов dispatch для открытия попапа
   const dispatch = useDispatch();
 
-  function handleOpenPopup() {
-    dispatch(openPopup());
-  }
+  const popup1IsOpen = useSelector((state) => state.popup1.isOpen);
+
 
   //функция для назначения стейтов с инпутов
   function handleChange(name, value) {
@@ -69,13 +67,13 @@ export default function CreateTask({ title, buttonText }) {
   return (
     <>
       {/* Попап выбора ментора */}
+      {popup1IsOpen && (
       <Popup
         title="Ментор"
         buttonText="Сохранить"
         cancelButtonText="Отмена"
-        handleOpenPopup={handleOpenPopup}
         search={true}
-      />
+      />)}
 
       {/* Создание новой задачи */}
       <section className={style.container}>
@@ -131,7 +129,7 @@ export default function CreateTask({ title, buttonText }) {
 
         {/* Контейнер с данными ментора */}
         <EditWorker
-          handleOpenEdit={handleOpenPopup}
+          handleOpenEdit={() => dispatch(openPopup1())}
           title="Ментор"
           text="Выбрать ментора"
         />
