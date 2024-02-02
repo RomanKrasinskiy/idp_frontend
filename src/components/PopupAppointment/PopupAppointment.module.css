@@ -158,3 +158,11 @@
   gap: 10px;
   margin-bottom: 40px;
 }
+
+.data {
+  max-width: 178px;
+}
+
+.time {
+  max-width: 125px;
+}

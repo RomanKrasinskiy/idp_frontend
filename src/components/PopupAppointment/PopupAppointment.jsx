@@ -61,42 +61,46 @@ export default function PopupAppointment() {
             />
 
             <div className={style.dataAndTime}>
-              <UniversalDateInput
-                breakpoint={500}
-                block={true}
-                view="date"
-                label="Дата"
-                labelView={"outer "}
-                size="s"
-                value={value}
-                onChange={handleChange}
-                disableUserInput={false}
-                picker={"full"}
-                Calendar={Calendar}
-                calendarProps={{
-                  selectorView: "full",
-                }}
-                clear={true}
-                onClear={(e) => {
-                  e.stopPropagation();
-                  setValue("");
-                }}
-              />
-              <UniversalDateInput
-                value={value2}
-                onChange={handleChange}
-                view="time"
-                label="Время"
-                labelView={"inner"}
-                size="s"
-                breakpoint={500}
-                block={true}
-                clear={true}
-                onClear={(e) => {
-                  e.stopPropagation();
-                  setValue("");
-                }}
-              />
+              <div className={style.data}>
+                <UniversalDateInput
+                  breakpoint={500}
+                  block={true}
+                  view="date"
+                  label="Дата"
+                  labelView={"outer "}
+                  size="s"
+                  value={value}
+                  onChange={handleChange}
+                  disableUserInput={false}
+                  picker={"full"}
+                  Calendar={Calendar}
+                  calendarProps={{
+                    selectorView: "full",
+                  }}
+                  clear={true}
+                  onClear={(e) => {
+                    e.stopPropagation();
+                    setValue("");
+                  }}
+                />
+              </div>
+              <div className={style.time}>
+                <UniversalDateInput
+                  value={value2}
+                  onChange={handleChange}
+                  view="time"
+                  label="Время"
+                  labelView={"inner"}
+                  size="s"
+                  breakpoint={500}
+                  block={true}
+                  clear={true}
+                  onClear={(e) => {
+                    e.stopPropagation();
+                    setValue("");
+                  }}
+                />
+              </div>
             </div>
 
             <div className={style.button_container}>
