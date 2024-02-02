@@ -38,6 +38,10 @@ export default function IDPsTableItems({ isPersonalPage }) {
     };
   }, [page, isFetching]);
 
+  const formatDate = (dateString) => {
+    const options = { day: "numeric", month: "numeric", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("ru-RU", options);
+  };
   return (
     <>
       {!dataResult ? (
@@ -97,7 +101,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
                             paddingLeft: isPersonalPage ? "66px" : "126px",
                           }}
                         >
-                          {item.end_date_plan.slice(0, 10)}
+                          {formatDate(item.end_date_plan)}
                         </div>
                       </li>
 
