@@ -10,15 +10,20 @@ import {
 } from "../../store/api/idpApi";
 import {  useEffect, useState } from "react";
 
+
 export default function IDPsTableItems({ isPersonalPage }) {
 
 const [page, setPage] = useState(1);
-const queryHook = isPersonalPage
-  ? useGetIdpEmployeeQuery
-  : useGetIdpPrivateQuery;
 
-  const { data, isFetching, isLoading } = queryHook(page);
-  console.log(data)
+// useEffect(() => {
+//   const dataQuery = isPersonalPage ? useGetIdpPrivateQuery : useGetIdpEmployeeQuery;
+//   return dataQuery;
+// },[] )
+
+const dataQuery = isPersonalPage ? useGetIdpPrivateQuery : useGetIdpEmployeeQuery;
+
+const { data, isFetching, isLoading } = dataQuery(page)
+
 
   const dataResult = data?.results ?? [];
   
