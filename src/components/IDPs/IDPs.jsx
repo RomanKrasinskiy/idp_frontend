@@ -22,6 +22,7 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
     setSelectedId(selectedId);
     selectedId === "tab-1" ? setIsPersonalPage(false) : setIsPersonalPage(true);
   };
+  
 
   return (
     <section className={style.container}>
@@ -50,8 +51,10 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
       </Space>
       {petals ? <PetalsList /> : ""}
       <CalendarSearch />
-      
-        <IDPsTableItems isPersonalPage={isPersonalPage} />
+        
+        <IDPsTableItems isPersonalPage={isPersonalPage} 
+        
+        />
       
     </section>
   );
