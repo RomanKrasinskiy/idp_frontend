@@ -8,46 +8,73 @@ export default function StatusTable({ title, isPersonalPage }) {
     // const title = 'Просрочен';
     // const title = 'Отменен';
 
-  const isDeadlineClose = true;
-  const isClock = false;
-  
-  const getColorByTitle = (title) => {
+  const getColor = (title) => {
     switch (title) {
-      case 'В работе':
-        return 'rgba(14, 14, 14, 1)';
-      case 'Черновик':
-        return 'rgba(117, 117, 126, 1)';
-      case 'Выполнен':
-        return 'rgba(19, 164, 99, 1)';
-      case 'Просрочен':
-        return 'rgba(239, 49, 36, 1)';
-      case 'Отменен':
-        return 'rgba(233, 146, 24, 1)';
+      case "draft":
+        return "rgba(117, 117, 126, 1)";
+      case "draft_approval":
+        return "rgba(117, 117, 126, 1)";
+      case "active":
+        return "rgba(14, 14, 14, 1)";
+      case "two_weeks":
+        return "rgba(14, 14, 14, 1)";
+      case "overdue":
+        return "rgba(239, 49, 36, 1)";
+      case "cancelled":
+        return "rgba(233, 146, 24, 1)";
+      case "completed_approval":
+        return "rgba(14, 14, 14, 1)";
+      case "closed":
+        return "rgba(14, 14, 14, 1)";
       default:
-        return 'rgba(14, 14, 14, 1)';
+        return "rgba(48, 122, 239, 1)";
     }
   };
-  const color = getColorByTitle(title);
+  const getRussianStatus = (title) => {
+    switch (title) {
+      case "draft":
+        return "Черновик";
+      case "draft_approval":
+        return "Черновик";
+      case "active":
+        return "В работе";
+      case "two_weeks":
+        return "В работе";
+      case "overdue":
+        return "Просрочен";
+      case "cancelled":
+        return "Отменен";
+      case "completed_approval":
+        return "Выполнен";
+      case "closed":
+        return "Выполнен";
+      default:
+        return "Статус не найден";
+    }
+  };
+  
+  const color = getColor(title);
+  const statusName = getRussianStatus(title);
+
   return (
     <div className={style.statusContainer} style={{
       paddingLeft: isPersonalPage ? '45px' : "98px",
     }}>
         <div className={style.icoContainer}>
-        {isDeadlineClose ? (
+      {title === "two_weeks" ? (
         <div className={`${style.ico} ${style.fireIco}`} />
       ) : null}
 
-      {isClock ? (
+      {title === "completed_approval" ? (
         <div className={`${style.ico} ${style.clockIco}`} />
       ) : null}
         </div>
       
-
       <div
         className={style.textContainer}
         style={{ textAlign: 'center', width: '100%', color: color }}
       >
-        {title}
+        {statusName}
       </div>
     </div>
   );
