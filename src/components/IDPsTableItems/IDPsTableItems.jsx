@@ -44,29 +44,38 @@ export default function IDPsTableItems({ isPersonalPage }) {
   };
   return (
     <>
-    {!data ? <p></p> : (
-      <>
-      <IDPsButtonsContainer dataItem={!isLoading && data} isPersonalPage={isPersonalPage} />
-      <div className={style.idpsConrainer}>
-        {!isLoading && data.map((item) => (
-          <Skeleton visible={isLoading} key={item.idp_id}>
-            <Link
-              className={style.link}
-              key={item.idp_id}
-              to={`/idp/${item.idp_id}`}
-            >
-              <ul className={style.columnTable} key={item.idp_id}>
-                {/* ФИО(ФИ) юзера */}
-                {isPersonalPage ? (
-                  <li className={style.tableElement} style={{ width: "298px" }}>
-                    <div
-                      className={style.textContainer}
-                      style={{ paddingLeft: "36px" }}
-                    >
-                      Иванов Иван Иванович
-                    </div>
-                  </li>
-                ) : null}
+      {!dataResult ? (
+        <p></p>
+      ) : (
+        <>
+          <IDPsButtonsContainer
+            dataItem={Boolean(!isLoading && data)}
+            isPersonalPage={isPersonalPage}
+          />
+          <div className={style.idpsConrainer}>
+            {!isLoading &&
+              dataResult.map((item) => (
+                <Skeleton visible={isLoading} key={item.idp_id}>
+                  <Link
+                    className={style.link}
+                    key={item.idp_id}
+                    to={`/idp/${item.idp_id}`}
+                  >
+                    <ul className={style.columnTable} key={item.idp_id}>
+                      {/* ФИО(ФИ) юзера */}
+                      {isPersonalPage ? (
+                        <li
+                          className={style.tableElement}
+                          style={{ width: "298px" }}
+                        >
+                          <div
+                            className={style.textContainer}
+                            style={{ paddingLeft: "36px" }}
+                          >
+                            {`${item.employee.last_name} ${item.employee.first_name}`}
+                          </div>
+                        </li>
+                      ) : null}
 
                       {/* Название плана */}
                       <li
@@ -81,47 +90,41 @@ export default function IDPsTableItems({ isPersonalPage }) {
                         </div>
                       </li>
 
-                {/* Дата */}
-                <li
-                  className={style.tableElement}
-                  style={{ width: isPersonalPage ? "151px" : "240px" }}
-                >
-                  <div
-                    className={style.textContainer}
-                    // style={{ textAlign: "center", width: "100%" }}
-                    style={{ paddingLeft: isPersonalPage ? '66px' : "126px" }}
+                      {/* Дата */}
+                      <li
+                        className={style.tableElement}
+                        style={{ width: isPersonalPage ? "151px" : "240px" }}
+                      >
+                        <div
+                          className={style.textContainer}
+                          style={{
+                            paddingLeft: isPersonalPage ? "66px" : "126px",
+                          }}
+                        >
+                          {formatDate(item.end_date_plan)}
+                        </div>
+                      </li>
 
-
-                  >
-                    {item.end_date_plan.slice(0, 10)}
-                  </div>
-                </li>
-
-                {/* Статус выполнения */}
-                <li
-                  className={style.tableElement}
-                  style={{ width: isPersonalPage ? "163px" : "247px",
-                    
-                
-               }}
-                >
-                  <StatusTable
-                    isPersonalPage={isPersonalPage}
-                    title={item.status == "active" ? "В работе" : "Выполнен"}
-                  />{" "}
-                  {/* Еще есть статус Просрочен */}
-                </li>
-              </ul>
-            </Link>
-          </Skeleton>
-        ))}
-      </div>
-    </>
-    )}
+                      {/* Статус выполнения */}
+                      <li
+                        className={style.tableElement}
+                        style={{ width: isPersonalPage ? "163px" : "247px" }}
+                      >
+                        <StatusTable
+                          isPersonalPage={isPersonalPage}
+                          title={item.status}
+                        />
+                      </li>
+                    </ul>
+                  </Link>
+                </Skeleton>
+              ))}
+          </div>
+        </>
+      )}
     </>
   );
 }
 IDPsTableItems.propTypes = {
   isPersonalPage: PropTypes.bool,
-  idps: PropTypes.array,
 };

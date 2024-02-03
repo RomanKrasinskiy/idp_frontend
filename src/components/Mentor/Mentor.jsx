@@ -13,8 +13,8 @@ export default function Mentor() {
       <Space direction="horizontal" align="center"></Space>
       <CalendarSearch />
       {/* <IDPsItems isPersonalPage={isPersonalPage} /> */}
-      <IDPsTableItems isPersonalPage={isPersonalPage} />
       <IDPsButtonsContainer dataItem={[]} isPersonalPage={isPersonalPage} />
+      <IDPsTableItems isPersonalPage={isPersonalPage} />
     </section>
   );
 }
