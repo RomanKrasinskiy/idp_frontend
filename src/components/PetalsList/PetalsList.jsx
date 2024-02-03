@@ -1,5 +1,6 @@
 import style from "./PetalsList.module.css";
 import Petals from "../Petals/Petals";
+import PropTypes from "prop-types";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import { useGetIdpEmployeeQuery } from "../../store/api/idpApi";
 export default function PetalsList() {
@@ -25,3 +26,9 @@ export default function PetalsList() {
     </section>
   );
 }
+PetalsList.propTypes = {
+  total: PropTypes.number,
+  active: PropTypes.number,
+  overdue: PropTypes.number,
+  completed: PropTypes.number,
+};

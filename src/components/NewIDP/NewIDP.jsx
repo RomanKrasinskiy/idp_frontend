@@ -3,30 +3,34 @@ import { Input } from "@alfalab/core-components-input";
 import CommentInput from "../CreateTask/CommentInput/CommentInput";
 import EditWorker from "../CreateTask/EditWorker/EditWorker";
 import Popup from "../Popup/Popup";
-import { useDispatch } from "react-redux";
-import { openPopup } from "../../store/popupSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@alfalab/core-components-button";
 import PropTypes from "prop-types";
 import PetalsList from "../PetalsList/PetalsList";
 import { ProgressBar } from "@alfalab/core-components-progress-bar";
 import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 import { Link } from "react-router-dom";
+import PopupAppointment from "../PopupAppointment/PopupAppointment";
+import { openPopup1 } from "../../store/actions/popup1Actions";
+import { openPopup2 } from "../../store/actions/popup2Actions";
 
 export default function NewIDP({ title }) {
   const dispatch = useDispatch();
-
-  function handleOpenPopup() {
-    dispatch(openPopup());
-  }
+  const popup1IsOpen = useSelector((state) => state.popup1.isOpen);
+  const popup2IsOpen = useSelector((state) => state.popup2.isOpen);
 
   return (
-    
     <>
-      <Popup
-        title="Сотрудник"
-        buttonText="Сохранить"
-        cancelButtonText="Отмена"
-      />
+      {popup1IsOpen && (
+        <Popup
+          title="Сотрудник"
+          buttonText="Сохранить"
+          cancelButtonText="Отмена"
+          search={true}
+        />
+      )}
+
+      {popup2IsOpen && <PopupAppointment />}
 
       <section className={style.container}>
         <h2 className={style.title}>{title ? title : "Новая задача"}</h2>
@@ -42,7 +46,10 @@ export default function NewIDP({ title }) {
         <div style={{ marginBottom: "7px" }}>
           <CommentInput title="Добавить описание" />
         </div>
-        <EditWorker handleOpenEdit={handleOpenPopup} text="Сотрудник" />
+        <EditWorker
+          handleOpenEdit={() => dispatch(openPopup1())}
+          text="Сотрудник"
+        />
         <div className={style.container__worker}>
           <span className={style.text}>Сотрудник</span>
           <span style={{ marginTop: "0px" }} className={style.subtitle}>
@@ -65,6 +72,13 @@ export default function NewIDP({ title }) {
         <PetalsList />
         <div className={style.task__items}>
           <IDPsTableItems />
+        </div>
+        <div className={style.buttons}>
+          <Button view="accent">Сохранить план</Button>
+          <Button view="primary">Удалить план</Button>
+          <Button view="link" onClick={() => dispatch(openPopup2())}>
+            Назначить встречу
+          </Button>
         </div>
       </section>
     </>
