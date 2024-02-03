@@ -5,24 +5,21 @@ import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
-  useGetIdpEmployeeQuery,
   useGetIdpPrivateQuery,
+  useGetIdpEmployeeQuery,
 } from "../../store/api/idpApi";
 import { useEffect, useState } from "react";
 
 export default function IDPsTableItems({ isPersonalPage }) {
   const [page, setPage] = useState(1);
 
-  const {
-    data: privatIdps,
-    isLoading: privateIsLoading,
-    isFetching: privateIsFetching,
-  } = useGetIdpPrivateQuery();
-  const {
-    data: employeeIdps,
-    isLoading,
-    isFetching,
-  } = useGetIdpEmployeeQuery();
+  const dataQuery = isPersonalPage
+    ? useGetIdpPrivateQuery
+    : useGetIdpEmployeeQuery;
+
+  const { data, isFetching, isLoading } = dataQuery(page);
+
+  const dataResult = data?.results ?? [];
 
   useEffect(() => {
     const onScroll = () => {
@@ -45,20 +42,19 @@ export default function IDPsTableItems({ isPersonalPage }) {
     const options = { day: "numeric", month: "numeric", year: "numeric" };
     return new Date(dateString).toLocaleDateString("ru-RU", options);
   };
-
   return (
     <>
-      {isLoading ? (
+      {!dataResult ? (
         <p></p>
       ) : (
         <>
           <IDPsButtonsContainer
-            dataItem={Boolean(!isLoading && privatIdps)}
+            dataItem={Boolean(!isLoading && data)}
             isPersonalPage={isPersonalPage}
           />
           <div className={style.idpsConrainer}>
             {!isLoading &&
-              privatIdps.results.map((item) => (
+              dataResult.map((item) => (
                 <Skeleton visible={isLoading} key={item.idp_id}>
                   <Link
                     className={style.link}
