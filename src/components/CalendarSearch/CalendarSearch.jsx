@@ -11,23 +11,24 @@ export default function CalendarSearch() {
 
   const handleChangeCalendar = async (_, { value }) => {
     setValue(value);
+    console.log(value)
 
     // Предполагая, что value представляет собой диапазон дат в формате "start_date – end_date"
-    const [startDate, endDate] = value.split(' – ');
+    // const [startDate, endDate] = value.split(' – ');
 
     // Проверяем, выбраны ли обе даты начала и окончания
-    if (startDate && endDate) {
-      try {
-        // Выполняем асинхронный вызов на сервер с startDate и endDate
-        const response = await fetch(`ваш_серверный_эндпоинт?startDate=${startDate}&endDate=${endDate}`);
-        // Предполагая, что ответ в формате JSON
-        const data = await response.json();
-        // Делаем что-то с данными, например, обновляем состояние или выполняем дополнительные действия
-        console.log(data);
-      } catch (error) {
-        console.error('Ошибка при получении данных с сервера:', error);
-      }
-    }
+    // if (startDate && endDate) {
+    //   try {
+    //     // Выполняем асинхронный вызов на сервер с startDate и endDate
+    //     const response = await fetch(`ваш_серверный_эндпоинт?startDate=${startDate}&endDate=${endDate}`);
+    //     // Предполагая, что ответ в формате JSON
+    //     const data = await response.json();
+    //     // Делаем что-то с данными, например, обновляем состояние или выполняем дополнительные действия
+    //     console.log(data);
+    //   } catch (error) {
+    //     console.error('Ошибка при получении данных с сервера:', error);
+    //   }
+    // }
   };
   
 

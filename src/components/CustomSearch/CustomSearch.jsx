@@ -12,8 +12,10 @@ export default function CustomSearch ({placeholder, size}) {
 
     const handleInput = (_, { value }) => {
         setValue(value);
+        console.log(value)
         
     };
+    
     return (
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
             <Input

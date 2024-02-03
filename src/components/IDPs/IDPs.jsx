@@ -16,11 +16,11 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
     { title: "Сотрудников", id: "tab-2" },
   ];
   const [selectedId, setSelectedId] = useState(TABS[1].id);
-  const [isPersonalPage, setIsPersonalPage] = useState(true);
+  const [isPersonalPage, setIsPersonalPage] = useState(false);
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
-    selectedId === "tab-1" ? setIsPersonalPage(false) : setIsPersonalPage(true);
+    selectedId === "tab-1" ? setIsPersonalPage(true) : setIsPersonalPage(false);
   };
 
   return (
@@ -50,9 +50,8 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
       </Space>
       {petals ? <PetalsList /> : ""}
       <CalendarSearch />
-      
-        <IDPsTableItems isPersonalPage={isPersonalPage} />
-      
+
+      <IDPsTableItems isPersonalPage={isPersonalPage} />
     </section>
   );
 }

@@ -7,10 +7,10 @@ import { FilterTag } from "@alfalab/core-components-filter-tag";
 
   export default function FilterStatus() {
     const options =  [
-        { key: '1', content: "В работе" },
-        { key: '2', content: "Черновик" },
-        { key: '3', content: "Выполнен" },
-        { key: '4', content: "Просрочен" },
+        { key: '1', content: "Черновик" },
+        { key: '2', content: "В работе" },
+        { key: '3', content: "Просрочен" },
+        { key: '4', content: "Выполнен" },
         { key: '5', content: "Отменён" },
       ];
     
