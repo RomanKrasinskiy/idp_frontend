@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 
 export default function IDPsTableItems({ isPersonalPage }) {
+  
   const [page, setPage] = useState(1);
 
   const dataQuery = isPersonalPage
@@ -20,6 +21,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
   const { data, isFetching, isLoading } = dataQuery(page);
 
   const dataResult = data?.results ?? [];
+  console.log(dataResult)
 
   useEffect(() => {
     const onScroll = () => {
@@ -50,7 +52,9 @@ export default function IDPsTableItems({ isPersonalPage }) {
         <>
           <IDPsButtonsContainer
             dataItem={Boolean(!isLoading && data)}
-            isPersonalPage={isPersonalPage}
+            isPersonalPage={!isPersonalPage}
+            // sort={sort}
+
           />
           <div className={style.idpsConrainer}>
             {!isLoading &&
@@ -63,7 +67,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
                   >
                     <ul className={style.columnTable} key={item.idp_id}>
                       {/* ФИО(ФИ) юзера */}
-                      {isPersonalPage ? (
+                      {!isPersonalPage ? (
                         <li
                           className={style.tableElement}
                           style={{ width: "298px" }}
@@ -80,7 +84,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
                       {/* Название плана */}
                       <li
                         className={style.tableElement}
-                        style={{ width: isPersonalPage ? "298px" : "425px" }}
+                        style={{ width: !isPersonalPage ? "298px" : "425px" }}
                       >
                         <div
                           className={style.textContainer}
@@ -93,12 +97,12 @@ export default function IDPsTableItems({ isPersonalPage }) {
                       {/* Дата */}
                       <li
                         className={style.tableElement}
-                        style={{ width: isPersonalPage ? "151px" : "240px" }}
+                        style={{ width: !isPersonalPage ? "151px" : "240px" }}
                       >
                         <div
                           className={style.textContainer}
                           style={{
-                            paddingLeft: isPersonalPage ? "66px" : "126px",
+                            paddingLeft: !isPersonalPage ? "66px" : "126px",
                           }}
                         >
                           {formatDate(item.end_date_plan)}
@@ -108,10 +112,10 @@ export default function IDPsTableItems({ isPersonalPage }) {
                       {/* Статус выполнения */}
                       <li
                         className={style.tableElement}
-                        style={{ width: isPersonalPage ? "163px" : "247px" }}
+                        style={{ width: !isPersonalPage ? "163px" : "247px" }}
                       >
                         <StatusTable
-                          isPersonalPage={isPersonalPage}
+                          isPersonalPage={!isPersonalPage}
                           title={item.status}
                         />
                       </li>

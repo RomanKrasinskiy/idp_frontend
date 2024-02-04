@@ -25,7 +25,7 @@ export default function StatusTable({ title, isPersonalPage }) {
       case "completed_approval":
         return "rgba(14, 14, 14, 1)";
       case "closed":
-        return "rgba(14, 14, 14, 1)";
+        return "rgba(19, 164, 99, 1)";
       default:
         return "rgba(48, 122, 239, 1)";
     }

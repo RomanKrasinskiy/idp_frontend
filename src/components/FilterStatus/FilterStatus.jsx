@@ -6,12 +6,13 @@ import { FilterTag } from "@alfalab/core-components-filter-tag";
 
 
   export default function FilterStatus() {
+    
     const options =  [
-        { key: '1', content: "Черновик" },
-        { key: '2', content: "В работе" },
-        { key: '3', content: "Просрочен" },
-        { key: '4', content: "Выполнен" },
-        { key: '5', content: "Отменён" },
+        { key: '1', content: "Черновик", status: 'draft_approval, draft'},
+        { key: '2', content: "В работе", status: 'two_weeks, active'},
+        { key: '3', content: "Просрочен", status: 'overdue'},
+        { key: '4', content: "Выполнен", status: 'completed_approval, closed'},
+        { key: '5', content: "Отменён", status: 'cancelled'},
       ];
     
     const [selectedMultiple, setSelectedMultiple] = useState([]);

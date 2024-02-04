@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 
 export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
 
+  
+
   return (
     <>
       {!dataItem ? (
@@ -15,6 +17,7 @@ export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
           <div>
             {isPersonalPage ? (
               <ButtonSort
+                
                 BTitle={"Сотрудник"}
                 BSortKey={"date"}
                 style={{ display: "block" }}
