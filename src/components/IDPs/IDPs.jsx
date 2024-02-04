@@ -66,7 +66,16 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
           ""
         )}
       </Space>
-      {petals ? <PetalsList isLoading={selectedId == 'tab-1' ? isPrivateLoading : isEmployeeLoading} data={selectedId == 'tab-1' ? privateIdps : employeeIdps} /> : ""}
+      {petals ? (
+        <PetalsList
+          isLoading={
+            selectedId == "tab-1" ? isPrivateLoading : isEmployeeLoading
+          }
+          data={selectedId == "tab-1" ? privateIdps : employeeIdps}
+        />
+      ) : (
+        ""
+      )}
       <CalendarSearch />
       {!isPrivateFetching && !isEmployeeFetching ? (
         selectedId == "tab-1" ? (
@@ -76,6 +85,7 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
             isLoading={isPrivateLoading}
             data={privateIdps}
             isPersonalPage={selectedId == "tab-1"}
+            isFetching={isPrivateFetching}
           />
         ) : (
           <IDPsTableItems
@@ -83,6 +93,7 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
             page={page}
             isLoading={isPrivateLoading}
             data={employeeIdps}
+            isFetching={isEmployeeFetching}
             isPersonalPage={isPersonalPage}
           />
         )

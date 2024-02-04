@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setloggedIn } from "../../store/userSlice";
 import ProtectedRoutes from "../ProtectedRoutes/ProtectedRoutes";
+import EditTask from "../EditTask/EditTask";
 
 function App() {
   const location = useLocation();
@@ -92,7 +93,7 @@ function App() {
                   />
                 }
               />
-              <Route path="/idp/:idpId" element={<IDP />} />
+              <Route path="/idp/:idpId/:last_name/:first_name" element={<IDP />} />
               <Route
                 path="/idp"
                 element={<NewIDP title="Новый план развития" />}
@@ -103,6 +104,7 @@ function App() {
                   <CreateTask title="Новая задача" buttonText="Создать" />
                 }
               />
+              <Route path="/:idpId/:taskId" element={<EditTask />}/>
               <Route path="/mentor" element={<Mentor />} />
             </Route>
             <Route path="*" element={<NotFound />} />
