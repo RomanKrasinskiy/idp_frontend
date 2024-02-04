@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import style from "./FilterStatus.module.css";
 import { Select } from "@alfalab/core-components-select";
 import { FilterTag } from "@alfalab/core-components-filter-tag";

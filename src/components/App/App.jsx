@@ -40,31 +40,6 @@ function App() {
     tokenCheck();
   }, [loggedIn]);
 
-  // const {userData, isLoading} = useGetUserInfoQuery(token)
-  // const {idps} = useGetIdpQuery(token)
-
-  // const [addUser] = usePostUserMutation();
-
-  // function tokenCheck() {
-  //   const token = localStorage.getItem("auth_token");
-  //   if (!token) {
-  //     navigate("/");
-  //   } else {
-  //     navigate(location.pathname);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   const userToken = localStorage.getItem('token')
-  //   if(!userToken){
-  //     addUser({ email, password })
-  //     .then((res) => {
-  //       const token = res.data.access;
-  //       localStorage.setItem('token', token)
-  //     })
-  //   }
-  // }, []);
-
   const showLeftNavBar = ["/idps", "/idp", "/newTask", "/mentor"].includes(
     location.pathname
   );
@@ -107,7 +82,7 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <ScrollToTop threshold={1500} showBelow={true} />
+          <ScrollToTop threshold={500} showBelow={true} />
         </div>
       </div>
     </section>

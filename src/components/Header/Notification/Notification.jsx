@@ -27,7 +27,7 @@ export default function Notification() {
           <div className={style.notificationBox}>
             <h3 className={style.notificationsHeader}>Уведомления</h3>
 
-            <NotificationUser  />
+            <NotificationUser showDropDown={showDropDown} />
 
           </div>
         </div>

@@ -15,8 +15,6 @@ export default function IDPsTableItems({
   setPage,
   isPersonalPage,
 }) {
-
-  
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
@@ -28,19 +26,22 @@ export default function IDPsTableItems({
     };
 
     document.addEventListener("scroll", onScroll);
-
     return function () {
       document.removeEventListener("scroll", onScroll);
     };
-  }, [page, isFetching]);
+  }, [isFetching, setPage]);
 
   const formatDate = (dateString) => {
     const options = { day: "numeric", month: "numeric", year: "numeric" };
     return new Date(dateString).toLocaleDateString("ru-RU", options);
   };
+  console.log(data);
+
   return (
     <>
-    {!data ? '' : (data.detail ? (
+      {!data ? (
+        ""
+      ) : data.detail ? (
         <NoData text={data.detail} />
       ) : (
         <>
@@ -48,7 +49,6 @@ export default function IDPsTableItems({
             dataItem={Boolean(!isLoading && data)}
             isPersonalPage={!isPersonalPage}
             // sort={sort}
-
           />
           <div className={style.idpsConrainer}>
             {!isLoading &&
@@ -57,11 +57,11 @@ export default function IDPsTableItems({
                   <Link
                     className={style.link}
                     key={item.idp_id}
-                    to={`/idp/${item.idp_id}`}
+                    to={`/idp/:idpId`}
                   >
                     <ul className={style.columnTable} key={item.idp_id}>
                       {/* ФИО(ФИ) юзера */}
-                      {isPersonalPage ? (
+                      {!isPersonalPage ? (
                         <li
                           className={style.tableElement}
                           style={{ width: "298px" }}
@@ -73,19 +73,7 @@ export default function IDPsTableItems({
                             {`${item.employee.last_name} ${item.employee.first_name}`}
                           </div>
                         </li>
-                      ) : (
-                        <li
-                          className={style.tableElement}
-                          style={{ width: "298px" }}
-                        >
-                          <div
-                            className={style.textContainer}
-                            style={{ paddingLeft: "36px" }}
-                          >
-                            {`${item.employee.last_name} ${item.employee.first_name}`}
-                          </div>
-                        </li>
-                      )}
+                      ) : null}
 
                       {/* Название плана */}
                       <li
@@ -131,8 +119,7 @@ export default function IDPsTableItems({
               ))}
           </div>
         </>
-      ))}
-      
+      )}
     </>
   );
 }

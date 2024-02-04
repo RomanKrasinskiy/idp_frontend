@@ -21,6 +21,13 @@
   font-family: var(--ff);
   line-height: 16px;
 }
+.titleTask {
+  font-family: "Segoe UI";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+}
 
 .infoDate {
   display: flex;

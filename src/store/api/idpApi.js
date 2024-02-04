@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL } from "../../utils/constans";
 
-const token = localStorage.getItem("token");
+const token = localStorage.getItem('token')
 
 export const idpApi = createApi({
   reducerPath: "idpApi",
@@ -12,8 +12,8 @@ export const idpApi = createApi({
         url: `/api/v1/idp?page=${page}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+          "Authorization" : `Bearer ${token}`
+        }
       }),
     }),
     // getIdpEmployee: build.query({
@@ -30,32 +30,9 @@ export const idpApi = createApi({
         url: `/api/v1/idp/subordinates/?page=${page}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }),
-      serializeQueryArgs: ({ endpointName }) => {
-        return endpointName;
-      },
-      // Always merge incoming data to the cache entry
-      merge: (currentCache, newItems) => {
-        if (currentCache.results) {
-          currentCache.results.push(...newItems.results);
+          "Authorization" : `Bearer ${token}`
         }
-      },
-      // Refetch when the page arg changes
-      forceRefetch({ currentArg, previousArg }) {
-        return currentArg !== previousArg;
-      },
-    }),
-    getIdpPrivate: build.query({
-      query: (page = 1) => ({
-        url: `/api/v1/idp/private/?page=${page}`,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
       }),
-      refetchOnMountOrArgChange: true,
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
@@ -66,16 +43,36 @@ export const idpApi = createApi({
       // Refetch when the page arg changes
       forceRefetch({ currentArg, previousArg }) {
         return currentArg !== previousArg;
-      },
+      }
     }),
-
+    getIdpPrivate: build.query({
+      query: (page = 1) => ({
+        url: `/api/v1/idp/private/?page=${page}`,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization" : `Bearer ${token}`
+        }
+      }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      // Always merge incoming data to the cache entry
+      merge: (currentCache, newItems) => {
+        currentCache.results.push(...newItems.results);
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      }
+    }),
+    
     postIdp: build.mutation({
       query: (body) => ({
         url: "/api/v1/idp/",
         method: "POST",
-        headers: {
+        headers:{
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          "Authorization" : `Bearer ${token}`
         },
         body,
       }),
