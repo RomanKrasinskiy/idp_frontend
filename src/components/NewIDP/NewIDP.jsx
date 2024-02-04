@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import PopupAppointment from "../PopupAppointment/PopupAppointment";
 import { openPopup1 } from "../../store/actions/popup1Actions";
 import { openPopup2 } from "../../store/actions/popup2Actions";
+import ButtonsNewIdp from "../ButtonsNewIdp/ButtonsNewIdp";
 
 export default function NewIDP({ title }) {
   const dispatch = useDispatch();
@@ -73,13 +74,7 @@ export default function NewIDP({ title }) {
         <div className={style.task__items}>
           <IDPsTableItems />
         </div>
-        <div className={style.buttons}>
-          <Button view="accent">Сохранить план</Button>
-          <Button view="primary">Удалить план</Button>
-          <Button view="link" onClick={() => dispatch(openPopup2())}>
-            Назначить встречу
-          </Button>
-        </div>
+        <ButtonsNewIdp openPopup2={openPopup2} isPersonalPage={false} />
       </section>
     </>
   );

@@ -14,6 +14,7 @@ export default function NoData({text}) {
               <p className={style.text}>Создайте новый план развития</p>
             </>
           )}
+          <h3 className={style.title}>Пока что тут ничего нет</h3>
         </div>
       </div>
     </section>
