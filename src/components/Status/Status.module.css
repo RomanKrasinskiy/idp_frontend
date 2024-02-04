@@ -1,0 +1,30 @@
+.status {
+  position: absolute;
+  width: fit-content;
+  right: 24px;
+  top: 196px;
+  text-align: center;
+  padding: 14px 12px 14px 12px;
+  
+  border-radius: 4px;
+}
+
+.statusActive {
+  background: rgb(255, 244, 232);
+}
+
+.statusDone {
+  background: rgb(231, 248, 244);
+}
+
+.statusText {
+  color: rgb(14, 14, 14);
+  font-size: 14px;
+  font-weight: var(--fw-normal);
+  font-family: var(--ff);
+  line-height: 18px;
+  letter-spacing: 0%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
