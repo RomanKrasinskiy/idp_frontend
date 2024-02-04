@@ -2,25 +2,35 @@ import style from "./PetalsList.module.css";
 import Petals from "../Petals/Petals";
 import PropTypes from "prop-types";
 import { Skeleton } from "@alfalab/core-components-skeleton";
-import { useGetIdpEmployeeQuery } from "../../store/api/idpApi";
-export default function PetalsList() {
-
-  const { data, isLoading } = useGetIdpEmployeeQuery();
+export default function PetalsList({ data, isLoading }) {
+  const hasDetailData = data && data.detail;
 
   return (
     <section className={style.container}>
       <div className={style.list}>
         <Skeleton visible={isLoading}>
-          <Petals name={"Всего"} count={data?.in_total} />
+          <Petals
+            name={"Всего"}
+            count={hasDetailData ? 0 : data ? data.in_total : "0"}
+          />
         </Skeleton>
         <Skeleton visible={isLoading}>
-          <Petals name={"В работе"} count={data?.active} />
+          <Petals
+            name={"В работе"}
+            count={hasDetailData ? 0 : data ? data.active : "0"}
+          />
         </Skeleton>
         <Skeleton visible={isLoading}>
-          <Petals name={"Выполнено"} count={data?.closed} />
+          <Petals
+            name={"Выполнено"}
+            count={hasDetailData ? 0 : data ? data.closed : "0"}
+          />
         </Skeleton>
         <Skeleton visible={isLoading}>
-          <Petals name={"Просрочено"} count={data?.overdue} />
+          <Petals
+            name={"Просрочено"}
+            count={hasDetailData ? 0 : data ? data.overdue : "0"}
+          />
         </Skeleton>
       </div>
     </section>

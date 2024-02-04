@@ -80,11 +80,3 @@
 .task__items {
   width: 912px;
 }
-
-.buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-}

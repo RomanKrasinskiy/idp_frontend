@@ -34,6 +34,9 @@
   align-items: center;
   justify-content: flex-start;
   height: 52px;
+  white-space: nowrap; /* Запрет переноса строки */
+  overflow: hidden; /* Скрытие избыточного текста */
+  text-overflow: ellipsis;
 
   /* Добавляет плавности при переключении, но вёрстка прыгает */
   /* transition: width 1s ease-in-out; */

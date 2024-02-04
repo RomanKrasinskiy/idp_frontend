@@ -4,25 +4,19 @@ import StatusTable from "../StatusTable/StatusTable";
 import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import {
-  useGetIdpPrivateQuery,
-  useGetIdpEmployeeQuery,
-} from "../../store/api/idpApi";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import NoData from "../NoData/NoData";
 
-export default function IDPsTableItems({ isPersonalPage }) {
+export default function IDPsTableItems({
+  data,
+  isLoading,
+  isFetching,
+  page,
+  setPage,
+  isPersonalPage,
+}) {
+
   
-  const [page, setPage] = useState(1);
-
-  const dataQuery = isPersonalPage
-    ? useGetIdpPrivateQuery
-    : useGetIdpEmployeeQuery;
-
-  const { data, isFetching, isLoading } = dataQuery(page);
-
-  const dataResult = data?.results ?? [];
-  console.log(dataResult)
-
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
@@ -46,8 +40,8 @@ export default function IDPsTableItems({ isPersonalPage }) {
   };
   return (
     <>
-      {!dataResult ? (
-        <p></p>
+    {!data ? '' : (data.detail ? (
+        <NoData text={data.detail} />
       ) : (
         <>
           <IDPsButtonsContainer
@@ -58,7 +52,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
           />
           <div className={style.idpsConrainer}>
             {!isLoading &&
-              dataResult.map((item) => (
+              data.results.map((item) => (
                 <Skeleton visible={isLoading} key={item.idp_id}>
                   <Link
                     className={style.link}
@@ -67,7 +61,7 @@ export default function IDPsTableItems({ isPersonalPage }) {
                   >
                     <ul className={style.columnTable} key={item.idp_id}>
                       {/* ФИО(ФИ) юзера */}
-                      {!isPersonalPage ? (
+                      {isPersonalPage ? (
                         <li
                           className={style.tableElement}
                           style={{ width: "298px" }}
@@ -79,7 +73,19 @@ export default function IDPsTableItems({ isPersonalPage }) {
                             {`${item.employee.last_name} ${item.employee.first_name}`}
                           </div>
                         </li>
-                      ) : null}
+                      ) : (
+                        <li
+                          className={style.tableElement}
+                          style={{ width: "298px" }}
+                        >
+                          <div
+                            className={style.textContainer}
+                            style={{ paddingLeft: "36px" }}
+                          >
+                            {`${item.employee.last_name} ${item.employee.first_name}`}
+                          </div>
+                        </li>
+                      )}
 
                       {/* Название плана */}
                       <li
@@ -125,7 +131,8 @@ export default function IDPsTableItems({ isPersonalPage }) {
               ))}
           </div>
         </>
-      )}
+      ))}
+      
     </>
   );
 }
