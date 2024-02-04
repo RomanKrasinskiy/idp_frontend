@@ -51,3 +51,7 @@
     text-align: center;
     white-space: nowrap;
   }
+
+  .textUserNameGrey {
+    color: rgb(117, 117, 126);
+  }
