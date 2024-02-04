@@ -1,9 +1,4 @@
-import {
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import IDPs from "../IDPs/IDPs";
 import NewIDP from "../NewIDP/NewIDP";
 import style from "./App.module.css";
@@ -82,17 +77,14 @@ function App() {
           {/* Компоненты левого меню */}
           {showLeftNavBar && <LeftNavBar />}
           <Routes>
-            <Route
-              exact
-              path="/auth"
-              element={<Auth />}
-            />
+            <Route exact path="/auth" element={<Auth />} />
 
             <Route element={<ProtectedRoutes loggedIn={loggedIn} />}>
               <Route
                 path="/idps"
                 element={
                   <IDPs
+                    checkToken={tokenCheck}
                     petals={true}
                     title="Планы развития"
                     newIdpButton={true}
@@ -100,10 +92,7 @@ function App() {
                   />
                 }
               />
-              <Route
-                path="/idp/:idpId"
-                element={<IDP />}
-              />
+              <Route path="/idp/:idpId" element={<IDP />} />
               <Route
                 path="/idp"
                 element={<NewIDP title="Новый план развития" />}
@@ -117,8 +106,6 @@ function App() {
               <Route path="/mentor" element={<Mentor />} />
             </Route>
             <Route path="*" element={<NotFound />} />
-
-
           </Routes>
           <ScrollToTop threshold={1500} showBelow={true} />
         </div>
