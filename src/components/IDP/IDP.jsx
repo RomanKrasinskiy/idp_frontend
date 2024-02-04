@@ -9,14 +9,33 @@ import EditWorker from "../CreateTask/EditWorker/EditWorker";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import { openPopup1 } from "../../store/actions/popup1Actions";
 import Popup from "../Popup/Popup";
+import { useParams } from "react-router-dom";
+import { useGetIdpByIdQuery } from "../../store/api/idpApi";
+import TaskTableItems from "../TasksTableItems/TaskTableItems";
+import { useState } from "react";
 
 export default function IDP() {
+  const [value, setValue] = useState({
+    idpComment: ''
+  });
+
+  const onChange = (name,value) => {
+    setValue((prevdata) => ({
+      ...prevdata,
+      [name]: value,
+    }));
+  };
+
   const dispatch = useDispatch();
+  const { idpId, last_name, first_name } = useParams();
+
+  const { data, isLoading } = useGetIdpByIdQuery(idpId);
+  console.log(data)
 
   const popup1IsOpen = useSelector((state) => state.popup1.isOpen);
 
   // Деструктуризация с проверкой наличия end_date_plan
-  const { end_date_plan, start_date, name } = idp || {};
+  const { end_date_plan, start_date, name } = data || {};
 
   return (
     <>
@@ -28,46 +47,62 @@ export default function IDP() {
           search={true}
         />
       )}
-      <LeftNavBar />
-      <section className={style.container}>
-        <h1 className={style.title}>План развития</h1>
-        <div className={style.info}>
-          <div className={style.infoDate}>
-            <Skeleton visible={loading}>
-              <p className={style.subtitle}>до {end_date_plan?.slice(0, 10)}</p>
-            </Skeleton>
-            <Skeleton visible={loading}>
-              <TaskProgress
-                end_date_plan={end_date_plan}
-                start_date={start_date}
-              />
-            </Skeleton>
-          </div>
+      {isLoading ? (
+        <Skeleton></Skeleton>
+      ) : (
+        <>
+          <LeftNavBar />
+          <section className={style.container}>
+            <h1 className={style.title}>{data.name}</h1>
+            <div className={style.info}>
+              <div className={style.infoDate}>
+                <Skeleton visible={isLoading}>
+                  <p className={style.subtitle}>
+                    до {end_date_plan?.slice(0, 10)}
+                  </p>
+                </Skeleton>
+                <Skeleton visible={isLoading}>
+                  <TaskProgress
+                    end_date_plan={end_date_plan}
+                    start_date={start_date}
+                  />
+                </Skeleton>
+              </div>
 
-          <div className={style.planName}>
-            <p className={style.name}>Название</p>
-            <Skeleton visible={loading}>
-              <Input
-                className={style.input}
-                labelView="inner"
-                label=""
-                value={name}
+              <div className={style.planName}>
+                <p className={style.name}>Название</p>
+                <Skeleton visible={isLoading}>
+                  <Input
+                    className={style.input}
+                    labelView="inner"
+                    label=""
+                    value={data.name}
+                  />
+                </Skeleton>
+              </div>
+              <CommentInput
+                name='idpComment'
+                onChange={onChange}
+                value={value.idpComment}
+                title="Добавить описание"
               />
-            </Skeleton>
-          </div>
-          <CommentInput title="Добавить описание" />
-          <div className={style.employee}>
-            <EditWorker
-              handleOpenEdit={() => dispatch(openPopup1())}
-              text="Сотрудник"
-            />
-            <div className={style.container__worker}>
-              <p className={style.userName}>Константин Константинопольский</p>
-              <p className={style.post}>JS разработчик</p>
+              <div className={style.employee}>
+                <EditWorker
+                  handleOpenEdit={() => dispatch(openPopup1())}
+                  text="Сотрудник"
+                />
+                <div style={{marginBottom:'20px'}} className={style.container__worker}>
+                  <p className={style.userName}>
+                    {first_name} {last_name}
+                  </p>
+                  <p className={style.post}>JS разработчик</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+            <TaskTableItems idp_id={idpId} data={data.tasks} />
+          </section>
+        </>
+      )}
     </>
   );
 }

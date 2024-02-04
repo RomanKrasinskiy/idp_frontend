@@ -15,8 +15,6 @@ export default function IDPsTableItems({
   setPage,
   isPersonalPage,
 }) {
-
-  
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
@@ -40,7 +38,9 @@ export default function IDPsTableItems({
   };
   return (
     <>
-    {!data ? '' : (data.detail ? (
+      {!data ? (
+        <NoData text="У вас нет задач" />
+      ) : data.detail ? (
         <NoData text={data.detail} />
       ) : (
         <>
@@ -55,7 +55,7 @@ export default function IDPsTableItems({
                   <Link
                     className={style.link}
                     key={item.idp_id}
-                    to={`/idp/${item.idp_id}`}
+                    to={`/idp/${item.idp_id}/${item.employee.last_name}/${item.employee.first_name}`}
                   >
                     <ul className={style.columnTable} key={item.idp_id}>
                       {/* ФИО(ФИ) юзера */}
@@ -129,8 +129,7 @@ export default function IDPsTableItems({
               ))}
           </div>
         </>
-      ))}
-      
+      )}
     </>
   );
 }

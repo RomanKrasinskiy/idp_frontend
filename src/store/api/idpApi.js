@@ -68,7 +68,24 @@ export const idpApi = createApi({
         return currentArg !== previousArg;
       },
     }),
-
+    getIdpById: build.query({
+      query: (idp_id) => ({
+        url: `/api/v1/idp/${idp_id}/tasks/`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
+    getTaskByIdpId: build.query({
+      query: ({idpId, taskId}) => ({
+        url: `/api/v1/idp/${idpId}/tasks/${taskId}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
     postIdp: build.mutation({
       query: (body) => ({
         url: "/api/v1/idp/",
@@ -103,4 +120,6 @@ export const {
   useDeleteIdpMutation,
   usePostIdpMutation,
   useUpdatetIdpMutation,
+  useGetIdpByIdQuery,
+  useGetTaskByIdpIdQuery
 } = idpApi;
