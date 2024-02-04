@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./IDPs.module.css";
 import PetalsList from "../PetalsList/PetalsList";
 import PropTypes from "prop-types";
@@ -9,14 +9,32 @@ import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 
 import { Link } from "react-router-dom";
 import CalendarSearch from "../CalendarSearch/CalendarSearch";
+import {
+  useGetIdpEmployeeQuery,
+  useGetIdpPrivateQuery,
+} from "../../store/api/idpApi";
 
 export default function IDPs({ petals, title, newIdpButton, tabs }) {
+  const [page, setPage] = useState(1);
+  const [isPersonalPage, setIsPersonalPage] = useState(false);
+
+  const {
+    data: privateIdps,
+    isLoading: isPrivateLoading,
+    isFetching: isPrivateFetching,
+    isError,
+  } = useGetIdpPrivateQuery();
+  const {
+    data: employeeIdps,
+    isLoading: isEmployeeLoading,
+    isFetching: isEmployeeFetching,
+  } = useGetIdpEmployeeQuery();
+
   const TABS = [
     { title: "Личные", id: "tab-1" },
     { title: "Сотрудников", id: "tab-2" },
   ];
-  const [selectedId, setSelectedId] = useState(TABS[1].id);
-  const [isPersonalPage, setIsPersonalPage] = useState(false);
+  const [selectedId, setSelectedId] = useState(TABS[0].id);
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
@@ -48,10 +66,29 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
           ""
         )}
       </Space>
-      {petals ? <PetalsList /> : ""}
+      {petals ? <PetalsList isLoading={selectedId == 'tab-1' ? isPrivateLoading : isEmployeeLoading} data={selectedId == 'tab-1' ? privateIdps : employeeIdps} /> : ""}
       <CalendarSearch />
-
-      <IDPsTableItems isPersonalPage={isPersonalPage} />
+      {!isPrivateFetching && !isEmployeeFetching ? (
+        selectedId == "tab-1" ? (
+          <IDPsTableItems
+            setPage={setPage}
+            page={page}
+            isLoading={isPrivateLoading}
+            data={privateIdps}
+            isPersonalPage={selectedId == "tab-1"}
+          />
+        ) : (
+          <IDPsTableItems
+            setPage={setPage}
+            page={page}
+            isLoading={isPrivateLoading}
+            data={employeeIdps}
+            isPersonalPage={isPersonalPage}
+          />
+        )
+      ) : (
+        <p>{isError.message}</p>
+      )}
     </section>
   );
 }
