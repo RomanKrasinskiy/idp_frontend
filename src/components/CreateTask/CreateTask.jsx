@@ -153,7 +153,7 @@ export default function CreateTask({ title, buttonText }) {
           className={style.attach}
         />
 
-        <Link to="/idps">
+        <Link to="/idp/00000000-0000-0000-0000-000000000007/Павин/Иван">
           <Button style={{ backgroundColor: "black", color: "white" }}>
             {buttonText}
           </Button>
