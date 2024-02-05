@@ -4,25 +4,26 @@ Frontend для проекта хакатона "Яндекс.Практикум
 
 > Сервис, в рамках которого для сотрудников можно составить ИПР (индивидуальные планы развития), просматривать его и валидировать выполнение целей. В рамках сервиса существует 3 роли: руководитель, сотрудник и ментор.
 - Превью доступно по адресу: http://51.250.70.185:5173/idps
-## Авторы
-Product manager – Богачук Леонид (@LeonidBogachuk)
-Project manager – Тарабуткина Юлиана (@Juliana_jull)
-Системный аналитик (Lead) – Сканави Павел (@Reds_on_tour)
-Системный аналитик – Андиева Диана (@keller_diana)
-Бизнес-аналитик (Lead) - Фадеева Алина (@Alina_a_Fadeeva)
-Бизнес-аналитик – Уразметова Лилия (@Lili_9092)
-Дизайнер (Lead) – Лапкина Яна (@yana_lapkina)
-Дизайнер – Лукинова Марина (@Lukinova_Marina)
-Дизайнер – Ерёменко Татьяна (@paintings_inspire)
-Backend (Lead) – Халёса Максим (@makskhaliosa)
-Backend – Чижов Алексей (@Chizhovsky)
-Backend – Варачев Андрей (@Dartanyun)
-Backend – Аюпов Рашид (@valentaine_ra)
+## Команда проекта 16 человек
+- Product manager – Богачук Леонид (@LeonidBogachuk)
+- Project manager – Тарабуткина Юлиана (@Juliana_jull)
+- Системный аналитик (Lead) – Сканави Павел (@Reds_on_tour)
+- Системный аналитик – Андиева Диана (@keller_diana)
+- Бизнес-аналитик (Lead) - Фадеева Алина (@Alina_a_Fadeeva)
+- Бизнес-аналитик – Уразметова Лилия (@Lili_9092)
+- Дизайнер (Lead) – Лапкина Яна (@yana_lapkina)
+- Дизайнер – Лукинова Марина (@Lukinova_Marina)
+- Дизайнер – Ерёменко Татьяна (@paintings_inspire)
+- Backend (Lead) – Халёса Максим (@makskhaliosa)
+- Backend – Чижов Алексей (@Chizhovsky)
+- Backend – Варачев Андрей (@Dartanyun)
+- Backend – Аюпов Рашид (@valentaine_ra)
+  ## Авторы
 - [Роман Красинский](Lead)(https://github.com/RomanKrasinskiy)(@r_krasinski)
 - [Мурадов Артур](https://github.com/ArthurMur) (@VladisSerd)
 - [Владислав Сердюков](https://github.com/VladislavSerduykov)(@arturasterol)
 
-## Команда проекта 16 человек
+
 
 ## Технологии:
 
