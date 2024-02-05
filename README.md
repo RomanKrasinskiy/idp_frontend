@@ -18,9 +18,6 @@ Backend (Lead) – Халёса Максим (@makskhaliosa)
 Backend – Чижов Алексей (@Chizhovsky)
 Backend – Варачев Андрей (@Dartanyun)
 Backend – Аюпов Рашид (@valentaine_ra)
-Frontend  – Красинский Роман 
-Frontend – Сердюков Владислав 
-Frontend – Мурадов Артур 
 - [Роман Красинский](Lead)(https://github.com/RomanKrasinskiy)(@r_krasinski)
 - [Мурадов Артур](https://github.com/ArthurMur) (@VladisSerd)
 - [Владислав Сердюков](https://github.com/VladislavSerduykov)(@arturasterol)
