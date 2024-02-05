@@ -1,0 +1,147 @@
+.container {
+  min-width: 912px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  padding-top: 48px;
+}
+
+.input {
+  width: 522px;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-size: var(--fz-text);
+  font-weight: var(--fw-normal);
+  line-height: 12px;
+}
+
+.input::placeholder {
+  color: #a0a2aa;
+}
+.sectionButton__container {
+  /* height: 36px; */
+  /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+.button__container {
+  width: 255px;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.button__container:last-of-type {
+  margin-bottom: 20px;
+}
+
+.mentor__container {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 17px;
+  margin-top: 15px;
+}
+
+.text__container {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.edit__button {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.edit__worker {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff);
+  font-size: 14px;
+  font-weight: var(--fw-normal);
+  line-height: 18px;
+}
+
+.edit__worker_position {
+  color: #989aa4;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff);
+  font-size: 12px;
+  font-weight: var(--fw-normal);
+  line-height: 16px;
+}
+
+.button_add {
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.title {
+  font-family: var(--ff);
+  font-size: var(--fz-title);
+  font-weight: var(--fw-bold);
+  line-height: 48px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.subtitle {
+  font-size: var(--fz-subtitle);
+  color: var(--color-text);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff);
+  line-height: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.text__comment {
+  opacity: 0.7;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-size: var(--fz-text);
+  font-weight: var(--fw-normal);
+  line-height: 22.4px;
+}
+
+.text {
+  opacity: 0.7;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-size: var(--fz-text);
+  font-weight: var(--fw-normal);
+  line-height: 22.4px;
+}
+
+.text__comment:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.calendar {
+  margin-top: 4px;
+  margin-bottom: 20px;
+  width: 320px;
+}
+
+.attach {
+  margin-bottom: 48px;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}

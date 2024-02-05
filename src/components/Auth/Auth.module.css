@@ -1,0 +1,56 @@
+.auth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e6e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.authContainer {
+  min-width: 690px;
+  height: 480px;
+  border-radius: 64px;
+  background-color: #fff;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.authContainerHeader {
+  height: 100px;
+  width: 100%;
+  background-color: #f2f3f5;
+  border-radius: 64px 64px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  width: 161px;
+  height: 32px;
+}
+.authSelect {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.authTitle {
+  font-family: "Segoe UI";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  margin: 67px 0 28px;
+}
+.optionClassName {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}

@@ -1,0 +1,31 @@
+@import url("../../vendor/fonts/fonts.css");
+#root {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+:root {
+  --color-text: black;
+  --fz-title: 40px;
+  --fz-subtitle: 20px;
+  --fz-text: 16px;
+  --fz-placeholder: 14px;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --ff: "Segoi UI", Helvetica, Arial, sans-serif;
+}
+.app {
+  width: 1260px;
+  margin: 0 auto;
+}
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 24px;
+}
+.mainContainer {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  gap: 24px;
+}

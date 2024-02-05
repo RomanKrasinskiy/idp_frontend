@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  max-width: 912px;
+}
+.title {
+  margin: 48px 0 32px 0;
+  font-family: var(--ff);
+  font-size: var(--fz-title);
+  font-weight: var(--fw-bold);
+  line-height: 48px;
+}

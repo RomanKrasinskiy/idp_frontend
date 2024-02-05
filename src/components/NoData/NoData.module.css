@@ -1,0 +1,38 @@
+.noData {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 84px;
+  padding-bottom: 50px;
+}
+.container {
+  width: 281px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.findImg {
+  background-image: url("../../images/searchNoData.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 75px;
+}
+.title {
+  margin: 20px 0 12px 0;
+  font-family: var(--ff);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.text {
+  margin: 0;
+  font-family: var(--ff);
+  color: rgba(187, 187, 195, 1);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+}

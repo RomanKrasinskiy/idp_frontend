@@ -1,0 +1,10 @@
+.logoContainer {
+  min-width: 296px;
+  display: flex;
+}
+.logo {
+  background-image: url("../../../images/LogoHeader.svg");
+  width: 161px;
+  height: 32px;
+  background-repeat: no-repeat;
+}
