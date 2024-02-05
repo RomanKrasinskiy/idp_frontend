@@ -66,7 +66,16 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
           ""
         )}
       </Space>
-      {petals ? <PetalsList isLoading={selectedId == 'tab-1' ? isPrivateLoading : isEmployeeLoading} data={selectedId == 'tab-1' ? privateIdps : employeeIdps} /> : ""}
+      {petals ? (
+        <PetalsList
+          isLoading={
+            selectedId == "tab-1" ? isPrivateLoading : isEmployeeLoading
+          }
+          data={selectedId == "tab-1" ? privateIdps : employeeIdps}
+        />
+      ) : (
+        ""
+      )}
       <CalendarSearch />
       
        <IDPsTableItems

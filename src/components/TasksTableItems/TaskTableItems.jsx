@@ -1,20 +1,22 @@
-import style from "./IDPsTableItems.module.css";
+import style from "./TaskTableItems.module.css";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import StatusTable from "../StatusTable/StatusTable";
-import IDPsButtonsContainer from "../IDPsButtonsContainer/IDPsButtonsContainer";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import NoData from "../NoData/NoData";
+import Petals from "../Petals/Petals";
+import PetalsList from "../PetalsList/PetalsList";
 
-export default function IDPsTableItems({
+export default function TaskTableItems({
   data,
   isLoading,
   isFetching,
   page,
   setPage,
-  isPersonalPage,
+  idp_id
 }) {
+
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
@@ -26,91 +28,69 @@ export default function IDPsTableItems({
     };
 
     document.addEventListener("scroll", onScroll);
+
     return function () {
       document.removeEventListener("scroll", onScroll);
     };
-  }, [isFetching, setPage]);
+  }, [page, isFetching]);
 
   const formatDate = (dateString) => {
     const options = { day: "numeric", month: "numeric", year: "numeric" };
     return new Date(dateString).toLocaleDateString("ru-RU", options);
   };
-  console.log(data);
-
   return (
     <>
       {!data ? (
         <NoData text="У вас нет задач" />
-      ) : data.detail ? (
-        <NoData text={data.detail} />
-      ) : (
+      ) : 
         <>
-          <IDPsButtonsContainer
-            dataItem={Boolean(!isLoading && data)}
-            isPersonalPage={!isPersonalPage}
-            // sort={sort}
-          />
+        <PetalsList />
           <div className={style.idpsConrainer}>
             {!isLoading &&
-              data.results.map((item) => (
-                <Skeleton visible={isLoading} key={item.idp_id}>
+              data.map((item) => (
+                <Skeleton visible={isLoading} key={item.task_id}>
                   <Link
                     className={style.link}
-                    key={item.idp_id}
-                    to={`/idp/${item.idp_id}/${item.employee.last_name}/${item.employee.first_name}`}
+                    key={item.task_id}
+                    to={`/${idp_id}/${item.task_id}`}
                   >
-                    <ul className={style.columnTable} key={item.idp_id}>
-                      {/* ФИО(ФИ) юзера */}
-                      {!isPersonalPage ? (
-                        <li
-                          className={style.tableElement}
-                          style={{ width: "298px" }}
-                        >
-                          <div
-                            className={style.textContainer}
-                            style={{ paddingLeft: "36px" }}
-                          >
-                            {`${item.employee.last_name} ${item.employee.first_name}`}
-                          </div>
-                        </li>
-                      ) : null}
-
-                      {/* Название плана */}
+                    <ul className={style.columnTable} key={item.task_id}>
+                      {/* Название задачи */}
                       <li
                         className={style.tableElement}
-                        style={{ width: !isPersonalPage ? "298px" : "425px" }}
+                        style={{ width:"298px"}}
                       >
                         <div
                           className={style.textContainer}
-                          style={{ paddingLeft: "64px" }}
+                          style={{ paddingLeft: "20px" }}
                         >
-                          {item.name}
+                          {item.task_name}
                         </div>
                       </li>
 
                       {/* Дата */}
                       <li
                         className={style.tableElement}
-                        style={{ width: !isPersonalPage ? "151px" : "240px" }}
+                        style={{ width:"240px" }}
                       >
                         <div
                           className={style.textContainer}
                           style={{
-                            paddingLeft: !isPersonalPage ? "66px" : "126px",
+                            paddingLeft:"66px"
                           }}
                         >
-                          {formatDate(item.end_date_plan)}
+                          {formatDate(item.task_end_date_plan)}
                         </div>
                       </li>
 
                       {/* Статус выполнения */}
                       <li
                         className={style.tableElement}
-                        style={{ width: !isPersonalPage ? "163px" : "247px" }}
+                        style={{ width:"163px"}}
                       >
                         <StatusTable
-                          isPersonalPage={!isPersonalPage}
-                          title={item.status}
+                          isPersonalPage={true}
+                          title={item.task_status}
                         />
                       </li>
                     </ul>
@@ -119,10 +99,11 @@ export default function IDPsTableItems({
               ))}
           </div>
         </>
-      )}
+      }
     </>
   );
 }
-IDPsTableItems.propTypes = {
+
+TaskTableItems.propTypes = {
   isPersonalPage: PropTypes.bool,
 };

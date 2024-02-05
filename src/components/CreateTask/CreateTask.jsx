@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { openPopup1 } from "../../store/actions/popup1Actions";
 
 export default function CreateTask({ title, buttonText }) {
+
   
   //Значение инпутов
   const [task_data, setTask_dataValue] = useState({
@@ -26,6 +27,8 @@ export default function CreateTask({ title, buttonText }) {
     task_description: "",
     file: {},
   });
+
+  console.log(task_data)
 
   //Вызов dispatch для открытия попапа
   const dispatch = useDispatch();
