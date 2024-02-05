@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Button } from "@alfalab/core-components-button";
-// import { ListDefaultSIcon } from '@alfalab/icons-glyph/glyph_list-default_s';
-import { ListDefaultSIcon } from '@alfalab/icons-glyph/ListDefaultSIcon';
-import { ListDecSIcon } from '@alfalab/icons-glyph/ListDecSIcon';
-import { ListAscSIcon } from '@alfalab/icons-glyph/ListAscSIcon';
-
+import { ListDefaultSIcon } from "@alfalab/icons-glyph/ListDefaultSIcon";
+import { ListDecSIcon } from "@alfalab/icons-glyph/ListDecSIcon";
+import { ListAscSIcon } from "@alfalab/icons-glyph/ListAscSIcon";
 
 // eslint-disable-next-line react/prop-types
 export default function ButtonSort({ BTitle, BSortKey }) {
@@ -30,27 +28,24 @@ export default function ButtonSort({ BTitle, BSortKey }) {
   };
 
   return (
-      <Button
+    <Button
       size="xs"
-        rightAddons={getSortIcon()}
-        style={{
-          borderRadius: 99,
-          padding: "0 16px 0 16px",
-          marginRight: 12,
-          textTransform: "none",
-          letterSpacing: "normal",
-          fontFamily: "Segoe UI",
-          fontSize: "14px",
-          fontStyle: "normal",
-          fontWeight: "400",
-          lineHeight: "20px",
-
-
-
+      rightAddons={getSortIcon()}
+      style={{
+        borderRadius: 99,
+        padding: "0 16px 0 16px",
+        marginRight: 12,
+        textTransform: "none",
+        letterSpacing: "normal",
+        fontFamily: "Segoe UI",
+        fontSize: "14px",
+        fontStyle: "normal",
+        fontWeight: "400",
+        lineHeight: "20px",
       }}
       onClick={() => handleSort(BSortKey)}
-    >{BTitle}
+    >
+      {BTitle}
     </Button>
-    
   );
 }

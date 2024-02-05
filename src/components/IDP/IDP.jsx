@@ -16,10 +16,10 @@ import { useState } from "react";
 
 export default function IDP() {
   const [value, setValue] = useState({
-    idpComment: ''
+    idpComment: null,
   });
 
-  const onChange = (name,value) => {
+  const onChange = (name, value) => {
     setValue((prevdata) => ({
       ...prevdata,
       [name]: value,
@@ -30,12 +30,12 @@ export default function IDP() {
   const { idpId, last_name, first_name } = useParams();
 
   const { data, isLoading } = useGetIdpByIdQuery(idpId);
-  console.log(data)
+  console.log(data);
 
   const popup1IsOpen = useSelector((state) => state.popup1.isOpen);
 
   // Деструктуризация с проверкой наличия end_date_plan
-  const { end_date_plan, start_date, name } = data || {};
+  const { end_date_plan } = data || {};
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function IDP() {
         <>
           <LeftNavBar />
           <section className={style.container}>
-            <h1 className={style.title}>{data.name}</h1>
+            <h1 className={style.title}>План развития</h1>
             <div className={style.info}>
               <div className={style.infoDate}>
                 <Skeleton visible={isLoading}>
@@ -63,8 +63,8 @@ export default function IDP() {
                 </Skeleton>
                 <Skeleton visible={isLoading}>
                   <TaskProgress
-                    end_date_plan={end_date_plan}
-                    start_date={start_date}
+                    end_date_plan={"2024-03-05T15:10:54Z"}
+                    start_date={"2024-03-05T15:10:54Z"}
                   />
                 </Skeleton>
               </div>
@@ -81,7 +81,7 @@ export default function IDP() {
                 </Skeleton>
               </div>
               <CommentInput
-                name='idpComment'
+                name="idpComment"
                 onChange={onChange}
                 value={value.idpComment}
                 title="Добавить описание"
@@ -89,13 +89,16 @@ export default function IDP() {
               <div className={style.employee}>
                 <EditWorker
                   handleOpenEdit={() => dispatch(openPopup1())}
-                  text="Сотрудник"
+                  text="Руководитель"
                 />
-                <div style={{marginBottom:'20px'}} className={style.container__worker}>
+                <div
+                  style={{ marginBottom: "20px" }}
+                  className={style.container__worker}
+                >
                   <p className={style.userName}>
                     {first_name} {last_name}
                   </p>
-                  <p className={style.post}>JS разработчик</p>
+                  <p className={style.post}>Руководитель разработки</p>
                 </div>
               </div>
             </div>

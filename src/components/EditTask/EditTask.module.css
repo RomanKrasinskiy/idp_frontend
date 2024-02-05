@@ -1,150 +1,150 @@
 .container {
-    min-width: 912px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    margin: 0;
-    padding-top: 48px;
+  min-width: 912px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  padding-top: 48px;
 }
 
 .input {
-    width: 522px;
-    color: var(--color-text);
-    font-family: var(--ff);
-    font-size: var(--fz-text);
-    font-weight: var(--fw-normal);
-    line-height: 12px;
+  width: 522px;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-size: var(--fz-text);
+  font-weight: var(--fw-normal);
+  line-height: 12px;
 }
 
 .input::placeholder {
-    color: #a0a2aa;
+  color: #a0a2aa;
 }
 
 .button__container {
-    width: 255px;
-    display: flex;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+  width: 255px;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
 }
 
 .button__container:last-of-type {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .mentor__container {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 17px;
-    margin-top: 6px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 17px;
+  margin-top: 6px;
 }
 
 .text__container {
-    display: flex;
-    gap: 9px;
-    align-items: center;
-    margin-bottom: 8px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .edit__button {
-    margin-left: 10px;
-    cursor: pointer;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .edit__worker {
-    margin: 0;
-    padding: 0;
-    font-family: var(--ff);
-    font-size: 14px;
-    font-weight: var(--fw-normal);
-    line-height: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff);
+  font-size: 14px;
+  font-weight: var(--fw-normal);
+  line-height: 18px;
 }
 
 .edit__worker_position {
-    color: #989AA4;
-    margin: 0;
-    padding: 0;
-    font-family: var(--ff);
-    font-size: 12px;
-    font-weight: var(--fw-normal);
-    line-height: 16px;
+  color: #989aa4;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff);
+  font-size: 12px;
+  font-weight: var(--fw-normal);
+  line-height: 16px;
 }
 
 .button_add {
-    opacity: 1;
-    cursor: pointer;
-    transition: opacity .5s ease-in-out;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .title {
-    font-family: var(--ff);
-    font-size: var(--fz-title);
-    font-weight: var(--fw-bold);
-    line-height: 48px;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 32px;
+  font-family: var(--ff);
+  font-size: var(--fz-title);
+  font-weight: var(--fw-bold);
+  line-height: 48px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 32px;
 }
 
 .subtitle {
-    font-size: var(--fz-subtitle);
-    color: var(--color-text);
-    font-weight: var(--fw-bold);
-    font-family: var(--ff);
-    line-height: 12px;
-    margin: 0;
-    padding: 0;
+  font-size: var(--fz-subtitle);
+  color: var(--color-text);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff);
+  line-height: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .text__comment {
-    opacity: 0.7;
-    margin: 0;
-    padding: 0;
-    color: var(--color-text);
-    font-family: var(--ff);
-    font-size: var(--fz-text);
-    font-weight: var(--fw-normal);
-    line-height: 22.4px;
+  opacity: 0.7;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-size: var(--fz-text);
+  font-weight: var(--fw-normal);
+  line-height: 22.4px;
 }
 
 .text {
-    opacity: 0.7;
-    margin: 0;
-    padding: 0;
-    color: var(--color-text);
-    font-family: var(--ff);
-    font-size: var(--fz-text);
-    font-weight: var(--fw-normal);
-    line-height: 22.4px;
+  opacity: 0.7;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  font-family: var(--ff);
+  font-size: var(--fz-text);
+  font-weight: var(--fw-normal);
+  line-height: 22.4px;
 }
 
 .text__comment:hover {
-    cursor: pointer;
-    opacity: 1;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .calendar {
-    margin-top: 4px;
-    margin-bottom: 20px;
-    width: 320px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  width: 320px;
 }
 
 .attach {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 .button__delete__container {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
-.delete__button{
-    background-color: transparent;
-    color: black;
+.delete__button {
+  background-color: transparent;
+  color: black;
 }

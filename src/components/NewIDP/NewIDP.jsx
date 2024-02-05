@@ -12,10 +12,20 @@ import IDPsTableItems from "../IDPsTableItems/IDPsTableItems";
 import { Link } from "react-router-dom";
 import PopupAppointment from "../PopupAppointment/PopupAppointment";
 import { openPopup1 } from "../../store/actions/popup1Actions";
-import { openPopup2 } from "../../store/actions/popup2Actions";
-import ButtonsNewIdp from "../ButtonsNewIdp/ButtonsNewIdp";
+import { useState } from "react";
+
 
 export default function NewIDP({ title }) {
+  const [value, setValue] = useState({
+    idpComment: null,
+  });
+
+  const onChange = (name, value) => {
+    setValue((prevdata) => ({
+      ...prevdata,
+      [name]: value,
+    }));
+  };
   const dispatch = useDispatch();
   const popup1IsOpen = useSelector((state) => state.popup1.isOpen);
   const popup2IsOpen = useSelector((state) => state.popup2.isOpen);
@@ -36,7 +46,7 @@ export default function NewIDP({ title }) {
       <section className={style.container}>
         <h2 className={style.title}>{title ? title : "Новая задача"}</h2>
         <p className={style.subtitle}>до 19.10.2024</p>
-        <ProgressBar className={style.progressBar} value={80} />
+        <ProgressBar className={style.progressBar} value={0.5} />
         <p
           style={{ marginBottom: "4px", fontSize: "var(--fz-text)" }}
           className={style.subtitle}
@@ -45,17 +55,19 @@ export default function NewIDP({ title }) {
         </p>
         <Input className={style.input} labelView="inner" label="" />
         <div style={{ marginBottom: "7px" }}>
-          <CommentInput title="Добавить описание" />
+          <CommentInput
+            title="Добавить описание"
+            value={value.idpComment}
+            onChange={onChange}
+            name="idpComment"
+          />
         </div>
         <EditWorker
           handleOpenEdit={() => dispatch(openPopup1())}
           text="Сотрудник"
         />
         <div className={style.container__worker}>
-          <span className={style.text}>Сотрудник</span>
-          <span style={{ marginTop: "0px" }} className={style.subtitle}>
-            Сотрудник
-          </span>
+          
         </div>
         <div className={style.container__task}>
           <h3 className={style.title__task}>Задачи плана</h3>
@@ -74,7 +86,6 @@ export default function NewIDP({ title }) {
         <div className={style.task__items}>
           <IDPsTableItems />
         </div>
-        <ButtonsNewIdp openPopup2={openPopup2} isPersonalPage={false} />
       </section>
     </>
   );

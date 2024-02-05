@@ -2,11 +2,7 @@ import style from "./StatusTable.module.css";
 
 // eslint-disable-next-line react/prop-types
 export default function StatusTable({ title, isPersonalPage }) {
-    // const title = 'В работе';
-    // const title = 'Черновик';
-    // const title = 'Выполнен';
-    // const title = 'Просрочен';
-    // const title = 'Отменен';
+ 
 
   const getColor = (title) => {
     switch (title) {
@@ -25,7 +21,7 @@ export default function StatusTable({ title, isPersonalPage }) {
       case "completed_approval":
         return "rgba(14, 14, 14, 1)";
       case "closed":
-        return "rgba(14, 14, 14, 1)";
+        return "rgba(19, 164, 99, 1)";
       default:
         return "rgba(48, 122, 239, 1)";
     }
@@ -52,27 +48,30 @@ export default function StatusTable({ title, isPersonalPage }) {
         return "Статус не найден";
     }
   };
-  
+
   const color = getColor(title);
   const statusName = getRussianStatus(title);
 
   return (
-    <div className={style.statusContainer} style={{
-      paddingLeft: isPersonalPage ? '45px' : "98px",
-    }}>
-        <div className={style.icoContainer}>
-      {title === "two_weeks" ? (
-        <div className={`${style.ico} ${style.fireIco}`} />
-      ) : null}
+    <div
+      className={style.statusContainer}
+      style={{
+        paddingLeft: isPersonalPage ? "45px" : "98px",
+      }}
+    >
+      <div className={style.icoContainer}>
+        {title === "two_weeks" ? (
+          <div className={`${style.ico} ${style.fireIco}`} />
+        ) : null}
 
-      {title === "completed_approval" ? (
-        <div className={`${style.ico} ${style.clockIco}`} />
-      ) : null}
-        </div>
-      
+        {title === "completed_approval" ? (
+          <div className={`${style.ico} ${style.clockIco}`} />
+        ) : null}
+      </div>
+
       <div
         className={style.textContainer}
-        style={{ textAlign: 'center', width: '100%', color: color }}
+        style={{ textAlign: "center", width: "100%", color: color }}
       >
         {statusName}
       </div>

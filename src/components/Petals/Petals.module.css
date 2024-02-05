@@ -1,28 +1,26 @@
 .petals {
-    height: 64px;
-    width: 214px; 
-    background-color: #E7E8EB;
-    border-radius: 12px;
-    
+  height: 64px;
+  width: 214px;
+  background-color: #e7e8eb;
+  border-radius: 12px;
 }
 .countContainer {
-    padding: 10px 0 14px 33px;
+  padding: 10px 0 14px 33px;
 }
 .petalsName {
-    margin: 0;
-    color:rgba(117, 117, 126, 1);
-    font-family: "Segoe UI";
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
+  margin: 0;
+  color: rgba(117, 117, 126, 1);
+  font-family: "Segoe UI";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 }
 .petalsCount {
-    margin: 0;
-    font-family: "Segoe UI";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px;
-
+  margin: 0;
+  font-family: "Segoe UI";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
 }

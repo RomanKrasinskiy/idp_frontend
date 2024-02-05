@@ -1,37 +1,32 @@
-
 .statusContainer {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-family: "Segoe UI";
-    
-  }
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Segoe UI";
+}
 .textContainer {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-family: "Segoe UI";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    
-  }
-  .icoContainer {
-    width: 18px;
-    height: 18px;
-    /* padding-right: 4px; */
-
-  }
-  .ico {
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-  }
-  .fireIco {
-    background-image: url('../../images/fire-ico.svg');
-  }
-  .clockIco {
-    background-image: url('../../images/clock-ico.svg');
-  }
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+.icoContainer {
+  width: 18px;
+  height: 18px;
+}
+.ico {
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.fireIco {
+  background-image: url("../../images/fire-ico.svg");
+}
+.clockIco {
+  background-image: url("../../images/clock-ico.svg");
+}

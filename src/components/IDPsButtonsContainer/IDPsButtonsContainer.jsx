@@ -5,7 +5,6 @@ import NoData from "../NoData/NoData";
 import PropTypes from "prop-types";
 
 export default function IDPsButtonsContainer({ dataItem, isPersonalPage }) {
-
   return (
     <>
       {!dataItem ? (

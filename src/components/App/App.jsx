@@ -41,34 +41,13 @@ function App() {
     tokenCheck();
   }, [loggedIn]);
 
-  // const {userData, isLoading} = useGetUserInfoQuery(token)
-  // const {idps} = useGetIdpQuery(token)
-
-  // const [addUser] = usePostUserMutation();
-
-  // function tokenCheck() {
-  //   const token = localStorage.getItem("auth_token");
-  //   if (!token) {
-  //     navigate("/");
-  //   } else {
-  //     navigate(location.pathname);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   const userToken = localStorage.getItem('token')
-  //   if(!userToken){
-  //     addUser({ email, password })
-  //     .then((res) => {
-  //       const token = res.data.access;
-  //       localStorage.setItem('token', token)
-  //     })
-  //   }
-  // }, []);
-
-  const showLeftNavBar = ["/idps", "/idp", "/newTask", "/mentor"].includes(
-    location.pathname
-  );
+  const showLeftNavBar = [
+    "/idps",
+    "/idp",
+    "/newTask",
+    "/mentor",
+    "/:taskId",
+  ].includes(location.pathname);
 
   return (
     <section className={style.app}>
@@ -93,7 +72,10 @@ function App() {
                   />
                 }
               />
-              <Route path="/idp/:idpId/:last_name/:first_name" element={<IDP />} />
+              <Route
+                path="/idp/:idpId/:last_name/:first_name"
+                element={<IDP />}
+              />
               <Route
                 path="/idp"
                 element={<NewIDP title="Новый план развития" />}
@@ -104,12 +86,20 @@ function App() {
                   <CreateTask title="Новая задача" buttonText="Создать" />
                 }
               />
-              <Route path="/:idpId/:taskId" element={<EditTask />}/>
+              <Route
+                path="/:idpId/:taskId"
+                element={
+                  <>
+                    <LeftNavBar />
+                    <EditTask />
+                  </>
+                }
+              />
               <Route path="/mentor" element={<Mentor />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <ScrollToTop threshold={1500} showBelow={true} />
+          <ScrollToTop threshold={500} showBelow={true} />
         </div>
       </div>
     </section>

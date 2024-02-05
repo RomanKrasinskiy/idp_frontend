@@ -1,21 +1,21 @@
 .button {
-    text-decoration: none;
-    color: var(--text-color);
-    padding: 0;
-    margin-bottom: 56px;
-    border: none;
-    background-color: transparent;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    transition: all .5s ease;
-    font-size: var(--fz-text);
-    font-family: var(--ff);
-    font-weight: var(--fw-normal);
-    line-height: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 0;
+  margin-bottom: 56px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  transition: all 0.5s ease;
+  font-size: var(--fz-text);
+  font-family: var(--ff);
+  font-weight: var(--fw-normal);
+  line-height: 12px;
 }
 
 .button:hover {
-    opacity: .6;
-    cursor: pointer;
+  opacity: 0.6;
+  cursor: pointer;
 }

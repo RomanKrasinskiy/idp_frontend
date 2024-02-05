@@ -15,26 +15,23 @@ import { Link } from "react-router-dom";
 import { openPopup1 } from "../../store/actions/popup1Actions";
 
 export default function CreateTask({ title, buttonText }) {
-
-  
   //Значение инпутов
   const [task_data, setTask_dataValue] = useState({
-    chief: "",
-    mentor: "",
-    worker: "",
+    chief: null,
+    mentor: null,
+    worker: null,
     task_title: "",
     calendar: "",
     task_description: "",
     file: {},
   });
 
-  console.log(task_data)
+  console.log(task_data);
 
   //Вызов dispatch для открытия попапа
   const dispatch = useDispatch();
 
   const popup1IsOpen = useSelector((state) => state.popup1.isOpen);
-
 
   //функция для назначения стейтов с инпутов
   function handleChange(name, value) {
@@ -44,11 +41,11 @@ export default function CreateTask({ title, buttonText }) {
     }));
   }
 
-  function handleChangeFile(name,e) {
-    setTask_dataValue(prevdata => ({
+  function handleChangeFile(name, e) {
+    setTask_dataValue((prevdata) => ({
       ...prevdata,
-      [name]:e.target.files[0]
-    }))
+      [name]: e.target.files[0],
+    }));
   }
 
   //Функция для очистки календаря
@@ -66,17 +63,18 @@ export default function CreateTask({ title, buttonText }) {
     }));
   }
 
-  console.log(task_data)
+  console.log(task_data);
   return (
     <>
       {/* Попап выбора ментора */}
       {popup1IsOpen && (
-      <Popup
-        title="Ментор"
-        buttonText="Сохранить"
-        cancelButtonText="Отмена"
-        search={true}
-      />)}
+        <Popup
+          title="Ментор"
+          buttonText="Сохранить"
+          cancelButtonText="Отмена"
+          search={true}
+        />
+      )}
 
       {/* Создание новой задачи */}
       <section className={style.container}>
@@ -146,7 +144,14 @@ export default function CreateTask({ title, buttonText }) {
           onChange={handleChange}
         />
         {/* Прикрепление файла */}
-        <Attach onClear={onClearFile} maxFilenameLength={10} type='file' onChange={(e) => handleChangeFile('file', e)} className={style.attach} />
+        <Attach
+          view="link"
+          onClear={onClearFile}
+          maxFilenameLength={10}
+          type="file"
+          onChange={(e) => handleChangeFile("file", e)}
+          className={style.attach}
+        />
 
         <Link to="/idps">
           <Button style={{ backgroundColor: "black", color: "white" }}>

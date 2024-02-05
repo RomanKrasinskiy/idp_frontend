@@ -13,6 +13,7 @@ export const idpSlice = createSlice({
     dateEnded: "",
     loading: true,
     error: null,
+    status: ''
   },
   reducers: {
     setIdp(state, action) {
@@ -28,7 +29,9 @@ export const idpSlice = createSlice({
         dateCreated: new Date().toISOString(),
         dateEnded: action.payload.dateEnded,
       });
+  
     },
+    
   }
 });
 
