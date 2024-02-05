@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import style from "./IDPsTableItems.module.css";
 import { Skeleton } from "@alfalab/core-components-skeleton";
 import StatusTable from "../StatusTable/StatusTable";
@@ -7,14 +8,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import NoData from "../NoData/NoData";
 
-export default function IDPsTableItems({
-  data,
-  isLoading,
-  isFetching,
-  page,
-  setPage,
-  isPersonalPage,
-}) {
+export default function IDPsTableItems({ data, isLoading, isFetching, setPage, isPersonalPage}) {
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
@@ -40,7 +34,10 @@ export default function IDPsTableItems({
   return (
     <>
       {!data ? (
-        <NoData text="У вас нет задач" />
+        <NoData
+          text="Пока что тут ничего нет"
+          subtitle="Создайте новую задачу"
+        />
       ) : data.detail ? (
         <NoData text={data.detail} />
       ) : (

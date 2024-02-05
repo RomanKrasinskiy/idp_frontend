@@ -4,7 +4,7 @@ import edit from "../../../images/Edit.svg";
 import PropTypes from "prop-types";
 
 
-export default function EditWorker({title, text, handleOpenEdit,lastNameWorker,nameWorker, positionWorker }) {
+export default function EditWorker({title, text, handleOpenEdit, lastNameWorker, nameWorker, positionWorker }) {
 
   return (
     <div className={style.mentor__container}>

@@ -1,5 +1,5 @@
 .columnTable {
-  background-color: #F8F8F9;
+  background-color: #f8f8f9;
   width: 100%;
   height: 52px;
   border-radius: 8px;
@@ -26,40 +26,17 @@
 }
 
 .columnTable:hover {
-  /* outline: 1px solid #808080;  */
-  background-color: #E0E1E5;
+  background-color: #e0e1e5;
 }
 .tableElement {
   display: flex;
-  /* flex: 1; */
   align-items: center;
   justify-content: flex-start;
   height: 52px;
   white-space: nowrap; /* Запрет переноса строки */
   overflow: hidden; /* Скрытие избыточного текста */
   text-overflow: ellipsis;
-
-  /* Добавляет плавности при переключении, но вёрстка прыгает */
-  /* transition: width 1s ease-in-out; */
 }
-
-/* .tableElement:nth-child(1) {
-    width: 326px;
-}
-
-.tableElement:nth-child(2) {
-    width: 271px;
-}
-
-.tableElement:nth-child(3) {
-    width: 151px;
-    padding-left: 43px;
-}
-
-.tableElement:nth-child(4) {
-    width: 163px;
-    padding-left: 52px;
-} */
 
 .textContainer {
   overflow: hidden;

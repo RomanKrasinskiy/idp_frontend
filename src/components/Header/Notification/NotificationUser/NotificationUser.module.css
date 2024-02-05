@@ -46,11 +46,9 @@
 }
 .textNotifi_blue {
   color: #307aef;
-  
 }
 .notifiTime {
   color: #75757e;
-  /* text-align: right; */
   position: absolute;
   top: 0;
   right: 0px;

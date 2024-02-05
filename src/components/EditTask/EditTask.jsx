@@ -1,6 +1,5 @@
 import style from "./EditTask.module.css";
 import { useState } from "react";
-import { Input } from "@alfalab/core-components-input";
 import { Textarea } from "@alfalab/core-components-textarea";
 import { Attach } from "@alfalab/core-components-attach";
 import { Button } from "@alfalab/core-components-button";
@@ -30,7 +29,7 @@ export default function EditTask() {
     task_description: "",
     file: {},
   });
-  console.log(data)
+  console.log(data);
   //Вызов dispatch для открытия попапа
   const dispatch = useDispatch();
 
@@ -86,7 +85,7 @@ export default function EditTask() {
               defaultValue={data.task_name}
               name="task_title"
               onChange={(e) => handleChange("task_title", e.target.value)}
-              style={{ width: "522px"}}
+              style={{ width: "522px" }}
               block={true}
               className={style.input}
               type="text"
@@ -94,16 +93,6 @@ export default function EditTask() {
             />
           </Skeleton>
           <Skeleton style={{ marginBottom: "20px" }}>
-            <Textarea
-              name="task_description"
-              defaultValue={data.task_description}
-              onChange={(e) => handleChange("task_description", e.target.value)}
-              style={{ width: "522px" }}
-              block={true}
-              className={style.input}
-              type="text"
-              minRows={3}
-            />
           </Skeleton>
 
           {/* Текст с инпутом для комментария руководителя */}
@@ -131,18 +120,22 @@ export default function EditTask() {
           />
 
           {/* Контейнер с данными ментора */}
-          {data.task_mentor ? (<EditWorker
-            handleOpenEdit={() => dispatch(openPopup1())}
-            title="Ментор"
-            text="Выбрать ментора"
-            nameWorker={data.task_mentor.first_name }
-            lastNameWorker={data.task_mentor.last_name}
-          />) : (<EditWorker
-            handleOpenEdit={() => dispatch(openPopup1())}
-            title="Ментор"
-            text="Выбрать ментора"
-          />)}
-          
+          {data.task_mentor ? (
+            <EditWorker
+              handleOpenEdit={() => dispatch(openPopup1())}
+              title="Ментор"
+              text="Выбрать ментора"
+              nameWorker={data.task_mentor.first_name}
+              lastNameWorker={data.task_mentor.last_name}
+            />
+          ) : (
+            <EditWorker
+              handleOpenEdit={() => dispatch(openPopup1())}
+              title="Ментор"
+              text="Выбрать ментора"
+            />
+          )}
+
           {/* Календарь */}
           <p className={style.text}>Выполнить до</p>
           <CalendarInput
@@ -161,12 +154,10 @@ export default function EditTask() {
           />
 
           <Link className={style.button__delete__container} to="/idps">
-            <Button
-              style={{ backgroundColor: "black", color: "white" }}
-            >Сохранить изменения</Button>
-            <Button
-              className={style.delete__button}
-            >Удалить задачу</Button>
+            <Button style={{ backgroundColor: "black", color: "white" }}>
+              Сохранить изменения
+            </Button>
+            <Button className={style.delete__button}>Удалить задачу</Button>
           </Link>
         </section>
       )}

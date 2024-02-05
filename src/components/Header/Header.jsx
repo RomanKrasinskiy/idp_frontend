@@ -1,9 +1,8 @@
-import style from './Header.module.css'
+import style from "./Header.module.css";
 import EditProfile from "./EditProfile/EditProfile";
 import HeaderLogo from "./HeaderLogo/HeaderLogo";
 import HeaderNavBar from "./HeaderNavBar/HeaderNavBar";
 import Notification from "./Notification/Notification";
-
 
 export default function Header() {
   return (
@@ -17,10 +16,7 @@ export default function Header() {
             <EditProfile />
           </div>
         </div>
-        
-        
       </div>
     </header>
-    
-  )
+  );
 }

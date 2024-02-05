@@ -7,20 +7,16 @@ export default function NavBarItem({ title, link, icon }) {
   const isActive = location.pathname === link;
 
   return (
-    <Link
-      to={link}
-      style={{width: '100%', textDecoration: 'none'}}
-    >
-      <Button 
+    <Link to={link} style={{ width: "100%", textDecoration: "none" }}>
+      <Button
         leftAddons={icon}
-        view={isActive ? 'secondary' : 'link'}
+        view={isActive ? "secondary" : "link"}
         block={true}
         nowrap={true}
         breakpoint={500}
         size="xs"
-        
         style={{
-          justifyContent: 'flex-start',
+          justifyContent: "flex-start",
           fontWeight: "400",
         }}
       >

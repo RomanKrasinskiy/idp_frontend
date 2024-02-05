@@ -1,6 +1,4 @@
-/* .container{
-  position: relative;
-} */
+
 
 .scrollToTopButton {
   position: fixed;
@@ -22,12 +20,10 @@
   height: 40px;
   fill: #007bff; /* Цвет иконки */
   transition: all 1s ease;
-
 }
 
 /* При наведении измените цвет иконки */
 .scrollToTopButton img:hover {
   fill: #0056b3;
   transition: all 1s ease;
-
 }

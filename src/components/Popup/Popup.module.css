@@ -105,13 +105,13 @@
 }
 
 .usersContainer::-webkit-scrollbar-track {
-  background-color: #fff; 
-  border-radius: 6px; 
+  background-color: #fff;
+  border-radius: 6px;
 }
 
 .usersContainer::-webkit-scrollbar-thumb {
-  background-color: #BBBBC3;
-  border-radius: 22px; 
+  background-color: #bbbbc3;
+  border-radius: 22px;
 }
 
 .scrollableContainer {

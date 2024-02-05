@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { ProgressBar } from "@alfalab/core-components-progress-bar";
 import style from "./Progress.module.css";
@@ -25,7 +25,10 @@ const TaskProgress = ({ start_date, end_date_plan }) => {
     const newCompletionPercentage = (elapsedDuration / totalDuration) * 100;
 
     // Приводим к диапазону от 0 до 100
-    const boundedPercentage = Math.min(Math.max(newCompletionPercentage, 0), 100);
+    const boundedPercentage = Math.min(
+      Math.max(newCompletionPercentage, 0),
+      100
+    );
 
     // Обновляем состояние completionPercentage
     setCompletionPercentage(boundedPercentage);
@@ -42,5 +45,5 @@ const TaskProgress = ({ start_date, end_date_plan }) => {
 export default TaskProgress;
 TaskProgress.propTypes = {
   start_date: PropTypes.string,
-  end_date_plan: PropTypes.string
+  end_date_plan: PropTypes.string,
 };

@@ -5,18 +5,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import NoData from "../NoData/NoData";
-import Petals from "../Petals/Petals";
 import PetalsList from "../PetalsList/PetalsList";
-
-export default function TaskTableItems({
-  data,
-  isLoading,
-  isFetching,
-  page,
-  setPage,
-  idp_id
-}) {
-
+// eslint-disable-next-line react/prop-types
+export default function TaskTableItems({ data, isLoading, isFetching, page, setPage, idp_id }) {
   useEffect(() => {
     const onScroll = () => {
       const scrolledToBottom =
@@ -42,9 +33,9 @@ export default function TaskTableItems({
     <>
       {!data ? (
         <NoData text="У вас нет задач" />
-      ) : 
+      ) : (
         <>
-        <PetalsList />
+          <PetalsList />
           <div className={style.idpsConrainer}>
             {!isLoading &&
               data.map((item) => (
@@ -58,7 +49,7 @@ export default function TaskTableItems({
                       {/* Название задачи */}
                       <li
                         className={style.tableElement}
-                        style={{ width:"298px"}}
+                        style={{ width: "298px" }}
                       >
                         <div
                           className={style.textContainer}
@@ -71,12 +62,12 @@ export default function TaskTableItems({
                       {/* Дата */}
                       <li
                         className={style.tableElement}
-                        style={{ width:"240px" }}
+                        style={{ width: "240px" }}
                       >
                         <div
                           className={style.textContainer}
                           style={{
-                            paddingLeft:"66px"
+                            paddingLeft: "66px",
                           }}
                         >
                           {formatDate(item.task_end_date_plan)}
@@ -86,7 +77,7 @@ export default function TaskTableItems({
                       {/* Статус выполнения */}
                       <li
                         className={style.tableElement}
-                        style={{ width:"163px"}}
+                        style={{ width: "163px" }}
                       >
                         <StatusTable
                           isPersonalPage={true}
@@ -99,11 +90,12 @@ export default function TaskTableItems({
               ))}
           </div>
         </>
-      }
+      )}
     </>
   );
 }
 
 TaskTableItems.propTypes = {
   isPersonalPage: PropTypes.bool,
+  data: PropTypes.array,
 };

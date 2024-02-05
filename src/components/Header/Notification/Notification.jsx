@@ -10,7 +10,10 @@ export default function Notification() {
   return (
     <>
       <div className={style.bellContainer}>
-        <NotificationBellButton showDropDown={showDropDown} setShowDropDown={setShowDropDown} />
+        <NotificationBellButton
+          showDropDown={showDropDown}
+          setShowDropDown={setShowDropDown}
+        />
 
         <div
           className={style.notificationHoverContainer}
@@ -28,11 +31,10 @@ export default function Notification() {
             <h3 className={style.notificationsHeader}>Уведомления</h3>
 
             <NotificationUser showDropDown={showDropDown} />
-
           </div>
         </div>
       </div>
-      <div className={!showDropDown ? style.backDrop: ''}></div>
+      <div className={!showDropDown ? style.backDrop : ""}></div>
     </>
   );
 }

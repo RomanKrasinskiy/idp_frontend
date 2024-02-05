@@ -77,19 +77,15 @@ export default function IDPs({ petals, title, newIdpButton, tabs }) {
         ""
       )}
       <CalendarSearch />
-      
-       <IDPsTableItems
-            setPage={isPersonalPage ? setPagePrivate : setPageEmploee}
-            page={isPersonalPage ? pagePrivate : pageEmploee}
 
-            isLoading={isPersonalPage ? isPrivateLoading : isPrivateLoading}
-            data={isPersonalPage ? privateIdps : employeeIdps}
-            isPersonalPage={isPersonalPage}
-            isFetching={isPersonalPage ? isPrivateFetching : isEmployeeFetching}
-          />
-      
-
-      
+      <IDPsTableItems
+        setPage={isPersonalPage ? setPagePrivate : setPageEmploee}
+        page={isPersonalPage ? pagePrivate : pageEmploee}
+        isLoading={isPersonalPage ? isPrivateLoading : isPrivateLoading}
+        data={isPersonalPage ? privateIdps : employeeIdps}
+        isPersonalPage={isPersonalPage}
+        isFetching={isPersonalPage ? isPrivateFetching : isEmployeeFetching}
+      />
     </section>
   );
 }

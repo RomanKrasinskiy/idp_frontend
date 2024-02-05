@@ -41,9 +41,13 @@ function App() {
     tokenCheck();
   }, [loggedIn]);
 
-  const showLeftNavBar = ["/idps", "/idp", "/newTask", "/mentor"].includes(
-    location.pathname
-  );
+  const showLeftNavBar = [
+    "/idps",
+    "/idp",
+    "/newTask",
+    "/mentor",
+    "/:taskId",
+  ].includes(location.pathname);
 
   return (
     <section className={style.app}>
@@ -68,7 +72,10 @@ function App() {
                   />
                 }
               />
-              <Route path="/idp/:idpId/:last_name/:first_name" element={<IDP />} />
+              <Route
+                path="/idp/:idpId/:last_name/:first_name"
+                element={<IDP />}
+              />
               <Route
                 path="/idp"
                 element={<NewIDP title="Новый план развития" />}
@@ -79,7 +86,15 @@ function App() {
                   <CreateTask title="Новая задача" buttonText="Создать" />
                 }
               />
-              <Route path="/:idpId/:taskId" element={<EditTask />}/>
+              <Route
+                path="/:idpId/:taskId"
+                element={
+                  <>
+                    <LeftNavBar />
+                    <EditTask />
+                  </>
+                }
+              />
               <Route path="/mentor" element={<Mentor />} />
             </Route>
             <Route path="*" element={<NotFound />} />
