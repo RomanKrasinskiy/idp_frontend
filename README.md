@@ -21,9 +21,9 @@ Backend – Аюпов Рашид (@valentaine_ra)
 Frontend  – Красинский Роман 
 Frontend – Сердюков Владислав 
 Frontend – Мурадов Артур 
-- [Роман Красинский](Lead)(@r_krasinski)(https://github.com/RomanKrasinskiy)
-- [Мурадов Артур](@VladisSerd)(https://github.com/ArthurMur)
-- [Владислав Сердюков](@arturasterol)(https://github.com/VladislavSerduykov)
+- [Роман Красинский](Lead)(https://github.com/RomanKrasinskiy)(@r_krasinski)
+- [Мурадов Артур](https://github.com/ArthurMur) (@VladisSerd)
+- [Владислав Сердюков](https://github.com/VladislavSerduykov)(@arturasterol)
 
 ## Команда проекта 16 человек
 
