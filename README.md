@@ -20,8 +20,8 @@ Frontend для проекта хакатона "Яндекс.Практикум
 - Backend – Аюпов Рашид (@valentaine_ra)
   ## Авторы
 - Frontend (Lead) – [Роман Красинский](https://github.com/RomanKrasinskiy) (@r_krasinski)
-- Frontend – [Мурадов Артур](https://github.com/ArthurMur) (@VladisSerd)
-- Frontend – [Владислав Сердюков](https://github.com/VladislavSerduykov) (@arturasterol)
+- Frontend – [Мурадов Артур](https://github.com/ArthurMur) (@arturasterol)
+- Frontend – [Владислав Сердюков](https://github.com/VladislavSerduykov) (@VladisSerd)
 
 
 
